@@ -219,7 +219,10 @@
     const host = document.getElementById('panels'); host.replaceChildren();
     PANELS.forEach(([title, ind, note]) => {
       const card = document.createElement('div'); card.className = 'card'; card.id = 'p-' + ind;
-      const h = document.createElement('h3'); h.textContent = title; card.appendChild(h);
+      const [eixo, ...rest] = title.split(' · ');
+      const h = document.createElement('h4');
+      if (rest.length) { const tg = document.createElement('span'); tg.className = 'ptag'; tg.textContent = eixo; h.append(tg, rest.join(' · ')); } else h.textContent = title;
+      card.appendChild(h);
       const ch = document.createElement('div'); ch.className = 'chart small'; ch.dataset.ind = ind; card.appendChild(ch);
       if (note) { const p = document.createElement('p'); p.className = 'note'; p.textContent = note; card.appendChild(p); }
       host.appendChild(card);
@@ -247,8 +250,51 @@
   // ── header ratios
   function drawHeader() {
     const v = (p, y) => pick(p, 'pib_pc_ppp', y);
-    document.getElementById('ratio90').textContent = fmtN(v('BRA', 1990) / v('VNM', 1990), 1);
-    document.getElementById('ratio23').textContent = fmtN(v('BRA', 2023) / v('VNM', 2023), 1);
+    document.querySelectorAll('[data-ratio="90"]').forEach(el => { el.textContent = fmtN(v('BRA', 1990) / v('VNM', 1990), 1); });
+    document.querySelectorAll('[data-ratio="23"]').forEach(el => { el.textContent = fmtN(v('BRA', 2023) / v('VNM', 2023), 1); });
+  }
+
+  // ── ponto de partida (1990) e de chegada (2023)
+  const STARTEND = [
+    ['PIB per capita nominal (US$)', 'pib_pc_nominal', 0, 'x'],
+    ['Exportações de bens e serviços (US$ bi)', 'exportacoes', 1, 'x'],
+    ['IDH', 'idh', 3, 'pct'],
+  ];
+  function drawStartEnd() {
+    const host = document.getElementById('startend'); if (!host) return; host.replaceChildren();
+    const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+    STARTEND.forEach(([label, ind, dec, mode]) => {
+      const box = el('div', 'se'); box.appendChild(el('span', 'l', label + ' · 1990 → 2023'));
+      [['BRA', 'br'], ['VNM', 'vn']].forEach(([p, cls]) => {
+        const a = pick(p, ind, 1990), b = pick(p, ind, 2023);
+        const ch = (a == null || b == null) ? '—' : mode === 'x' ? '×' + fmtN(b / a, 1) : '+' + fmtN((b / a - 1) * 100, 1) + '%';
+        const row = el('div', 'se-row ' + cls);
+        row.append(el('span', 'who', NOME[p]), el('span', 'a', fmtN(a, dec)), el('span', 'to', '→'), el('span', 'b', fmtN(b, dec)), el('span', 'ch', ch));
+        box.appendChild(row);
+      });
+      host.appendChild(box);
+    });
+  }
+
+  // ── menu: destaca a seção visível
+  function spyNav() {
+    const links = [...document.querySelectorAll('#nav a')];
+    const secs = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    if (!secs.length) return;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const line = innerHeight * 0.4;
+      let cur = null;
+      secs.forEach(sc => { if (sc.getBoundingClientRect().top <= line) cur = sc; });
+      links.forEach(a => {
+        const on = !!cur && a.getAttribute('href') === '#' + cur.id;
+        if (on && !a.classList.contains('active')) { const nav = a.parentElement; if (nav.scrollWidth > nav.clientWidth) nav.scrollLeft = a.offsetLeft - nav.offsetLeft - 16; }
+        a.classList.toggle('active', on);
+      });
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
   }
 
   function drawMacro() { macroFacet(document.getElementById('macro-br'), 'BRA'); macroFacet(document.getElementById('macro-vn'), 'VNM'); }
@@ -273,7 +319,7 @@
   // ── boot
   Promise.all([d3.csv('data/tcc_dados_long.csv'), d3.csv('data/tcc_metadados.csv')]).then(([raw, meta]) => {
     ROWS = toRows(raw); META = meta;
-    buildPanels(); wire(); drawHeader(); redrawAll();
+    buildPanels(); wire(); drawHeader(); drawStartEnd(); redrawAll(); spyNav();
     const h = readHash(); if (h) document.getElementById(h).scrollIntoView();
   }).catch(err => {
     console.error(err);

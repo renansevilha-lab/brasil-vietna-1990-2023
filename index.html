@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brasil × Vietnã 1990–2023</title>
-<meta name="description" content="Base de dados interativa do TCC: 28 indicadores de desenvolvimento e inserção internacional de Brasil e Vietnã, 1990–2023. Fontes: Banco Mundial, OEC/Harvard, PNUD, BCB, SBV.">
+<meta name="description" content="TCC de Relações Internacionais (FECAP): desenvolvimento e inserção internacional de Brasil e Vietnã após a Guerra Fria. Pesquisa, metodologia e base de dados interativa com 28 indicadores, 1990–2023.">
 <meta property="og:title" content="Brasil × Vietnã 1990–2023">
-<meta property="og:description" content="Desenvolvimento e inserção internacional após a Guerra Fria: dados comparados, 28 indicadores.">
+<meta property="og:description" content="Desenvolvimento e inserção internacional após a Guerra Fria: uma análise histórico-comparada, com 28 indicadores.">
+<meta property="og:image" content="img/ho-chi-minh.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23185FA5'/%3E%3Cpath d='M6 22 L13 14 L18 18 L26 8' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script>
   // tema: respeita escolha salva; senão, segue o sistema
@@ -17,103 +18,321 @@
 </script>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="topbar">
-    <span class="brand">TCC · Relações Internacionais · FECAP</span>
-    <nav aria-label="Seções">
-      <a href="#resumo">Resumo</a>
-      <a href="#explorar">Explorar</a>
-      <a href="#macro">Síntese macro</a>
-      <a href="#paineis">Painéis</a>
-      <a href="#tabela">Tabela</a>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#topo"><i class="dot br"></i><i class="dot vn"></i>Brasil × Vietnã <span>1990–2023</span></a>
+    <nav aria-label="Seções" id="nav">
+      <a href="#pesquisa">A pesquisa</a>
+      <a href="#recorte">Por que 1990–2023</a>
+      <a href="#metodologia">Metodologia</a>
+      <a href="#trajetorias">Trajetórias</a>
+      <a href="#dados">Dados</a>
       <a href="#notas">Notas</a>
     </nav>
     <button class="theme-btn" id="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
-  </header>
+  </div>
+</header>
 
-  <section class="hero" id="topo">
-    <div>
-      <h1>Brasil × Vietnã, 1990–2023</h1>
-      <p class="lede">Desenvolvimento e inserção internacional após o fim da Guerra Fria, em 28 indicadores. Em 1990 o Brasil tinha renda per capita <b id="ratio90">—</b> vezes a vietnamita; em 2023 a razão caiu para <b id="ratio23">—</b>.</p>
-    </div>
-    <div class="meta">
-      <span class="legend"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span>
-      <span>Fontes: Banco Mundial (WDI) · OEC / Harvard Growth Lab · PNUD · BCB · SBV</span>
-    </div>
-  </section>
+<main>
 
-  <section class="tiles" id="resumo" aria-label="Resumo 2023"></section>
+<!-- ───────── Abertura ───────── -->
+<section class="hero" id="topo">
+  <div class="hero-media" aria-hidden="true">
+    <img class="hm hm-br" src="img/sao-paulo.jpg" alt="" fetchpriority="high">
+    <img class="hm hm-vn" src="img/ho-chi-minh.jpg" alt="" fetchpriority="high">
+  </div>
+  <div class="wrap hero-in">
+    <div class="hero-places"><span>São Paulo, Brasil</span><span>Cidade de Ho Chi Minh, Vietnã</span></div>
+    <p class="eyebrow on-dark">TCC · Relações Internacionais · FECAP · 2026</p>
+    <h1>Brasil <span class="x">×</span> Vietnã <small>1990–2023</small></h1>
+    <p class="lede">Desenvolvimento e inserção internacional após o fim da Guerra Fria: uma análise histórico-comparada de duas trajetórias que partiram da periferia e seguiram caminhos opostos.</p>
+    <dl class="hero-stats">
+      <div><dt><b data-ratio="90">—</b>×</dt><dd>era a renda per capita do Brasil em relação à do Vietnã em 1990</dd></div>
+      <div><dt><b data-ratio="23">—</b>×</dt><dd>é a mesma razão em 2023</dd></div>
+      <div><dt>28</dt><dd>indicadores anuais, 1.650 observações, para explorar nesta página</dd></div>
+    </dl>
+    <p class="hero-cta"><a class="btn primary" href="#dados">Explorar os dados</a><a class="btn ghost" href="#pesquisa">Entender a pesquisa</a></p>
+  </div>
+</section>
 
-  <section class="card" id="explorar">
-    <h2>Explorar indicador</h2>
-    <div class="controls">
-      <label class="grow">Indicador <select id="sel-ind" aria-label="Indicador"></select></label>
-      <label>Período <span class="range"><input type="number" id="ano-ini" min="1990" max="2023" step="1" value="1990" aria-label="Ano inicial"> <span>–</span> <input type="number" id="ano-fim" min="1990" max="2023" step="1" value="2023" aria-label="Ano final"></span></label>
-      <label>Escala <select id="sel-escala" aria-label="Escala"><option value="lin">Linear</option><option value="log">Logarítmica</option></select></label>
-    </div>
-    <div class="meta"><span>Unidade: <b id="m-unid">—</b></span><span>Fonte: <b id="m-fonte">—</b></span><span>Código: <b id="m-cod">—</b></span><span id="m-nota"></span></div>
-    <div class="chart" id="chart-main"></div>
-  </section>
+<!-- ───────── Resumo em números ───────── -->
+<section class="keys" aria-label="Resumo em números">
+  <div class="wrap">
+    <div class="tiles" id="resumo"></div>
+    <p class="legend-line"><span class="legend"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span><span>Fontes: Banco Mundial (WDI) · OEC / Harvard Growth Lab · PNUD · BCB · SBV</span></p>
+  </div>
+</section>
 
-  <section class="card" id="macro">
-    <h2>Síntese macroeconômica: crescimento, juros, investimento e inflação</h2>
-    <p class="note">Quatro variáveis em % num só eixo, por país. O período padrão começa em 1996, quando as quatro séries existem para ambos e a inflação brasileira já está em patamar comparável; amplie para 1990 para ver a hiperinflação (a escala passa a logarítmica automaticamente).</p>
-    <div class="controls">
-      <div class="chips" id="macro-chips" aria-label="Séries exibidas">
-        <label class="chip"><input type="checkbox" id="chk-pib" checked><span class="swc" style="background:var(--s1)"></span>Crescimento do PIB</label>
-        <label class="chip"><input type="checkbox" id="chk-juros" checked><span class="swc" style="background:var(--s2)"></span>Taxa básica de juros</label>
-        <label class="chip"><input type="checkbox" id="chk-fbcf" checked><span class="swc" style="background:var(--s3)"></span>FBCF / PIB</label>
-        <label class="chip"><input type="checkbox" id="chk-infl" checked><span class="swc" style="background:var(--s4)"></span>Inflação (IPC)</label>
+<!-- ───────── 01 A pesquisa ───────── -->
+<section class="band" id="pesquisa">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">01</span>A pesquisa</p>
+      <h2>Mesmo ponto de partida periférico, resultados opostos</h2>
+      <p class="draft">Rascunho: texto do projeto de TCC, em revisão</p>
+    </header>
+    <div class="research">
+      <figure class="question">
+        <figcaption>Pergunta de pesquisa</figcaption>
+        <blockquote>Como Brasil e Vietnã desenvolveram estratégias distintas de desenvolvimento econômico e inserção internacional a partir do final dos anos 1980, e que resultados essas escolhas produziram entre 1990 e 2023?</blockquote>
+      </figure>
+      <div class="prose">
+        <p>O fim da Guerra Fria redefiniu a ordem internacional e os modelos de desenvolvimento adotados por países do Sul Global. Brasil e Vietnã partiram de condições periféricas de desenvolvimento e inserção global, mas seguiram trajetórias claramente divergentes.</p>
+        <p>A partir das reformas do Đổi Mới (1986), o <b class="c-vn">Vietnã</b> adotou uma estratégia gradualista e pragmática, combinando liberalização controlada, políticas industriais ativas e diplomacia flexível orientada à inserção produtiva global. O <b class="c-br">Brasil</b> alinhou-se às recomendações do Consenso de Washington, com liberalização financeira acelerada, reprimarização da pauta exportadora e desindustrialização precoce.</p>
+        <div class="callout">
+          <h3>Hipótese</h3>
+          <p>A divergência nos resultados de desenvolvimento é explicada, sobretudo, pela diferença nas estratégias de inserção produtiva nas cadeias globais de valor, condicionada por configurações distintas de forças domésticas e de autonomia estatal.</p>
+        </div>
       </div>
-      <label>Período <span class="range"><input type="number" id="macro-ini" min="1990" max="2023" step="1" value="1996" aria-label="Ano inicial do painel macro"> <span>–</span> <input type="number" id="macro-fim" min="1990" max="2023" step="1" value="2023" aria-label="Ano final do painel macro"></span></label>
     </div>
-    <div class="facets">
-      <div class="facet"><h3 class="br">Brasil</h3><div class="chart" id="macro-br"></div></div>
-      <div class="facet"><h3 class="vn">Vietnã</h3><div class="chart" id="macro-vn"></div></div>
+    <div class="objectives">
+      <h3>Objetivos específicos</h3>
+      <ol>
+        <li>Reconstruir os principais marcos de política econômica, industrial e institucional dos dois países entre 1990 e 2023, identificando conjunturas críticas de reorientação estratégica.</li>
+        <li>Comparar a evolução da complexidade econômica, da pauta exportadora e da estrutura industrial.</li>
+        <li>Analisar as estratégias de inserção internacional e o papel da diplomacia na sustentação desses projetos.</li>
+        <li>Identificar os mecanismos históricos e políticos que explicam a divergência entre os dois modelos.</li>
+        <li>Avaliar os resultados concretos dessas escolhas em indicadores humanos e estruturais.</li>
+      </ol>
     </div>
-    <p class="note">Fontes: crescimento do PIB, FBCF e inflação — Banco Mundial (WDI). Taxa básica: Brasil, Selic média anual (BCB, série SGS 4189); Vietnã, taxa de refinanciamento do State Bank of Vietnam, média anual ponderada por dias a partir das decisões QĐ-NHNN (1998–99 aproximação; 2000–07 do registro público do SBV). Inflação do Vietnã indisponível antes de 1996.</p>
-  </section>
+  </div>
+</section>
 
-  <section id="paineis">
-    <h2 class="section-h">Painéis por eixo analítico</h2>
-    <div class="grid2" id="panels"></div>
-  </section>
+<!-- ───────── 02 Recorte temporal ───────── -->
+<section class="band alt" id="recorte">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">02</span>Recorte temporal</p>
+      <h2>Por que 1990–2023?</h2>
+      <p class="intro">O recorte começa no momento em que um mesmo choque externo atinge os dois países e termina no último ano com dados disponíveis na base.</p>
+      <p class="draft">Rascunho: texto do projeto de TCC, em revisão</p>
+    </header>
 
-  <section class="card" id="tabela">
-    <h2>Tabela comparativa — anos selecionados</h2>
-    <div class="controls"><label class="grow">Indicador <select id="sel-tab" aria-label="Indicador da tabela"></select></label></div>
-    <div class="tablewrap">
-      <table class="cmp">
-        <thead><tr><th>País</th><th>1990</th><th>1995</th><th>2000</th><th>2005</th><th>2010</th><th>2015</th><th>2018</th><th>2020</th><th>2022</th><th>2023</th></tr></thead>
-        <tbody id="tab-body"></tbody>
-      </table>
+    <div class="reasons">
+      <article class="reason"><span class="n">1</span><h3>Um choque externo comum</h3><p>O fim da Guerra Fria, o colapso da URSS e a pressão do Consenso de Washington colocam Brasil e Vietnã diante das mesmas escolhas, ao mesmo tempo.</p></article>
+      <article class="reason"><span class="n">2</span><h3>Marcos institucionais nos dois países</h3><p>1990 coincide com a abertura econômica acelerada no Brasil (governo Collor) e com a consolidação das reformas do Đổi Mới no Vietnã.</p></article>
+      <article class="reason"><span class="n">3</span><h3>Séries históricas comparáveis</h3><p>A partir de 1990 as fontes internacionais oferecem séries anuais comparáveis para os dois países. 2023 é o último ano coberto pela coleta.</p></article>
     </div>
-    <p class="note">Dados completos: <a href="data/tcc_dados_long.csv" download>formato longo</a> (1.650 observações) · <a href="data/tcc_dados_wide.csv" download>formato largo</a> · <a href="data/tcc_metadados.csv" download>metadados e fontes</a>.</p>
-  </section>
 
-  <details class="foot" id="notas">
-    <summary>Notas metodológicas e lacunas de dados</summary>
-    <ul>
-      <li>ECI (score e ranking) começa em 1995 — série HS96 do OEC não cobre 1990–1994.</li>
-      <li>Manufaturados nas exportações do Vietnã: indisponível antes de 1997. Manufatura / PIB do Vietnã: indisponível antes de 2005.</li>
-      <li>Termos de troca: índice 2015 = 100, série do WDI começa em 2005.</li>
-      <li>Taxa de câmbio real efetiva: o WDI não publica para o Vietnã; apenas Brasil (2010 = 100).</li>
-      <li>P&amp;D / PIB do Vietnã: observações bienais da UNESCO.</li>
-      <li>Gini: anos de pesquisa domiciliar. Brasil 2020 (48,9) reflete o Auxílio Emergencial. Vietnã usa a VHLSS, bienal.</li>
-      <li>Emprego na indústria: estimativa modelada da OIT; inclui construção e mineração.</li>
-      <li>FBCF / PIB do Vietnã: indisponível antes de 1995. Inflação IPC do Vietnã: indisponível antes de 1996; o deflator do PIB cobre 1990–1995.</li>
-      <li>Juros de empréstimo (FMI/IFS): taxa média bancária ao tomador final, não a taxa de política monetária. Brasil a partir de 1997.</li>
-      <li>Taxa básica de juros: Brasil = média anual da Selic acumulada no mês anualizada (BCB, SGS 4189); Vietnã = taxa de refinanciamento do SBV, média anual ponderada por dias a partir das decisões QĐ-NHNN. Para o Vietnã, 1998–99 são aproximações a partir do teto em %/mês; 2000–07 e 2017–20 seguem o registro público do SBV sem confirmação documental nesta coleta; os demais anos têm decisões confirmadas (1316/2008, 2210/2011, 1289/2012, 496/2014, 1728/2020, 1606 e 1809/2022, 1123/2023).</li>
-      <li>Exportações: o Vietnã esteve à frente do Brasil em 2016–2017 e 2019–2022; o Brasil retomou a liderança em 2018 e 2023.</li>
+    <h3 class="sub-h">O ponto de partida e o de chegada</h3>
+    <div class="startend" id="startend" aria-label="Indicadores em 1990 e em 2023"></div>
+
+    <h3 class="sub-h">Marcos do período</h3>
+    <div class="tl-legend"><span class="c-br">Brasil</span><span class="c-vn">Vietnã</span></div>
+    <ol class="tl">
+      <li class="vn"><span class="yr">1986</span><div class="ev"><i class="tag">Vietnã</i><b>Đổi Mới</b><span>Início das reformas: liberalização gradual e controlada, coordenada pelo Partido Comunista.</span></div></li>
+      <li class="both"><span class="yr">1989–91</span><div class="ev"><b>Fim da Guerra Fria</b><span>Colapso da URSS e avanço do Consenso de Washington: o choque comum.</span></div></li>
+      <li class="br"><span class="yr">1990</span><div class="ev"><i class="tag">Brasil</i><b>Abertura acelerada</b><span>Governo Collor: abertura comercial e financeira rápida.</span></div></li>
+      <li class="br"><span class="yr">1994</span><div class="ev"><i class="tag">Brasil</i><b>Plano Real</b><span>Estabilização macroeconômica, com custos para a indústria.</span></div></li>
+      <li class="both"><span class="yr">1997</span><div class="ev"><b>Crise asiática</b><span>Impacto diferente em cada país: o Brasil exposto pela dependência financeira, o Vietnã relativamente protegido.</span></div></li>
+      <li class="br"><span class="yr">1999</span><div class="ev"><i class="tag">Brasil</i><b>Crise cambial</b><span>Aprofunda a vulnerabilidade externa; regime de metas de inflação.</span></div></li>
+      <li class="vn"><span class="yr">2001</span><div class="ev"><i class="tag">Vietnã</i><b>Acordo bilateral com os EUA</b><span>O BTA abre o acesso ao mercado americano.</span></div></li>
+      <li class="br"><span class="yr">2004–08</span><div class="ev"><i class="tag">Brasil</i><b>Volta da política industrial</b><span>PITCE (2004), PAC (2007) e PDP (2008), em pleno ciclo de commodities.</span></div></li>
+      <li class="vn"><span class="yr">2007</span><div class="ev"><i class="tag">Vietnã</i><b>Entrada na OMC</b><span>Boom de investimento estrangeiro em manufatura de média tecnologia.</span></div></li>
+      <li class="br"><span class="yr">2014–16</span><div class="ev"><i class="tag">Brasil</i><b>Fim do ciclo de commodities</b><span>Recessão e, em 2016, o Teto de Gastos (EC 95).</span></div></li>
+      <li class="vn"><span class="yr">2016</span><div class="ev"><i class="tag">Vietnã</i><b>Exportações superam as do Brasil</b><span>Pela primeira vez na série; o Vietnã fica à frente em <span class="nb">2016–17</span> e <span class="nb">2019–22</span>.</span></div></li>
+      <li class="vn"><span class="yr">2018–22</span><div class="ev"><i class="tag">Vietnã</i><b>Novos acordos comerciais</b><span>CPTPP (2018), EVFTA (2020) e RCEP (2022), sob a estratégia China+1.</span></div></li>
+      <li class="both"><span class="yr">2020</span><div class="ev"><b>Pandemia</b><span>No Brasil, o Auxílio Emergencial reduz temporariamente o Gini.</span></div></li>
+      <li class="both"><span class="yr">2023</span><div class="ev"><b>Fim do recorte</b><span>Último ano com dados disponíveis na base.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ───────── 03 Metodologia ───────── -->
+<section class="band" id="metodologia">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">03</span>Metodologia</p>
+      <h2>Análise Histórica Comparada</h2>
+      <p class="intro">A pesquisa investiga como trajetórias nacionais de desenvolvimento são moldadas por processos históricos e por decisões políticas acumuladas ao longo do tempo. Segundo Mahoney e Rueschemeyer (2003), a abordagem se distingue por três características.</p>
+      <p class="draft">Rascunho: texto do projeto de TCC, em revisão</p>
+    </header>
+
+    <div class="reasons three">
+      <article class="reason"><span class="n">1</span><h3>Tempo e sequência</h3><p>Atenção cuidadosa ao processo temporal e à ordem em que os eventos acontecem.</p></article>
+      <article class="reason"><span class="n">2</span><h3>Casos em profundidade</h3><p>Análise detalhada de cada país, com rigor comparativo entre eles.</p></article>
+      <article class="reason"><span class="n">3</span><h3>Perguntas causais</h3><p>Interesse explícito em explicar resultados históricos significativos.</p></article>
+    </div>
+
+    <div class="mdsd">
+      <div class="prose">
+        <h3>Dois sistemas muito diferentes</h3>
+        <p>A comparação segue o desenho de <i>Most Different Systems Design</i> (MDSD). Brasil e Vietnã diferem em praticamente todas as condições estruturais: tamanho, histórico colonial, regime político e população.</p>
+        <p>Por isso a condição periférica compartilhada em 1990 e a divergência posterior são analiticamente relevantes. Se sistemas tão distintos partem do mesmo ponto e chegam a resultados opostos, o fator explicativo deve ser buscado nas escolhas estratégicas, e não nos condicionantes estruturais fixos.</p>
+        <p>As <b>conjunturas críticas</b> são os momentos em que várias opções estratégicas estavam disponíveis e em que escolhas distintas produziram trajetórias divergentes.</p>
+      </div>
+      <div class="duo">
+        <figure><img src="img/brasilia.jpg" alt="Vista aérea da Esplanada dos Ministérios, em Brasília" loading="lazy" width="1400" height="789"><figcaption>Brasília</figcaption></figure>
+        <figure><img src="img/hanoi.jpg" alt="Vista de Hanói ao entardecer, com a ponte Nhật Tân em primeiro plano" loading="lazy" width="1400" height="788"><figcaption>Hanói</figcaption></figure>
+      </div>
+    </div>
+
+    <h3 class="sub-h">Fontes dos dados</h3>
+    <ul class="sources">
+      <li><b>Banco Mundial (WDI)</b><span>Renda, comércio, estrutura produtiva, investimento estrangeiro e indicadores macroeconômicos.</span></li>
+      <li><b>OEC e Harvard Growth Lab</b><span>Índice de Complexidade Econômica (ECI), score e ranking, série HS96.</span></li>
+      <li><b>PNUD</b><span>Índice de Desenvolvimento Humano (IDH).</span></li>
+      <li><b>Banco Central do Brasil</b><span>Taxa Selic, série SGS 4189.</span></li>
+      <li><b>State Bank of Vietnam</b><span>Taxa de refinanciamento, a partir das decisões QĐ-NHNN.</span></li>
     </ul>
-  </details>
+  </div>
+</section>
 
-  <footer class="site">
-    <span>Renan Sevilha Marangoni · FECAP · Relações Internacionais · 2026</span>
-    <span>Dados: Banco Mundial (CC BY 4.0), OEC, Harvard Growth Lab, PNUD, Banco Central do Brasil, State Bank of Vietnam</span>
-  </footer>
-</div>
+<!-- ───────── 04 Trajetórias ───────── -->
+<section class="band alt" id="trajetorias">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">04</span>Trajetórias</p>
+      <h2>Dois caminhos em três fases</h2>
+      <p class="intro">A narrativa de cada país é organizada em três subperíodos, que correspondem a fases distintas da política econômica e da estrutura produtiva.</p>
+      <p class="draft">Rascunho: texto do projeto de TCC, em revisão</p>
+    </header>
+    <div class="trajs">
+      <article class="traj br">
+        <figure><img src="img/soja-rondonopolis.jpg" alt="Colheitadeira em lavoura de soja em Rondonópolis, Mato Grosso" loading="lazy" width="1200" height="857"><figcaption>Colheita de soja em Rondonópolis (MT)</figcaption></figure>
+        <div class="traj-body">
+          <h3>Brasil</h3>
+          <p class="traj-sum">Financeirização, câmbio apreciado, desindustrialização e reprimarização.</p>
+          <ol class="phases">
+            <li><span class="per">1990–2002</span><b>Consolidação da dependência financeira</b><span>Abertura comercial e financeira, Plano Real, privatizações e a crise cambial de 1999.</span></li>
+            <li><span class="per">2003–2014</span><b>Tentativas de política industrial</b><span>PITCE, PAC e PDP nos governos Lula e Dilma, neutralizados pela valorização cambial do ciclo de commodities.</span></li>
+            <li><span class="per">2015–2023</span><b>Recessão e aprofundamento da reprimarização</b><span>Colapso do ciclo de commodities, ajuste fiscal e maior dependência de produtos primários.</span></li>
+          </ol>
+        </div>
+      </article>
+      <article class="traj vn">
+        <figure><img src="img/porto-hai-phong.jpg" alt="Navio porta-contêineres atracado no terminal internacional de Hải Phòng" loading="lazy" width="1200" height="800"><figcaption>Terminal de contêineres de Hải Phòng</figcaption></figure>
+        <div class="traj-body">
+          <h3>Vietnã</h3>
+          <p class="traj-sum">Abertura condicionada, investimento estrangeiro produtivo, <i>upgrading</i> e aumento de complexidade.</p>
+          <ol class="phases">
+            <li><span class="per">1986–2000</span><b>Construção gradual de capacidades produtivas</b><span>Reformas agrícolas, abertura controlada ao comércio exterior e zonas econômicas especiais no pós-Đổi Mới.</span></li>
+            <li><span class="per">2001–2015</span><b>OMC, boom de IED e salto de complexidade</b><span>Acordo com os EUA, entrada na OMC e atração de investimento em setores de média tecnologia.</span></li>
+            <li><span class="per">2016–2023</span><b>China+1, tensões geopolíticas e limites do modelo</b><span>Parceiro produtivo no Indo-Pacífico em meio à rivalidade EUA–China, com o risco da armadilha da renda média.</span></li>
+          </ol>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 05 Dados ───────── -->
+<section class="band" id="dados">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">05</span>Os dados</p>
+      <h2>A divergência em 28 indicadores</h2>
+      <p class="intro">Explore cada série, compare períodos e baixe a base completa. <span class="legend inline"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span></p>
+    </header>
+
+    <div class="stack">
+      <section class="card" id="explorar">
+        <h3 class="card-h">Explorar indicador</h3>
+        <div class="controls">
+          <label class="grow">Indicador <select id="sel-ind" aria-label="Indicador"></select></label>
+          <label>Período <span class="range"><input type="number" id="ano-ini" min="1990" max="2023" step="1" value="1990" aria-label="Ano inicial"> <span>–</span> <input type="number" id="ano-fim" min="1990" max="2023" step="1" value="2023" aria-label="Ano final"></span></label>
+          <label>Escala <select id="sel-escala" aria-label="Escala"><option value="lin">Linear</option><option value="log">Logarítmica</option></select></label>
+        </div>
+        <div class="meta"><span>Unidade: <b id="m-unid">—</b></span><span>Fonte: <b id="m-fonte">—</b></span><span>Código: <b id="m-cod">—</b></span><span id="m-nota"></span></div>
+        <div class="chart" id="chart-main"></div>
+      </section>
+
+      <section class="card" id="macro">
+        <h3 class="card-h">Síntese macroeconômica: crescimento, juros, investimento e inflação</h3>
+        <p class="note">Quatro variáveis em % num só eixo, por país. O período padrão começa em 1996, quando as quatro séries existem para ambos e a inflação brasileira já está em patamar comparável; amplie para 1990 para ver a hiperinflação (a escala passa a logarítmica automaticamente).</p>
+        <div class="controls">
+          <div class="chips" id="macro-chips" aria-label="Séries exibidas">
+            <label class="chip"><input type="checkbox" id="chk-pib" checked><span class="swc" style="background:var(--s1)"></span>Crescimento do PIB</label>
+            <label class="chip"><input type="checkbox" id="chk-juros" checked><span class="swc" style="background:var(--s2)"></span>Taxa básica de juros</label>
+            <label class="chip"><input type="checkbox" id="chk-fbcf" checked><span class="swc" style="background:var(--s3)"></span>FBCF / PIB</label>
+            <label class="chip"><input type="checkbox" id="chk-infl" checked><span class="swc" style="background:var(--s4)"></span>Inflação (IPC)</label>
+          </div>
+          <label>Período <span class="range"><input type="number" id="macro-ini" min="1990" max="2023" step="1" value="1996" aria-label="Ano inicial do painel macro"> <span>–</span> <input type="number" id="macro-fim" min="1990" max="2023" step="1" value="2023" aria-label="Ano final do painel macro"></span></label>
+        </div>
+        <div class="facets">
+          <div class="facet"><h4 class="br">Brasil</h4><div class="chart" id="macro-br"></div></div>
+          <div class="facet"><h4 class="vn">Vietnã</h4><div class="chart" id="macro-vn"></div></div>
+        </div>
+        <p class="note">Fontes: crescimento do PIB, FBCF e inflação — Banco Mundial (WDI). Taxa básica: Brasil, Selic média anual (BCB, série SGS 4189); Vietnã, taxa de refinanciamento do State Bank of Vietnam, média anual ponderada por dias a partir das decisões QĐ-NHNN (1998–99 aproximação; 2000–07 do registro público do SBV). Inflação do Vietnã indisponível antes de 1996.</p>
+      </section>
+
+      <section id="paineis">
+        <h3 class="sub-h">Painéis por eixo analítico</h3>
+        <div class="grid2" id="panels"></div>
+      </section>
+
+      <section class="card" id="tabela">
+        <h3 class="card-h">Tabela comparativa: anos selecionados</h3>
+        <div class="controls"><label class="grow">Indicador <select id="sel-tab" aria-label="Indicador da tabela"></select></label></div>
+        <div class="tablewrap">
+          <table class="cmp">
+            <thead><tr><th>País</th><th>1990</th><th>1995</th><th>2000</th><th>2005</th><th>2010</th><th>2015</th><th>2018</th><th>2020</th><th>2022</th><th>2023</th></tr></thead>
+            <tbody id="tab-body"></tbody>
+          </table>
+        </div>
+        <div class="downloads">
+          <span>Baixar a base completa:</span>
+          <a class="btn small" href="data/tcc_dados_long.csv" download>Formato longo (1.650 observações)</a>
+          <a class="btn small" href="data/tcc_dados_wide.csv" download>Formato largo</a>
+          <a class="btn small" href="data/tcc_metadados.csv" download>Metadados e fontes</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Notas ───────── -->
+<section class="band alt" id="notas">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">06</span>Notas</p>
+      <h2>Notas metodológicas e lacunas de dados</h2>
+    </header>
+    <details class="foot">
+      <summary>Ver as 11 notas sobre séries, fontes e lacunas</summary>
+      <ul>
+        <li>ECI (score e ranking) começa em 1995 — série HS96 do OEC não cobre 1990–1994.</li>
+        <li>Manufaturados nas exportações do Vietnã: indisponível antes de 1997. Manufatura / PIB do Vietnã: indisponível antes de 2005.</li>
+        <li>Termos de troca: índice 2015 = 100, série do WDI começa em 2005.</li>
+        <li>Taxa de câmbio real efetiva: o WDI não publica para o Vietnã; apenas Brasil (2010 = 100).</li>
+        <li>P&amp;D / PIB do Vietnã: observações bienais da UNESCO.</li>
+        <li>Gini: anos de pesquisa domiciliar. Brasil 2020 (48,9) reflete o Auxílio Emergencial. Vietnã usa a VHLSS, bienal.</li>
+        <li>Emprego na indústria: estimativa modelada da OIT; inclui construção e mineração.</li>
+        <li>FBCF / PIB do Vietnã: indisponível antes de 1995. Inflação IPC do Vietnã: indisponível antes de 1996; o deflator do PIB cobre 1990–1995.</li>
+        <li>Juros de empréstimo (FMI/IFS): taxa média bancária ao tomador final, não a taxa de política monetária. Brasil a partir de 1997.</li>
+        <li>Taxa básica de juros: Brasil = média anual da Selic acumulada no mês anualizada (BCB, SGS 4189); Vietnã = taxa de refinanciamento do SBV, média anual ponderada por dias a partir das decisões QĐ-NHNN. Para o Vietnã, 1998–99 são aproximações a partir do teto em %/mês; 2000–07 e 2017–20 seguem o registro público do SBV sem confirmação documental nesta coleta; os demais anos têm decisões confirmadas (1316/2008, 2210/2011, 1289/2012, 496/2014, 1728/2020, 1606 e 1809/2022, 1123/2023).</li>
+        <li>Exportações: o Vietnã esteve à frente do Brasil em 2016–2017 e 2019–2022; o Brasil retomou a liderança em 2018 e 2023.</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap site-in">
+    <div>
+      <p class="f-title">Desenvolvimento e Inserção Internacional de Brasil e Vietnã após o Fim da Guerra Fria: uma análise histórico-comparada <span class="nb">(1990–2023)</span></p>
+      <p>Renan Sevilha Marangoni · Trabalho de Conclusão de Curso · Relações Internacionais · FECAP · São Paulo, 2026</p>
+    </div>
+    <div>
+      <p class="f-h">Dados</p>
+      <p>Banco Mundial (CC BY 4.0), OEC, Harvard Growth Lab, PNUD, Banco Central do Brasil, State Bank of Vietnam.</p>
+    </div>
+    <div>
+      <p class="f-h">Fotos</p>
+      <p>Wikimedia Commons, redimensionadas:
+        <a href="https://commons.wikimedia.org/wiki/File:Skyline_of_S%C3%A3o_Paulo_centre.jpg" rel="noopener">São Paulo</a>, Rodrigo.Argenton (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener license">CC BY-SA 4.0</a>) ·
+        <a href="https://commons.wikimedia.org/wiki/File:Saigon_at_Blue_Hour.jpg" rel="noopener">Cidade de Ho Chi Minh</a>, Radek Kucharski (<a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener license">CC BY 2.0</a>) ·
+        <a href="https://commons.wikimedia.org/wiki/File:Bras%C3%ADlia_vista_do_alto_(23131780810)_(cropped_16-9).jpg" rel="noopener">Brasília</a>, Senado Federal (<a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener license">CC BY 2.0</a>) ·
+        <a href="https://commons.wikimedia.org/wiki/File:Hanoi_Skyline_-_NKS.jpg" rel="noopener">Hanói</a>, NKSTTSSHNVN (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener license">CC BY-SA 4.0</a>) ·
+        <a href="https://commons.wikimedia.org/wiki/File:Ronodon%C3%B3polis_colheita_soja_(Roosevelt_Pinheiro)_28mar09.jpg" rel="noopener">Rondonópolis</a>, Roosevelt Pinheiro/ABr (<a href="https://creativecommons.org/licenses/by/3.0/br/" rel="noopener license">CC BY 3.0 BR</a>) ·
+        <a href="https://commons.wikimedia.org/wiki/File:Container_Ship_at_the_Hai_Phong_International_Container_Terminal_01.jpg" rel="noopener">Hải Phòng</a>, Nathan.cima (<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener license">CC BY-SA 4.0</a>).
+      </p>
+    </div>
+  </div>
+</footer>
 
 <script src="vendor/d3.v7.9.0.min.js"></script>
 <script src="app.js"></script>

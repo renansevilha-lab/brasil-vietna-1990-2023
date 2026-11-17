@@ -1,0 +1,62 @@
+[
+  {
+    "local": "sao-paulo.jpg",
+    "title": "File:Skyline of São Paulo centre.jpg",
+    "bytes": 633196,
+    "thumb": "1400x933",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Rodrigo.Argenton",
+    "page": "https://commons.wikimedia.org/wiki/File:Skyline_of_S%C3%A3o_Paulo_centre.jpg"
+  },
+  {
+    "local": "ho-chi-minh.jpg",
+    "title": "File:Saigon at Blue Hour.jpg",
+    "bytes": 399130,
+    "thumb": "1400x787",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "Radek Kucharski",
+    "page": "https://commons.wikimedia.org/wiki/File:Saigon_at_Blue_Hour.jpg"
+  },
+  {
+    "local": "hanoi.jpg",
+    "title": "File:Hanoi Skyline - NKS.jpg",
+    "bytes": 576813,
+    "thumb": "1400x788",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "NKSTTSSHNVN",
+    "page": "https://commons.wikimedia.org/wiki/File:Hanoi_Skyline_-_NKS.jpg"
+  },
+  {
+    "local": "soja-rondonopolis.jpg",
+    "title": "File:Ronodonópolis colheita soja (Roosevelt Pinheiro) 28mar09.jpg",
+    "bytes": 425695,
+    "thumb": "1200x857",
+    "license": "CC BY 3.0 br",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
+    "artist": "Roosevelt Pinheiro/ABr",
+    "page": "https://commons.wikimedia.org/wiki/File:Ronodon%C3%B3polis_colheita_soja_(Roosevelt_Pinheiro)_28mar09.jpg"
+  },
+  {
+    "local": "porto-hai-phong.jpg",
+    "title": "File:Container Ship at the Hai Phong International Container Terminal 01.jpg",
+    "bytes": 284811,
+    "thumb": "1200x800",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Nathan.cima",
+    "page": "https://commons.wikimedia.org/wiki/File:Container_Ship_at_the_Hai_Phong_International_Container_Terminal_01.jpg"
+  },
+  {
+    "local": "brasilia.jpg",
+    "title": "File:Brasília vista do alto (23131780810) (cropped 16-9).jpg",
+    "bytes": 654561,
+    "thumb": "1400x789",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "Senado Federal",
+    "page": "https://commons.wikimedia.org/wiki/File:Bras%C3%ADlia_vista_do_alto_(23131780810)_(cropped_16-9).jpg"
+  }
+]
