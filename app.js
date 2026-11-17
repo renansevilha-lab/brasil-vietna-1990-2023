@@ -213,6 +213,12 @@
       ['Inserção externa · IED líquido / PIB (%)', 'ied_pct_pib'],
       ['Inserção externa · Comércio / PIB (%)', 'comercio_pct_pib'],
     ],
+    episodios: [
+      ['Preços · Inflação ao consumidor (% a.a.)', 'inflacao_ipc', 'Vietnã: 23,1% em 2008 e 18,7% em 2011.', 2004, 2014],
+      ['Juros · Taxa básica (% a.a.)', 'taxa_basica', 'Média anual. No Vietnã a taxa de refinanciamento chegou a 15% em 2008 e em 2011.', 2004, 2014],
+      ['Reservas · Reservas internacionais / PIB (%)', 'reservas_pct_pib', 'No Vietnã, de 30% do PIB em 2007 para 8% em 2011.', 2004, 2014],
+      ['Atividade · Crescimento real do PIB (% a.a.)', 'pib_crescimento', 'A crise mundial aparece em 2009 nos dois países.', 2004, 2014],
+    ],
     resultado: [
       ['Renda · PIB per capita PPP (Int$)', 'pib_pc_ppp'],
       ['Renda · Crescimento real do PIB (% a.a.)', 'pib_crescimento'],
@@ -231,13 +237,13 @@
   function buildPanels() {
     Object.entries(PANELS).forEach(([ala, lista]) => {
       const host = document.getElementById('panels-' + ala); if (!host) return; host.replaceChildren();
-      lista.forEach(([title, ind, note, y0]) => {
-        const card = document.createElement('div'); card.className = 'card'; card.id = 'p-' + ind;
+      lista.forEach(([title, ind, note, y0, y1]) => {
+        const card = document.createElement('div'); card.className = 'card'; card.id = (ala === 'episodios' ? 'pe-' : 'p-') + ind;
         const [eixo, ...rest] = title.split(' · ');
         const h = document.createElement('h4');
         const tg = document.createElement('span'); tg.className = 'ptag'; tg.textContent = eixo; h.append(tg, rest.join(' · '));
         card.appendChild(h);
-        const ch = document.createElement('div'); ch.className = 'chart small'; ch.dataset.ind = ind; if (y0) ch.dataset.y0 = y0; card.appendChild(ch);
+        const ch = document.createElement('div'); ch.className = 'chart small'; ch.dataset.ind = ind; if (y0) ch.dataset.y0 = y0; if (y1) ch.dataset.y1 = y1; card.appendChild(ch);
         if (note) { const p = document.createElement('p'); p.className = 'note'; p.textContent = note; card.appendChild(p); }
         host.appendChild(card);
       });
@@ -246,7 +252,7 @@
   function drawPanels() {
     document.querySelectorAll('.panels .chart').forEach(el => {
       const ind = el.dataset.ind;
-      lineChart(el, { ind, small: true, y0: el.dataset.y0 ? +el.dataset.y0 : undefined, refZero: ZERO.has(ind) || ind === 'pib_crescimento', dots: ind === 'gini', log: ind === 'inflacao_ipc', label: (metaOf(ind) || {}).rotulo || ind });
+      lineChart(el, { ind, small: true, y0: el.dataset.y0 ? +el.dataset.y0 : undefined, y1: el.dataset.y1 ? +el.dataset.y1 : undefined, refZero: ZERO.has(ind) || ind === 'pib_crescimento', dots: ind === 'gini', log: ind === 'inflacao_ipc' && !el.dataset.y0, label: (metaOf(ind) || {}).rotulo || ind });
     });
   }
 
@@ -523,6 +529,11 @@
     [[2001, 2010], [2011, 2023], [2001, 2023]].forEach(([a, b]) => tf.appendChild(linha(`Média ${a}–${String(b).slice(2)}`, media(a, b), 'avg')));
   }
 
+  // ── números da base dentro do texto: <span data-v="PAÍS|indicador|ano|casas">
+  function drawValores() {
+    document.querySelectorAll('[data-v]').forEach(el => { const [p, ind, y, dec] = el.dataset.v.split('|'); let v = pick(p, ind, +y); if (v != null && el.dataset.abs) v = Math.abs(v); el.textContent = num(v, +dec || 0, false); });
+  }
+
   function drawMacro() { macroFacet(document.getElementById('macro-br'), 'BRA'); macroFacet(document.getElementById('macro-vn'), 'VNM'); }
   function redrawAll() { if (!ROWS.length) return; drawTiles(); drawExplorer(); drawMacro(); drawPanels(); drawTable(); drawJuros(); drawFiscal(); }
 
@@ -551,7 +562,7 @@
   // ── boot
   Promise.all([d3.csv('data/tcc_dados_long.csv'), d3.csv('data/tcc_metadados.csv'), d3.csv('data/tcc_decisoes_juros.csv')]).then(([raw, meta, decs]) => {
     ROWS = toRows(raw); META = meta; DECS = toDecs(decs);
-    buildPanels(); wire(); drawHeader(); drawStartEnd(); drawAlas(); drawFiscalResumo(); drawAnual(); redrawAll(); drawDecisoes(); spyNav();
+    buildPanels(); wire(); drawHeader(); drawStartEnd(); drawAlas(); drawFiscalResumo(); drawAnual(); drawValores(); redrawAll(); drawDecisoes(); spyNav();
     const h = readHash(); if (h) document.getElementById(h).scrollIntoView();
   }).catch(err => {
     console.error(err);

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brasil × Vietnã 1990–2023</title>
-<meta name="description" content="TCC de Relações Internacionais (FECAP): desenvolvimento e inserção internacional de Brasil e Vietnã após a Guerra Fria. Pesquisa, metodologia e base de dados interativa com 32 indicadores, 1990–2023.">
+<meta name="description" content="TCC de Relações Internacionais (FECAP): desenvolvimento e inserção internacional de Brasil e Vietnã após a Guerra Fria. Pesquisa, metodologia e base de dados interativa com 33 indicadores, 1990–2023.">
 <meta property="og:title" content="Brasil × Vietnã 1990–2023">
-<meta property="og:description" content="Desenvolvimento e inserção internacional após a Guerra Fria: uma análise histórico-comparada, com 32 indicadores.">
+<meta property="og:description" content="Desenvolvimento e inserção internacional após a Guerra Fria: uma análise histórico-comparada, com 33 indicadores.">
 <meta property="og:image" content="img/ho-chi-minh.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23185FA5'/%3E%3Cpath d='M6 22 L13 14 L18 18 L26 8' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +28,7 @@
       <a href="#metodologia">Metodologia</a>
       <a href="#trajetorias">Trajetórias</a>
       <a href="#politica">Juros e fiscal</a>
+      <a href="#cambio">Câmbio e reservas</a>
       <a href="#dados">Dados</a>
       <a href="#notas">Notas</a>
     </nav>
@@ -51,7 +52,7 @@
     <dl class="hero-stats">
       <div><dt><b data-ratio="90">—</b>×</dt><dd>era a renda per capita do Brasil em relação à do Vietnã em 1990</dd></div>
       <div><dt><b data-ratio="23">—</b>×</dt><dd>é a mesma razão em 2023</dd></div>
-      <div><dt>32</dt><dd>indicadores anuais, 1.845 observações, para explorar nesta página</dd></div>
+      <div><dt>33</dt><dd>indicadores anuais, 1.908 observações, para explorar nesta página</dd></div>
     </dl>
     <p class="hero-cta"><a class="btn primary" href="#dados">Explorar os dados</a><a class="btn ghost" href="#pesquisa">Entender a pesquisa</a></p>
   </div>
@@ -324,12 +325,102 @@
   </div>
 </section>
 
-<!-- ───────── 06 Dados ───────── -->
-<section class="band alt" id="dados">
+<!-- ───────── 06 Inflação, câmbio e reservas ───────── -->
+<section class="band alt" id="cambio">
   <div class="wrap">
     <header class="sec-head">
-      <p class="eyebrow"><span class="num">06</span>Os dados</p>
-      <h2>A divergência em 32 indicadores, em duas alas</h2>
+      <p class="eyebrow"><span class="num">06</span>Inflação, câmbio e reservas</p>
+      <h2>Por que a inflação do Vietnã disparou em 2008 e em 2011</h2>
+      <p class="intro">Os dois picos têm a mesma raiz: crédito crescendo rápido demais, com o câmbio administrado e reservas internacionais curtas. A crise financeira dos Estados Unidos não causou a alta de 2008; ela explica a queda que veio depois. <span class="legend inline"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span></p>
+      <p class="draft">Rascunho: seção nova, dados e textos em revisão</p>
+    </header>
+
+    <div class="grid2 panels" id="panels-episodios"></div>
+
+    <h3 class="sub-h">Os dois episódios</h3>
+    <div class="epis">
+      <article class="card epi">
+        <header><span class="epi-ano">2008</span><h4>Superaquecimento antes da crise mundial</h4></header>
+        <dl class="epi-nums">
+          <div><dt>Inflação</dt><dd><span data-v="VNM|inflacao_ipc|2008|1"></span>%</dd><small>em 2007: <span data-v="VNM|inflacao_ipc|2007|1"></span>%</small></div>
+          <div><dt>Taxa de refinanciamento</dt><dd>6,5% → 15%</dd><small>de fevereiro a junho</small></div>
+          <div><dt>Reservas / PIB</dt><dd><span data-v="VNM|reservas_pct_pib|2007|0"></span>%</dd><small>em 2007; em 2006: <span data-v="VNM|reservas_pct_pib|2006|0"></span>%</small></div>
+        </dl>
+        <h5>O que causou</h5>
+        <ul>
+          <li>Depois da entrada na Organização Mundial do Comércio, em janeiro de 2007, o país recebeu um volume inédito de capital estrangeiro. Para manter o dong estável, o banco central comprou dólares e emitiu moeda em troca, sem enxugar o suficiente. Em 2007 o crédito cresceu 53,9% e a quantidade de moeda, 46,1%.</li>
+          <li>No primeiro semestre de 2008 os preços mundiais de arroz e de petróleo dispararam. Alimentação pesava 42,85% na cesta do índice de preços vietnamita.</li>
+          <li>A inflação em doze meses chegou ao pico de 28,3% em agosto de 2008, antes da quebra do Lehman Brothers, em setembro.</li>
+        </ul>
+        <h5>O papel das reservas</h5>
+        <p>As reservas subiram de US$ <span data-v="VNM|reservas_usd|2006|1"></span> bilhões em 2006 para US$ <span data-v="VNM|reservas_usd|2007|1"></span> bilhões em 2007. Esse salto é o retrato da entrada de capital: cada dólar comprado pelo banco central virou dong em circulação.</p>
+        <h5>Como o governo respondeu</h5>
+        <ul>
+          <li>O banco central subiu a taxa de refinanciamento de 6,5% para 15% entre fevereiro e junho e, em março, obrigou os bancos a comprar 20,3 trilhões de dong em títulos seus, para enxugar a liquidez.</li>
+          <li>A banda de flutuação do dong foi alargada três vezes ao longo de 2008, de ±0,75% para ±3%.</li>
+        </ul>
+        <h5>Onde entra a crise dos Estados Unidos</h5>
+        <p>No último trimestre de 2008 as exportações e os preços das commodities caíram, e a inflação cedeu. O banco central cortou a taxa cinco vezes entre outubro e dezembro, de 15% para 9,5%, e chegou a 7% em abril de 2009.</p>
+      </article>
+
+      <article class="card epi">
+        <header><span class="epi-ano">2011</span><h4>A conta do estímulo e a crise do dong</h4></header>
+        <dl class="epi-nums">
+          <div><dt>Inflação</dt><dd><span data-v="VNM|inflacao_ipc|2011|1"></span>%</dd><small>em 2009: <span data-v="VNM|inflacao_ipc|2009|1"></span>%</small></div>
+          <div><dt>Taxa de refinanciamento</dt><dd>9% → 15%</dd><small>de fevereiro a outubro</small></div>
+          <div><dt>Reservas / PIB</dt><dd><span data-v="VNM|reservas_pct_pib|2011|0"></span>%</dd><small>em 2011; em 2008: <span data-v="VNM|reservas_pct_pib|2008|0"></span>%</small></div>
+        </dl>
+        <h5>O que causou</h5>
+        <ul>
+          <li>Para atravessar a crise mundial, o governo lançou em 2009 um pacote de cerca de 5% do PIB, com subsídio de 4 pontos percentuais nos juros dos empréstimos bancários. O déficit nominal foi a <span data-v="VNM|resultado_nominal|2009|1" data-abs="1"></span>% do PIB, e o crédito cresceu 39,6% em 2009 e 32,4% em 2010.</li>
+          <li>Em dezembro de 2010 o estaleiro estatal Vinashin deixou de pagar uma parcela de um empréstimo externo de US$ 600 milhões, o que abalou a confiança no crescimento puxado por crédito a empresas estatais.</li>
+          <li>Os preços das commodities subiram de novo em 2010 e 2011.</li>
+        </ul>
+        <h5>O papel das reservas</h5>
+        <p>Para defender o dong, o banco central vendeu dólares: as reservas caíram de US$ <span data-v="VNM|reservas_usd|2008|1"></span> bilhões em 2008 para US$ <span data-v="VNM|reservas_usd|2010|1"></span> bilhões em 2010. Pela conta do FMI, cobriam 3,8 meses de importações no fim de 2008 e só 1,4 mês no fim de 2010. Sem reservas para sustentar a taxa, vieram quatro desvalorizações entre novembro de 2009 e fevereiro de 2011. Na maior, em 11 de fevereiro de 2011, a taxa oficial passou de 18.932 para 20.693 dong por dólar, 9,3% a mais. Importados mais caros e a fuga de poupança para dólar e ouro alimentaram a inflação, que chegou a 23% em doze meses em agosto de 2011.</p>
+        <h5>Como o governo respondeu</h5>
+        <ul>
+          <li>A Resolução 11, de fevereiro de 2011, impôs aperto monetário e fiscal: crescimento do crédito abaixo de 20%, déficit abaixo de 5% do PIB, adiamento de obras públicas e venda obrigatória de dólares das estatais aos bancos.</li>
+          <li>A taxa de refinanciamento foi de 9% para 15% ao longo do ano, e o déficit nominal caiu para <span data-v="VNM|resultado_nominal|2011|1" data-abs="1"></span>% do PIB.</li>
+        </ul>
+        <h5>O que mudou depois</h5>
+        <p>A inflação caiu para <span data-v="VNM|inflacao_ipc|2012|1"></span>% em 2012 e <span data-v="VNM|inflacao_ipc|2013|1"></span>% em 2013, e as reservas voltaram a US$ <span data-v="VNM|reservas_usd|2012|1"></span> bilhões já em 2012. Desde então a estabilidade passou a ser a prioridade: a taxa de refinanciamento ficou quase parada de 2014 a 2019, e as reservas chegaram a US$ <span data-v="VNM|reservas_usd|2023|1"></span> bilhões em 2023.</p>
+      </article>
+    </div>
+
+    <h3 class="sub-h">Câmbio e capitais: Vietnã × Brasil</h3>
+    <div class="tablewrap">
+      <table class="vs">
+        <thead><tr><th scope="col"></th><th scope="col" class="vn">Vietnã</th><th scope="col" class="br">Brasil</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Regime de câmbio</th><td>Administrado. Desde janeiro de 2016 o banco central publica uma taxa central a cada dia, e os bancos só podem negociar dentro de uma banda em torno dela, de ±5% desde outubro de 2022. O FMI classifica o regime, na prática, como estabilizado a partir de 2009 e como de ajustes graduais (crawl-like) desde meados de 2023.</td><td>Flutuante desde 18 de janeiro de 1999. O mercado define a taxa, e o Banco Central intervém só de forma ocasional, sem meta para o câmbio.</td></tr>
+          <tr><th scope="row">Âncora da política monetária</th><td>Estabilidade do câmbio e metas anuais de crescimento do crédito. A meta de inflação é fixada a cada ano pela Assembleia Nacional.</td><td>Meta de inflação, desde junho de 1999, perseguida com a taxa Selic.</td></tr>
+          <tr><th scope="row">Comércio e serviços</th><td colspan="2" class="both">Pagamentos de comércio e serviços são livres nos dois países: o Brasil assumiu esse compromisso com o FMI em 1999, e o Vietnã, em 2005.</td></tr>
+          <tr><th scope="row">Fluxo de capitais</th><td>Controlado. O investimento estrangeiro direto é incentivado, mas a aplicação em ações e títulos tem de passar por uma conta específica em dong, e há limites de participação estrangeira, como os 30% nos bancos. O residente precisa de registro para investir no exterior, e o crédito em moeda estrangeira dentro do país é restrito.</td><td>Aberto na prática para aplicações financeiras: não residentes investem em ações e títulos desde 2000. Os controles foram pontuais, como o imposto de até 6% sobre a entrada de capital entre outubro de 2009 e junho de 2013. Uma nova lei cambial vale desde o fim de 2022.</td></tr>
+          <tr><th scope="row">Dólar e ouro na economia</th><td>Uso amplo nos anos 2000. Depois de 2011 o governo passou a desestimular: limitou e, em 2015, zerou os juros dos depósitos em dólar, e manteve de 2012 a 2025 o monopólio estatal da produção de barras de ouro.</td><td>Sem dolarização relevante: a regra geral é que contratos e contas no país sejam em reais.</td></tr>
+          <tr><th scope="row">Reservas em 2008</th><td>US$ <span data-v="VNM|reservas_usd|2008|1"></span> bi · <span data-v="VNM|reservas_pct_pib|2008|1"></span>% do PIB</td><td>US$ <span data-v="BRA|reservas_usd|2008|1"></span> bi · <span data-v="BRA|reservas_pct_pib|2008|1"></span>% do PIB</td></tr>
+          <tr><th scope="row">Reservas em 2011</th><td>US$ <span data-v="VNM|reservas_usd|2011|1"></span> bi · <span data-v="VNM|reservas_pct_pib|2011|1"></span>% do PIB</td><td>US$ <span data-v="BRA|reservas_usd|2011|1"></span> bi · <span data-v="BRA|reservas_pct_pib|2011|1"></span>% do PIB</td></tr>
+          <tr><th scope="row">Reservas em 2023</th><td>US$ <span data-v="VNM|reservas_usd|2023|1"></span> bi · <span data-v="VNM|reservas_pct_pib|2023|1"></span>% do PIB</td><td>US$ <span data-v="BRA|reservas_usd|2023|1"></span> bi · <span data-v="BRA|reservas_pct_pib|2023|1"></span>% do PIB</td></tr>
+          <tr><th scope="row">Inflação em 2008 e 2011</th><td><span data-v="VNM|inflacao_ipc|2008|1"></span>% e <span data-v="VNM|inflacao_ipc|2011|1"></span>%</td><td><span data-v="BRA|inflacao_ipc|2008|1"></span>% e <span data-v="BRA|inflacao_ipc|2011|1"></span>%</td></tr>
+          <tr><th scope="row">Quem absorve um choque externo</th><td>As reservas. Com a taxa quase fixa, o banco central vende dólares para segurar o dong; quando as reservas acabam, o ajuste vem em desvalorizações bruscas.</td><td>A taxa de câmbio. Na crise de 2008 o dólar foi de R$ 1,56, em agosto, para R$ 2,50, em dezembro, e as reservas ficaram perto de US$ 200 bilhões. A inflação importada é combatida com juros.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout vs-call">
+      <h3>O que a comparação mostra</h3>
+      <p>O Vietnã escolheu câmbio estável e controle de capitais; o Brasil, câmbio flutuante e mercado financeiro aberto ao investidor estrangeiro. Com o câmbio estável, o exportador vietnamita ganha previsibilidade, mas a entrada de dólares vira expansão de moeda e crédito, e a defesa da taxa depende do tamanho das reservas. Foi o que falhou em 2008 e em 2011. No Brasil o câmbio absorve os choques, e o custo aparece em volatilidade e em juros altos para conter a inflação.</p>
+    </div>
+    <p class="note vs-note"><b>Um cuidado com os índices de abertura.</b> O índice Chinn-Ito, que mede a abertura formal da conta de capital, dá ao Vietnã nota mais alta que a do Brasil desde 2015 (−0,17 contra −1,25 em 2023). Ele conta as restrições legais que cada país declara ao FMI, não o volume nem a facilidade real dos fluxos. A tabela acima descreve as regras para aplicações financeiras e a prática do câmbio, e não deve ser lida como uma medida única de abertura.</p>
+    <p class="note vs-note">Fontes dos fatos e das datas: relatórios do FMI sobre o Vietnã (consultas do Artigo IV de 2007, 2009, 2010, 2012 e 2024), Organização Mundial do Comércio, instituto de estatística do Vietnã, textos legais vietnamitas e brasileiros, Banco Central do Brasil e imprensa econômica para o caso Vinashin e para as datas das bandas cambiais. Os valores de reservas, inflação, juros e déficit vêm da base deste site; os meses de importação são do FMI, que usa um conceito de reservas um pouco diferente. A conferência item a item, com os links, está em <a href="data/fontes/verificacao_cambio_e_inflacao.md">verificacao_cambio_e_inflacao.md</a>.</p>
+  </div>
+</section>
+
+<!-- ───────── 07 Dados ───────── -->
+<section class="band" id="dados">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">07</span>Os dados</p>
+      <h2>A divergência em 33 indicadores, em duas alas</h2>
       <p class="intro">Os indicadores estão separados em causais (os instrumentos e as condições da política econômica) e de resultados (o que se observa depois). Explore cada série, compare períodos e baixe a base completa. <span class="legend inline"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span></p>
     </header>
 
@@ -384,7 +475,7 @@
         </div>
         <div class="downloads">
           <span>Baixar a base completa:</span>
-          <a class="btn small" href="data/tcc_dados_long.csv" download>Formato longo (1.845 observações)</a>
+          <a class="btn small" href="data/tcc_dados_long.csv" download>Formato longo (1.908 observações)</a>
           <a class="btn small" href="data/tcc_dados_wide.csv" download>Formato largo</a>
           <a class="btn small" href="data/tcc_metadados.csv" download>Metadados e fontes</a>
           <a class="btn small" href="data/tcc_decisoes_juros.csv" download>Decisões de juros</a>
@@ -395,14 +486,14 @@
 </section>
 
 <!-- ───────── Notas ───────── -->
-<section class="band" id="notas">
+<section class="band alt" id="notas">
   <div class="wrap">
     <header class="sec-head">
-      <p class="eyebrow"><span class="num">07</span>Notas</p>
+      <p class="eyebrow"><span class="num">08</span>Notas</p>
       <h2>Notas metodológicas e lacunas de dados</h2>
     </header>
     <details class="foot">
-      <summary>Ver as 14 notas sobre séries, fontes e lacunas</summary>
+      <summary>Ver as 15 notas sobre séries, fontes e lacunas</summary>
       <ul>
         <li>ECI (score e ranking) começa em 1995 — série HS96 do OEC não cobre 1990–1994.</li>
         <li>Manufaturados nas exportações do Vietnã: indisponível antes de 1997. Manufatura / PIB do Vietnã: indisponível antes de 2005.</li>
@@ -417,6 +508,7 @@
         <li>Séries fiscais (resultado nominal, resultado primário e dívida bruta): FMI, World Economic Outlook de abril de 2025, conceito de governo geral. Brasil a partir de 2001 (dívida: 2000); Vietnã a partir de 1998 (dívida: 2000). Os números do Brasil diferem dos divulgados pelo Banco Central para o setor público consolidado, que usa cobertura e metodologia próprias. Os juros líquidos da dívida são cálculo próprio: resultado primário menos resultado nominal.</li>
         <li>Decisões de juros do Brasil: meta da taxa Selic, do histórico de taxas de juros do Banco Central, da 33ª reunião do Copom (março de 1999) a dezembro de 2023. Entre 1999 e 2003 há mudanças feitas entre reuniões pelo uso do viés.</li>
         <li>Decisões de juros do Vietnã: taxa de refinanciamento do State Bank of Vietnam, compilada a partir das decisões QĐ-NHNN, de novembro de 1999 a junho de 2023, cada uma conferida no texto da decisão em bases jurídicas vietnamitas (cópias de terceiros, não o diário oficial). A lista só registra mudanças de taxa. Até 2001 as decisões fixam a taxa ao mês; a taxa anual é a mensal vezes doze. Lacuna: a Decisão 545/2003 (6,5% a partir de 1º de junho de 2003) foi substituída no dia seguinte pela 552/2003, cujo texto não foi localizado; a taxa de junho e julho de 2003 fica, portanto, não confirmada. A taxa de refinanciamento é um entre vários instrumentos do SBV, que também usa tetos de juros de depósito e metas de crescimento do crédito.</li>
+        <li>Reservas internacionais / PIB: cálculo próprio, reservas totais (WDI) divididas pelo PIB nominal em dólares (WDI). Vietnã a partir de 1995.</li>
         <li>Exportações: o Vietnã esteve à frente do Brasil em 2016–2017 e 2019–2022; o Brasil retomou a liderança em 2018 e 2023.</li>
       </ul>
     </details>

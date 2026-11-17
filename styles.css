@@ -370,7 +370,36 @@ table.anual tfoot tr:nth-child(3) > * { bottom: 0; }
 table.anual tfoot th { z-index: 2; }
 table.anual tfoot th, table.anual tfoot td { height: 34px; padding-block: 0; }
 
-/* 06 alas: causal e resultados */
+/* 06 inflação, câmbio e reservas */
+.epis { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+@media (max-width: 860px) { .epis { grid-template-columns: 1fr; } }
+.epi { gap: 12px; border-top: 4px solid var(--vn); }
+.epi header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.epi-ano { font-family: var(--font-h); font-size: 40px; font-weight: 700; line-height: 1; letter-spacing: -.03em; color: var(--vn); font-variant-numeric: tabular-nums; }
+.epi header h4 { font-family: var(--font-h); font-size: 19px; letter-spacing: -.01em; }
+.epi-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 2px 0 4px; padding: 14px 0; border-block: 1px solid var(--line); }
+.epi-nums > div { min-width: 0; }
+.epi-nums dt { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-3); }
+.epi-nums dd { margin: 3px 0 0; font-family: var(--font-h); font-size: clamp(18px, 2vw, 23px); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.epi-nums small { display: block; font-size: 12px; color: var(--fg-3); margin-top: 2px; font-variant-numeric: tabular-nums; }
+@media (max-width: 460px) { .epi-nums { grid-template-columns: 1fr; } }
+.epi h5 { font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-top: 6px; }
+.epi p, .epi li { font-size: 14.5px; line-height: 1.55; color: var(--fg-2); }
+.epi ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+table.vs { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.5; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; min-width: 640px; }
+table.vs th, table.vs td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+table.vs tbody tr:last-child > * { border-bottom: 0; }
+table.vs thead th { font-family: var(--font-h); font-size: 15px; background: var(--surface-2); }
+table.vs thead th.vn { color: var(--vn); } table.vs thead th.br { color: var(--br); }
+table.vs tbody th { width: 22%; font-weight: 600; color: var(--fg); }
+table.vs td { width: 39%; color: var(--fg-2); font-variant-numeric: tabular-nums; }
+table.vs td.both { text-align: center; }
+.vs-call { margin-top: 20px; max-width: 90ch; }
+.vs-note { margin-top: 14px; max-width: 100ch; line-height: 1.55; }
+.vs-note b { color: var(--fg); }
+.vs-note a { color: inherit; }
+
+/* 07 alas: causal e resultados */
 .alas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 820px) { .alas { grid-template-columns: 1fr; } }
 .ala { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent-bright); border-radius: var(--radius); padding: 20px 22px; display: grid; gap: 14px; align-content: start; min-width: 0; }

@@ -28,6 +28,7 @@ eci_ranking,Resultado,Complexidade,ECI – ranking global,posição (1 = maior),
 inflacao_ipc,Resultado,Estabilidade e vulnerabilidade,"Inflação (IPC, variação anual)",% a.a.,Banco Mundial – WDI (FMI),FP.CPI.TOTL.ZG,VN indisponível antes de 1996; BR 1990–1994 em hiperinflação
 inflacao_deflator,Resultado,Estabilidade e vulnerabilidade,Inflação (deflator do PIB),% a.a.,Banco Mundial – WDI,NY.GDP.DEFL.KD.ZG,"Cobre 1990–1995 do VN, que o IPC não cobre"
 reservas_usd,Resultado,Estabilidade e vulnerabilidade,Reservas internacionais,US$ bilhões,Banco Mundial – WDI,FI.RES.TOTL.CD,VN inicia em 1995
+reservas_pct_pib,Resultado,Estabilidade e vulnerabilidade,Reservas internacionais / PIB,% do PIB,Banco Mundial – WDI; cálculo próprio,FI.RES.TOTL.CD ÷ NY.GDP.MKTP.CD,Reservas totais divididas pelo PIB nominal em dólares; VN inicia em 1995
 divida_externa_pct_rnb,Resultado,Estabilidade e vulnerabilidade,Dívida externa / RNB,% da RNB,Banco Mundial – WDI (IDS),DT.DOD.DECT.GN.ZS,
 idh,Resultado,Social,IDH,0–1,PNUD – RDH 2025,HDI,
 gini,Resultado,Social,Coeficiente de Gini,0–100,Banco Mundial – PIP,SI.POV.GINI,Anos de pesquisa domiciliar; BR 2020 = Auxílio Emergencial

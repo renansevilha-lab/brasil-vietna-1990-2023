@@ -2,7 +2,7 @@
 
 Site estático com a base de dados interativa do TCC **"Desenvolvimento e Inserção Internacional de Brasil e Vietnã após o Fim da Guerra Fria: uma análise histórico-comparada (1990–2023)"** — Renan Sevilha Marangoni, FECAP, Relações Internacionais.
 
-Página única em seções: abertura, resumo em números, a pesquisa, recorte temporal (por que 1990–2023), metodologia, trajetórias dos dois países, política monetária e fiscal (decisões de juros do Copom e do State Bank of Vietnam; resultado nominal e primário) e a base de dados — 32 indicadores anuais, separados em ala causal e ala de resultados, com gráficos interativos (d3), tabela comparativa e download.
+Página única em seções: abertura, resumo em números, a pesquisa, recorte temporal (por que 1990–2023), metodologia, trajetórias dos dois países, política monetária e fiscal (decisões de juros do Copom e do State Bank of Vietnam; resultado nominal e primário), inflação, câmbio e reservas (os picos de 2008 e 2011 no Vietnã e a comparação dos regimes de câmbio e de capitais) e a base de dados — 33 indicadores anuais, separados em ala causal e ala de resultados, com gráficos interativos (d3), tabela comparativa e download.
 
 ## Estrutura
 
@@ -13,7 +13,7 @@ app.js                lógica dos gráficos, blocos numéricos e menu
 img/                  fotos do Wikimedia Commons (créditos e licenças em img/creditos.json e no rodapé)
 vendor/d3.v7.9.0.min.js  d3 v7 (ISC), servido localmente
 data/
-  tcc_dados_long.csv  1.845 observações (pais, ano, indicador, valor)
+  tcc_dados_long.csv  1.908 observações (pais, ano, indicador, valor)
   tcc_dados_wide.csv  uma linha por país-ano
   tcc_metadados.csv   ala (Causal ou Resultado), grupo, rótulo, unidade, fonte, código e nota por indicador
   tcc_decisoes_juros.csv  decisões de juros: meta Selic (Copom, 1999–2023) e taxa de refinanciamento do SBV (1999–2023)
@@ -39,7 +39,7 @@ As séries fiscais vêm do FMI (World Economic Outlook, abril de 2025): `GGXCNL_
 
 ## Atualizar os textos
 
-Os textos das seções 01–04 vêm do projeto de TCC; a seção 05 (política monetária e fiscal) é nova e estão marcados na página como rascunho (`<p class="draft">`). Para atualizar, edite o trecho correspondente no `index.html`; quando uma seção estiver na versão final, apague a linha `<p class="draft">…</p>` dela. Os marcos da linha do tempo são os itens `<li>` dentro de `<ol class="tl">` (classe `br`, `vn` ou `both`).
+Os textos das seções 01–04 vêm do projeto de TCC; as seções 05 (política monetária e fiscal) e 06 (inflação, câmbio e reservas) são novas. Dentro do texto, os números que vêm da base são preenchidos por `<span data-v="PAÍS|indicador|ano|casas">` e estão marcados na página como rascunho (`<p class="draft">`). Para atualizar, edite o trecho correspondente no `index.html`; quando uma seção estiver na versão final, apague a linha `<p class="draft">…</p>` dela. Os marcos da linha do tempo são os itens `<li>` dentro de `<ol class="tl">` (classe `br`, `vn` ou `both`).
 
 ## Fontes
 
