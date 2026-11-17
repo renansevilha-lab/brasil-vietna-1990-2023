@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brasil × Vietnã 1990–2023</title>
+<meta name="description" content="Base de dados interativa do TCC: 28 indicadores de desenvolvimento e inserção internacional de Brasil e Vietnã, 1990–2023. Fontes: Banco Mundial, OEC/Harvard, PNUD, BCB, SBV.">
+<meta property="og:title" content="Brasil × Vietnã 1990–2023">
+<meta property="og:description" content="Desenvolvimento e inserção internacional após a Guerra Fria: dados comparados, 28 indicadores.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23185FA5'/%3E%3Cpath d='M6 22 L13 14 L18 18 L26 8' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // tema: respeita escolha salva; senão, segue o sistema
+  try { const t = localStorage.getItem('bv-theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <span class="brand">TCC · Relações Internacionais · FECAP</span>
+    <nav aria-label="Seções">
+      <a href="#resumo">Resumo</a>
+      <a href="#explorar">Explorar</a>
+      <a href="#macro">Síntese macro</a>
+      <a href="#paineis">Painéis</a>
+      <a href="#tabela">Tabela</a>
+      <a href="#notas">Notas</a>
+    </nav>
+    <button class="theme-btn" id="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
+  </header>
+
+  <section class="hero" id="topo">
+    <div>
+      <h1>Brasil × Vietnã, 1990–2023</h1>
+      <p class="lede">Desenvolvimento e inserção internacional após o fim da Guerra Fria, em 28 indicadores. Em 1990 o Brasil tinha renda per capita <b id="ratio90">—</b> vezes a vietnamita; em 2023 a razão caiu para <b id="ratio23">—</b>.</p>
+    </div>
+    <div class="meta">
+      <span class="legend"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span>
+      <span>Fontes: Banco Mundial (WDI) · OEC / Harvard Growth Lab · PNUD · BCB · SBV</span>
+    </div>
+  </section>
+
+  <section class="tiles" id="resumo" aria-label="Resumo 2023"></section>
+
+  <section class="card" id="explorar">
+    <h2>Explorar indicador</h2>
+    <div class="controls">
+      <label class="grow">Indicador <select id="sel-ind" aria-label="Indicador"></select></label>
+      <label>Período <span class="range"><input type="number" id="ano-ini" min="1990" max="2023" step="1" value="1990" aria-label="Ano inicial"> <span>–</span> <input type="number" id="ano-fim" min="1990" max="2023" step="1" value="2023" aria-label="Ano final"></span></label>
+      <label>Escala <select id="sel-escala" aria-label="Escala"><option value="lin">Linear</option><option value="log">Logarítmica</option></select></label>
+    </div>
+    <div class="meta"><span>Unidade: <b id="m-unid">—</b></span><span>Fonte: <b id="m-fonte">—</b></span><span>Código: <b id="m-cod">—</b></span><span id="m-nota"></span></div>
+    <div class="chart" id="chart-main"></div>
+  </section>
+
+  <section class="card" id="macro">
+    <h2>Síntese macroeconômica: crescimento, juros, investimento e inflação</h2>
+    <p class="note">Quatro variáveis em % num só eixo, por país. O período padrão começa em 1996, quando as quatro séries existem para ambos e a inflação brasileira já está em patamar comparável; amplie para 1990 para ver a hiperinflação (a escala passa a logarítmica automaticamente).</p>
+    <div class="controls">
+      <div class="chips" id="macro-chips" aria-label="Séries exibidas">
+        <label class="chip"><input type="checkbox" id="chk-pib" checked><span class="swc" style="background:var(--s1)"></span>Crescimento do PIB</label>
+        <label class="chip"><input type="checkbox" id="chk-juros" checked><span class="swc" style="background:var(--s2)"></span>Taxa básica de juros</label>
+        <label class="chip"><input type="checkbox" id="chk-fbcf" checked><span class="swc" style="background:var(--s3)"></span>FBCF / PIB</label>
+        <label class="chip"><input type="checkbox" id="chk-infl" checked><span class="swc" style="background:var(--s4)"></span>Inflação (IPC)</label>
+      </div>
+      <label>Período <span class="range"><input type="number" id="macro-ini" min="1990" max="2023" step="1" value="1996" aria-label="Ano inicial do painel macro"> <span>–</span> <input type="number" id="macro-fim" min="1990" max="2023" step="1" value="2023" aria-label="Ano final do painel macro"></span></label>
+    </div>
+    <div class="facets">
+      <div class="facet"><h3 class="br">Brasil</h3><div class="chart" id="macro-br"></div></div>
+      <div class="facet"><h3 class="vn">Vietnã</h3><div class="chart" id="macro-vn"></div></div>
+    </div>
+    <p class="note">Fontes: crescimento do PIB, FBCF e inflação — Banco Mundial (WDI). Taxa básica: Brasil, Selic média anual (BCB, série SGS 4189); Vietnã, taxa de refinanciamento do State Bank of Vietnam, média anual ponderada por dias a partir das decisões QĐ-NHNN (1998–99 aproximação; 2000–07 do registro público do SBV). Inflação do Vietnã indisponível antes de 1996.</p>
+  </section>
+
+  <section id="paineis">
+    <h2 class="section-h">Painéis por eixo analítico</h2>
+    <div class="grid2" id="panels"></div>
+  </section>
+
+  <section class="card" id="tabela">
+    <h2>Tabela comparativa — anos selecionados</h2>
+    <div class="controls"><label class="grow">Indicador <select id="sel-tab" aria-label="Indicador da tabela"></select></label></div>
+    <div class="tablewrap">
+      <table class="cmp">
+        <thead><tr><th>País</th><th>1990</th><th>1995</th><th>2000</th><th>2005</th><th>2010</th><th>2015</th><th>2018</th><th>2020</th><th>2022</th><th>2023</th></tr></thead>
+        <tbody id="tab-body"></tbody>
+      </table>
+    </div>
+    <p class="note">Dados completos: <a href="data/tcc_dados_long.csv" download>formato longo</a> (1.650 observações) · <a href="data/tcc_dados_wide.csv" download>formato largo</a> · <a href="data/tcc_metadados.csv" download>metadados e fontes</a>.</p>
+  </section>
+
+  <details class="foot" id="notas">
+    <summary>Notas metodológicas e lacunas de dados</summary>
+    <ul>
+      <li>ECI (score e ranking) começa em 1995 — série HS96 do OEC não cobre 1990–1994.</li>
+      <li>Manufaturados nas exportações do Vietnã: indisponível antes de 1997. Manufatura / PIB do Vietnã: indisponível antes de 2005.</li>
+      <li>Termos de troca: índice 2015 = 100, série do WDI começa em 2005.</li>
+      <li>Taxa de câmbio real efetiva: o WDI não publica para o Vietnã; apenas Brasil (2010 = 100).</li>
+      <li>P&amp;D / PIB do Vietnã: observações bienais da UNESCO.</li>
+      <li>Gini: anos de pesquisa domiciliar. Brasil 2020 (48,9) reflete o Auxílio Emergencial. Vietnã usa a VHLSS, bienal.</li>
+      <li>Emprego na indústria: estimativa modelada da OIT; inclui construção e mineração.</li>
+      <li>FBCF / PIB do Vietnã: indisponível antes de 1995. Inflação IPC do Vietnã: indisponível antes de 1996; o deflator do PIB cobre 1990–1995.</li>
+      <li>Juros de empréstimo (FMI/IFS): taxa média bancária ao tomador final, não a taxa de política monetária. Brasil a partir de 1997.</li>
+      <li>Taxa básica de juros: Brasil = média anual da Selic acumulada no mês anualizada (BCB, SGS 4189); Vietnã = taxa de refinanciamento do SBV, média anual ponderada por dias a partir das decisões QĐ-NHNN. Para o Vietnã, 1998–99 são aproximações a partir do teto em %/mês; 2000–07 e 2017–20 seguem o registro público do SBV sem confirmação documental nesta coleta; os demais anos têm decisões confirmadas (1316/2008, 2210/2011, 1289/2012, 496/2014, 1728/2020, 1606 e 1809/2022, 1123/2023).</li>
+      <li>Exportações: o Vietnã esteve à frente do Brasil em 2016–2017 e 2019–2022; o Brasil retomou a liderança em 2018 e 2023.</li>
+    </ul>
+  </details>
+
+  <footer class="site">
+    <span>Renan Sevilha Marangoni · FECAP · Relações Internacionais · 2026</span>
+    <span>Dados: Banco Mundial (CC BY 4.0), OEC, Harvard Growth Lab, PNUD, Banco Central do Brasil, State Bank of Vietnam</span>
+  </footer>
+</div>
+
+<script src="vendor/d3.v7.9.0.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+indicador,grupo,rotulo,unidade,fonte,codigo,nota
+pib_pc_nominal,Renda,PIB per capita nominal,US$ correntes,Banco Mundial – WDI,NY.GDP.PCAP.CD,
+pib_pc_ppp,Renda,PIB per capita PPP,Int$ correntes,Banco Mundial – WDI,NY.GDP.PCAP.PP.CD,
+pib_total_nominal,Renda,PIB total nominal,US$ bilhões,Banco Mundial – WDI,NY.GDP.MKTP.CD,
+exportacoes,Comércio,Exportações de bens e serviços,US$ bilhões,Banco Mundial – WDI,NE.EXP.GNFS.CD,Vietnã supera Brasil em 2019
+comercio_pct_pib,Comércio,Comércio (exp+imp) / PIB,% do PIB,Banco Mundial – WDI,NE.TRD.GNFS.ZS,Grau de abertura
+manuf_pct_expo,Estrutura,Manufaturados / exportações de bens,%,Banco Mundial – WDI,TX.VAL.MANF.ZS.UN,VN indisponível antes de 1997
+alta_tec_pct_manuf,Estrutura,Alta tecnologia / exportações manuf.,%,Banco Mundial – WDI,TX.VAL.TECH.MF.ZS,Série inicia em 2007 (BR) / 2008 (VN)
+industria_pct_pib,Estrutura,Indústria (inc. construção) / PIB,% do PIB,Banco Mundial – WDI,NV.IND.TOTL.ZS,
+manufatura_pct_pib,Estrutura,Manufatura / PIB,% do PIB,Banco Mundial – WDI,NV.IND.MANF.ZS,VN indisponível antes de 2005
+emprego_industria,Estrutura,Emprego na indústria,% do emprego total,Banco Mundial – WDI (ILO),SL.IND.EMPL.ZS,Estimativa modelada OIT
+eci_score,Complexidade,ECI – score,z-score,OEC / Harvard Growth Lab,ECI HS96,Série inicia em 1995
+eci_ranking,Complexidade,ECI – ranking global,posição (1 = maior),OEC / Harvard Growth Lab,ECI HS96,Série inicia em 1995
+pd_pct_pib,Complexidade,Gasto em P&D / PIB,% do PIB,Banco Mundial – WDI (UNESCO),GB.XPD.RSDV.GD.ZS,VN: observações bienais
+ied_pct_pib,Inserção,IED líquido / PIB,% do PIB,Banco Mundial – WDI,BX.KLT.DINV.WD.GD.ZS,
+ied_usd,Inserção,IED líquido (fluxo),US$ bilhões,Banco Mundial – WDI,BX.KLT.DINV.CD.WD,
+termos_de_troca,Inserção,Termos de troca (índice),2015 = 100,Banco Mundial – WDI,TT.PRI.MRCH.XD.WD,Série inicia em 2005
+cambio_real_efetivo,Vulnerabilidade,Taxa de câmbio real efetiva,2010 = 100,Banco Mundial – WDI (FMI),PX.REX.REER,Indisponível para VN no WDI
+reservas_usd,Vulnerabilidade,Reservas internacionais,US$ bilhões,Banco Mundial – WDI,FI.RES.TOTL.CD,VN inicia em 1995
+divida_externa_pct_rnb,Vulnerabilidade,Dívida externa / RNB,% da RNB,Banco Mundial – WDI (IDS),DT.DOD.DECT.GN.ZS,
+pib_crescimento,Macro,Crescimento real do PIB,% a.a.,Banco Mundial – WDI,NY.GDP.MKTP.KD.ZG,
+taxa_basica,Macro,Taxa básica de juros (Selic / refinanciamento SBV),% a.a.,BCB – SGS 4189 (BR); SBV – decisões QĐ-NHNN (VN),SGS 4189 / QĐ-NHNN,"BR: média anual da Selic mensal anualizada (1990–94 em hiperinflação). VN: taxa de refinanciamento, média anual ponderada por dias; 1998–99 aproximação (teto %/mês); 2000–07 e 2017–20 do registro público do SBV; demais anos com decisões confirmadas"
+fbcf_pct_pib,Macro,Formação bruta de capital fixo / PIB,% do PIB,Banco Mundial – WDI,NE.GDI.FTOT.ZS,VN indisponível antes de 1995
+inflacao_ipc,Macro,"Inflação (IPC, variação anual)",% a.a.,Banco Mundial – WDI (FMI),FP.CPI.TOTL.ZG,VN indisponível antes de 1996; BR 1990–1994 em hiperinflação
+inflacao_deflator,Macro,Inflação (deflator do PIB),% a.a.,Banco Mundial – WDI,NY.GDP.DEFL.KD.ZG,"Cobre 1990–1995 do VN, que o IPC não cobre"
+juros_emprestimo,Macro,Taxa de juros de empréstimo bancário,% a.a.,Banco Mundial – WDI (FMI IFS),FR.INR.LEND,"Taxa média ao tomador final, não a taxa básica (Selic / refinanciamento SBV). BR inicia em 1997"
+juros_real,Macro,Taxa de juros real,% a.a.,Banco Mundial – WDI,FR.INR.RINR,Juros de empréstimo deflacionados pelo deflator do PIB
+idh,Social,IDH,0–1,PNUD – RDH 2025,HDI,
+gini,Social,Coeficiente de Gini,0–100,Banco Mundial – PIP,SI.POV.GINI,Anos de pesquisa domiciliar; BR 2020 = Auxílio Emergencial
