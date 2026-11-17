@@ -57,8 +57,10 @@
     const ticksY = useLog ? (() => { const [lo, hi] = y.domain(); const t = []; for (let e = Math.floor(Math.log10(lo)); e <= Math.ceil(Math.log10(hi)); e++) { const v = 10 ** e; if (v >= lo && v <= hi) t.push(v); } return t.length >= 2 ? t : y.ticks(3); })() : y.ticks(5);
     const fmtTick = useLog ? (v => fmtN(v, 0)) : (v => fmtN(v, decFor(opts.ind) > 1 ? 2 : decFor(opts.ind)));
     const tmp = svg.append('g').attr('class', 'axis'); let maxW = 0;
-    ticksY.forEach(t => { const tx = tmp.append('text').text(fmtTick(t)); maxW = Math.max(maxW, tx.node().getComputedTextLength()); tx.remove(); }); tmp.remove();
-    const m = { top: 12, right: 16, bottom: 28, left: Math.ceil(maxW) + 12 };
+    ticksY.forEach(t => { const tx = tmp.append('text').text(fmtTick(t)); maxW = Math.max(maxW, tx.node().getComputedTextLength()); tx.remove(); });
+    // espaço à direita para o rótulo do último ponto não cair em cima da linha
+    let lblW = 0; ['BRA', 'VNM'].forEach(k => { if (!pts[k].length) return; const tx = tmp.append('text').attr('class', 'endlbl').text(fmtInd(opts.ind, pts[k][pts[k].length - 1].valor)); lblW = Math.max(lblW, tx.node().getComputedTextLength()); tx.remove(); }); tmp.remove();
+    const m = { top: 12, right: Math.max(16, Math.ceil(lblW) + 10), bottom: 28, left: Math.ceil(maxW) + 12 };
     const iw = W - m.left - m.right, ih = H - m.top - m.bottom;
     x.range([0, iw]); y.range([ih, 0]);
     const g = svg.append('g').attr('transform', `translate(${m.left},${m.top})`);
