@@ -316,6 +316,57 @@ table.cmp tr.br td:first-child { color: var(--br); font-weight: 600; }
 table.cmp tr.vn td:first-child { color: var(--vn); font-weight: 600; }
 .downloads { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--fg-2); }
 
+/* 05 política monetária e fiscal */
+.jstats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 680px) { .jstats { grid-template-columns: 1fr; } }
+.jstat { border: 1px solid var(--line); border-left: 4px solid var(--br); border-radius: 4px 12px 12px 4px; padding: 14px 16px; display: grid; gap: 3px; min-width: 0; }
+.jstat.vn { border-left-color: var(--vn); }
+.jstat .who { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--fg-3); }
+.jstat .n { font-family: var(--font-h); font-size: 24px; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; }
+.jstat .d { font-size: 13px; color: var(--fg-2); font-variant-numeric: tabular-nums; }
+.note.lead { font-size: 14.5px; max-width: 80ch; }
+details.dec { border-radius: 12px; padding: 12px 16px; }
+details.dec summary span { color: var(--fg-3); font-weight: 500; }
+details.dec[open] summary { margin-bottom: 14px; }
+details.dec .controls { margin-bottom: 12px; align-items: center; }
+details.dec .downloads { margin-top: 12px; }
+.dec-scroll { max-height: 420px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+table.dec th, table.dec td { text-align: left; padding-inline: 12px; }
+table.dec th:nth-child(4), table.dec td:nth-child(4), table.dec th:nth-child(5), table.dec td:nth-child(5) { text-align: right; }
+table.dec thead th { position: sticky; top: 0; background: var(--surface); box-shadow: inset 0 -1px 0 var(--line); }
+table.dec td:last-child { white-space: normal; min-width: 200px; color: var(--fg-2); }
+.legend-keys { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: var(--fg-2); }
+.legend-keys i { display: inline-block; width: 22px; height: 0; border-top: 2.4px solid var(--fg-2); vertical-align: middle; margin-right: 6px; }
+.legend-keys i.dash { border-top: 2px dashed var(--fg-2); }
+.legend-keys i.area { height: 10px; border: 0; background: var(--fg-3); opacity: .35; border-radius: 2px; }
+#fiscal-resumo .tile { box-shadow: none; }
+.quem { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .quem { grid-template-columns: 1fr; } }
+.quem .card { border-top: 4px solid var(--br); gap: 16px; }
+.quem .card.vn { border-top-color: var(--vn); }
+.quem .card h4 { font-family: var(--font-h); font-size: 19px; letter-spacing: -.01em; }
+.quem dl { display: grid; gap: 12px; margin: 0; }
+.quem dt { font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.quem dd { margin: 3px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--fg-2); }
+.marcos { list-style: none; margin: 0; padding: 14px 0 0; border-top: 1px solid var(--line); display: grid; gap: 7px; font-size: 13.5px; color: var(--fg-2); }
+.marcos li { display: grid; grid-template-columns: 42px 1fr; gap: 8px; }
+.marcos b { font-family: var(--font-h); color: var(--fg); font-variant-numeric: tabular-nums; }
+
+/* 06 alas: causal e resultados */
+.alas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 820px) { .alas { grid-template-columns: 1fr; } }
+.ala { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent-bright); border-radius: var(--radius); padding: 20px 22px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.ala.resultado { border-top-color: var(--fg); }
+.ala h3 { font-size: 20px; letter-spacing: -.01em; }
+.ala h3 small { font-family: var(--font); font-size: 13px; font-weight: 500; color: var(--fg-3); margin-left: 10px; letter-spacing: 0; }
+.ala > p { font-size: 14px; color: var(--fg-2); }
+.ala-g { display: grid; gap: 7px; }
+.ala-g .g { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+button.chip { font: inherit; font-size: 12.5px; text-align: left; }
+button.chip:hover { border-color: var(--fg-3); }
+.sub-h small { display: block; font-family: var(--font); font-size: 14px; font-weight: 400; color: var(--fg-2); letter-spacing: 0; margin-top: 4px; }
+@media (max-width: 520px) { .ala { padding: 18px 16px; } }
+
 /* notas */
 details.foot { font-size: 14px; color: var(--fg-2); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; }
 details.foot summary { cursor: pointer; color: var(--fg); font-weight: 600; }

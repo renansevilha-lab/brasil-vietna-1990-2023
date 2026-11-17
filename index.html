@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brasil × Vietnã 1990–2023</title>
-<meta name="description" content="TCC de Relações Internacionais (FECAP): desenvolvimento e inserção internacional de Brasil e Vietnã após a Guerra Fria. Pesquisa, metodologia e base de dados interativa com 28 indicadores, 1990–2023.">
+<meta name="description" content="TCC de Relações Internacionais (FECAP): desenvolvimento e inserção internacional de Brasil e Vietnã após a Guerra Fria. Pesquisa, metodologia e base de dados interativa com 32 indicadores, 1990–2023.">
 <meta property="og:title" content="Brasil × Vietnã 1990–2023">
-<meta property="og:description" content="Desenvolvimento e inserção internacional após a Guerra Fria: uma análise histórico-comparada, com 28 indicadores.">
+<meta property="og:description" content="Desenvolvimento e inserção internacional após a Guerra Fria: uma análise histórico-comparada, com 32 indicadores.">
 <meta property="og:image" content="img/ho-chi-minh.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23185FA5'/%3E%3Cpath d='M6 22 L13 14 L18 18 L26 8' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +27,7 @@
       <a href="#recorte">Por que 1990–2023</a>
       <a href="#metodologia">Metodologia</a>
       <a href="#trajetorias">Trajetórias</a>
+      <a href="#politica">Juros e fiscal</a>
       <a href="#dados">Dados</a>
       <a href="#notas">Notas</a>
     </nav>
@@ -50,7 +51,7 @@
     <dl class="hero-stats">
       <div><dt><b data-ratio="90">—</b>×</dt><dd>era a renda per capita do Brasil em relação à do Vietnã em 1990</dd></div>
       <div><dt><b data-ratio="23">—</b>×</dt><dd>é a mesma razão em 2023</dd></div>
-      <div><dt>28</dt><dd>indicadores anuais, 1.650 observações, para explorar nesta página</dd></div>
+      <div><dt>32</dt><dd>indicadores anuais, 1.845 observações, para explorar nesta página</dd></div>
     </dl>
     <p class="hero-cta"><a class="btn primary" href="#dados">Explorar os dados</a><a class="btn ghost" href="#pesquisa">Entender a pesquisa</a></p>
   </div>
@@ -173,7 +174,8 @@
       <li><b>Banco Mundial (WDI)</b><span>Renda, comércio, estrutura produtiva, investimento estrangeiro e indicadores macroeconômicos.</span></li>
       <li><b>OEC e Harvard Growth Lab</b><span>Índice de Complexidade Econômica (ECI), score e ranking, série HS96.</span></li>
       <li><b>PNUD</b><span>Índice de Desenvolvimento Humano (IDH).</span></li>
-      <li><b>Banco Central do Brasil</b><span>Taxa Selic, série SGS 4189.</span></li>
+      <li><b>Banco Central do Brasil</b><span>Taxa Selic, série SGS 4189, e histórico das decisões do Copom.</span></li>
+      <li><b>FMI (World Economic Outlook)</b><span>Resultado nominal, resultado primário e dívida bruta do governo geral.</span></li>
       <li><b>State Bank of Vietnam</b><span>Taxa de refinanciamento, a partir das decisões QĐ-NHNN.</span></li>
     </ul>
   </div>
@@ -217,16 +219,107 @@
   </div>
 </section>
 
-<!-- ───────── 05 Dados ───────── -->
-<section class="band" id="dados">
+<!-- ───────── 05 Política monetária e fiscal ───────── -->
+<section class="band" id="politica">
   <div class="wrap">
     <header class="sec-head">
-      <p class="eyebrow"><span class="num">05</span>Os dados</p>
-      <h2>A divergência em 28 indicadores</h2>
-      <p class="intro">Explore cada série, compare períodos e baixe a base completa. <span class="legend inline"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span></p>
+      <p class="eyebrow"><span class="num">05</span>Política monetária e fiscal</p>
+      <h2>Juros e contas públicas, lado a lado</h2>
+      <p class="intro">Os dois temas centrais do debate econômico brasileiro, comparados com as escolhas do Vietnã: as decisões de juros de cada banco central e o resultado das contas públicas, com e sem os juros da dívida. <span class="legend inline"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span></p>
+      <p class="draft">Rascunho: seção nova, dados e textos em revisão</p>
     </header>
 
     <div class="stack">
+      <section class="card" id="juros">
+        <h3 class="card-h">Decisões de juros: Copom × State Bank of Vietnam</h3>
+        <div class="controls">
+          <label>Período <span class="range"><input type="number" id="jur-ini" min="1999" max="2023" step="1" value="1999" aria-label="Ano inicial das decisões de juros"> <span>–</span> <input type="number" id="jur-fim" min="1999" max="2023" step="1" value="2023" aria-label="Ano final das decisões de juros"></span></label>
+        </div>
+        <div class="chart" id="chart-juros"></div>
+        <div class="jstats" id="juros-stats"></div>
+        <p class="note">Cada degrau é uma decisão; os pontos marcam as mudanças de taxa. Brasil: meta da taxa Selic definida pelo Copom, a partir de março de 1999. Vietnã: taxa de refinanciamento do State Bank of Vietnam (SBV), com decisões registradas a partir de novembro de 1999. O SBV não tem calendário fixo de reuniões, então só há registro quando a taxa muda, e a taxa de refinanciamento é um entre vários instrumentos: o banco também usa tetos de juros de depósito e metas de crescimento do crédito.</p>
+        <details class="foot dec">
+          <summary>Ver a lista de decisões <span id="dec-count"></span></summary>
+          <div class="controls">
+            <label>País <select id="dec-pais" aria-label="País das decisões"><option value="todos">Brasil e Vietnã</option><option value="BRA">Brasil</option><option value="VNM">Vietnã</option></select></label>
+            <label class="chip"><input type="checkbox" id="dec-mud">Só mudanças de taxa</label>
+          </div>
+          <div class="tablewrap dec-scroll">
+            <table class="cmp dec">
+              <thead><tr><th>País</th><th>Decisão</th><th>Vigência</th><th>Taxa</th><th>Variação (p.p.)</th><th>Documento</th></tr></thead>
+              <tbody id="dec-body"></tbody>
+            </table>
+          </div>
+          <div class="downloads"><a class="btn small" href="data/tcc_decisoes_juros.csv" download>Baixar as decisões (CSV)</a></div>
+        </details>
+      </section>
+
+      <section class="card" id="fiscal">
+        <h3 class="card-h">Resultado fiscal: nominal × primário</h3>
+        <p class="note lead">O resultado nominal é o saldo de todas as receitas e despesas do governo, juros incluídos. O primário exclui os juros da dívida. A distância entre as duas linhas é o custo do serviço da dívida.</p>
+        <div class="legend-keys" aria-hidden="true">
+          <span><i></i>Resultado nominal (com juros)</span>
+          <span><i class="dash"></i>Resultado primário (sem juros)</span>
+          <span><i class="area"></i>Juros líquidos da dívida</span>
+        </div>
+        <div class="facets">
+          <div class="facet"><h4 class="br">Brasil</h4><div class="chart" id="fiscal-br"></div></div>
+          <div class="facet"><h4 class="vn">Vietnã</h4><div class="chart" id="fiscal-vn"></div></div>
+        </div>
+        <div class="tiles" id="fiscal-resumo" aria-label="Médias do resultado fiscal"></div>
+        <p class="note">Em % do PIB; valores negativos são déficit. Fonte: FMI, World Economic Outlook (abril de 2025), conceito de governo geral, o mesmo para os dois países. Brasil a partir de 2001; Vietnã a partir de 1998. Os números do Brasil diferem dos divulgados pelo Banco Central para o setor público consolidado.</p>
+      </section>
+
+      <section id="quem-decide">
+        <h3 class="sub-h">Quem decide o quê</h3>
+        <div class="quem">
+          <article class="card br">
+            <h4>Brasil</h4>
+            <dl>
+              <div><dt>Política monetária</dt><dd>O Copom, comitê do Banco Central criado em 1996, define a meta da taxa Selic em oito reuniões por ano. Desde 1999 a decisão segue o regime de metas para a inflação, e desde 2021 o Banco Central tem autonomia formal.</dd></div>
+              <div><dt>Política fiscal</dt><dd>Não é atribuição do Copom nem do Banco Central. É definida pelo Executivo e pelo Congresso, dentro das regras fiscais em vigor.</dd></div>
+            </dl>
+            <ul class="marcos" id="marcos-br">
+              <li><b>1999</b><span>Regime de metas para a inflação (Decreto 3.088)</span></li>
+              <li><b>2000</b><span>Lei de Responsabilidade Fiscal (Lei Complementar 101)</span></li>
+              <li><b>2016</b><span>Teto de gastos (Emenda Constitucional 95)</span></li>
+              <li><b>2021</b><span>Autonomia do Banco Central (Lei Complementar 179)</span></li>
+              <li><b>2023</b><span>Novo arcabouço fiscal (Lei Complementar 200)</span></li>
+            </ul>
+          </article>
+          <article class="card vn">
+            <h4>Vietnã</h4>
+            <dl>
+              <div><dt>Política monetária</dt><dd>O State Bank of Vietnam é um órgão de nível ministerial do governo, sem independência formal. O presidente do banco fixa as taxas por decisão (QĐ-NHNN), sem calendário de reuniões, seguindo a meta anual de inflação aprovada pela Assembleia Nacional.</dd></div>
+              <div><dt>Política fiscal</dt><dd>A Assembleia Nacional aprova o orçamento e os planos financeiros de cinco anos, com limites para o déficit e para a dívida pública.</dd></div>
+            </dl>
+            <ul class="marcos" id="marcos-vn">
+              <li><b>2002</b><span>Lei do Orçamento do Estado (01/2002/QH11)</span></li>
+              <li><b>2010</b><span>Lei do State Bank of Vietnam (46/2010/QH12)</span></li>
+              <li><b>2011</b><span>Resolução 11/NQ-CP: controle da inflação e estabilização</span></li>
+              <li><b>2015</b><span>Nova Lei do Orçamento do Estado (83/2015/QH13)</span></li>
+              <li><b>2016</b><span>Resolução 25/2016/QH14: dívida pública de até 65% do PIB</span></li>
+              <li><b>2021</b><span>Resolução 23/2021/QH15: teto da dívida pública em 60% do PIB</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 06 Dados ───────── -->
+<section class="band alt" id="dados">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">06</span>Os dados</p>
+      <h2>A divergência em 32 indicadores, em duas alas</h2>
+      <p class="intro">Os indicadores estão separados em causais (os instrumentos e as condições da política econômica) e de resultados (o que se observa depois). Explore cada série, compare períodos e baixe a base completa. <span class="legend inline"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span></p>
+    </header>
+
+    <div class="stack">
+      <div class="alas" id="alas" aria-label="Indicadores por ala"></div>
+
       <section class="card" id="explorar">
         <h3 class="card-h">Explorar indicador</h3>
         <div class="controls">
@@ -239,7 +332,7 @@
       </section>
 
       <section class="card" id="macro">
-        <h3 class="card-h">Síntese macroeconômica: crescimento, juros, investimento e inflação</h3>
+        <h3 class="card-h">Causas × resultados: juros e investimento frente a crescimento e inflação</h3>
         <p class="note">Quatro variáveis em % num só eixo, por país. O período padrão começa em 1996, quando as quatro séries existem para ambos e a inflação brasileira já está em patamar comparável; amplie para 1990 para ver a hiperinflação (a escala passa a logarítmica automaticamente).</p>
         <div class="controls">
           <div class="chips" id="macro-chips" aria-label="Séries exibidas">
@@ -254,12 +347,14 @@
           <div class="facet"><h4 class="br">Brasil</h4><div class="chart" id="macro-br"></div></div>
           <div class="facet"><h4 class="vn">Vietnã</h4><div class="chart" id="macro-vn"></div></div>
         </div>
-        <p class="note">Fontes: crescimento do PIB, FBCF e inflação — Banco Mundial (WDI). Taxa básica: Brasil, Selic média anual (BCB, série SGS 4189); Vietnã, taxa de refinanciamento do State Bank of Vietnam, média anual ponderada por dias a partir das decisões QĐ-NHNN (1998–99 aproximação; 2000–07 do registro público do SBV). Inflação do Vietnã indisponível antes de 1996.</p>
+        <p class="note">Fontes: crescimento do PIB, FBCF e inflação — Banco Mundial (WDI). Taxa básica: Brasil, Selic média anual (BCB, série SGS 4189); Vietnã, taxa de refinanciamento do State Bank of Vietnam, média anual ponderada por dias a partir das decisões QĐ-NHNN (1998–99 aproximação). Inflação do Vietnã indisponível antes de 1996.</p>
       </section>
 
       <section id="paineis">
-        <h3 class="sub-h">Painéis por eixo analítico</h3>
-        <div class="grid2" id="panels"></div>
+        <h3 class="sub-h">Ala causal: instrumentos e condições<small>Política monetária, política fiscal, investimento e inserção externa.</small></h3>
+        <div class="grid2 panels" id="panels-causal"></div>
+        <h3 class="sub-h" id="paineis-resultado">Ala de resultados<small>Renda, comércio, estrutura produtiva, complexidade, estabilidade e indicadores sociais.</small></h3>
+        <div class="grid2 panels" id="panels-resultado"></div>
       </section>
 
       <section class="card" id="tabela">
@@ -273,9 +368,10 @@
         </div>
         <div class="downloads">
           <span>Baixar a base completa:</span>
-          <a class="btn small" href="data/tcc_dados_long.csv" download>Formato longo (1.650 observações)</a>
+          <a class="btn small" href="data/tcc_dados_long.csv" download>Formato longo (1.845 observações)</a>
           <a class="btn small" href="data/tcc_dados_wide.csv" download>Formato largo</a>
           <a class="btn small" href="data/tcc_metadados.csv" download>Metadados e fontes</a>
+          <a class="btn small" href="data/tcc_decisoes_juros.csv" download>Decisões de juros</a>
         </div>
       </section>
     </div>
@@ -283,14 +379,14 @@
 </section>
 
 <!-- ───────── Notas ───────── -->
-<section class="band alt" id="notas">
+<section class="band" id="notas">
   <div class="wrap">
     <header class="sec-head">
-      <p class="eyebrow"><span class="num">06</span>Notas</p>
+      <p class="eyebrow"><span class="num">07</span>Notas</p>
       <h2>Notas metodológicas e lacunas de dados</h2>
     </header>
     <details class="foot">
-      <summary>Ver as 11 notas sobre séries, fontes e lacunas</summary>
+      <summary>Ver as 14 notas sobre séries, fontes e lacunas</summary>
       <ul>
         <li>ECI (score e ranking) começa em 1995 — série HS96 do OEC não cobre 1990–1994.</li>
         <li>Manufaturados nas exportações do Vietnã: indisponível antes de 1997. Manufatura / PIB do Vietnã: indisponível antes de 2005.</li>
@@ -301,7 +397,10 @@
         <li>Emprego na indústria: estimativa modelada da OIT; inclui construção e mineração.</li>
         <li>FBCF / PIB do Vietnã: indisponível antes de 1995. Inflação IPC do Vietnã: indisponível antes de 1996; o deflator do PIB cobre 1990–1995.</li>
         <li>Juros de empréstimo (FMI/IFS): taxa média bancária ao tomador final, não a taxa de política monetária. Brasil a partir de 1997.</li>
-        <li>Taxa básica de juros: Brasil = média anual da Selic acumulada no mês anualizada (BCB, SGS 4189); Vietnã = taxa de refinanciamento do SBV, média anual ponderada por dias a partir das decisões QĐ-NHNN. Para o Vietnã, 1998–99 são aproximações a partir do teto em %/mês; 2000–07 e 2017–20 seguem o registro público do SBV sem confirmação documental nesta coleta; os demais anos têm decisões confirmadas (1316/2008, 2210/2011, 1289/2012, 496/2014, 1728/2020, 1606 e 1809/2022, 1123/2023).</li>
+        <li>Taxa básica de juros: Brasil = média anual da Selic acumulada no mês anualizada (BCB, SGS 4189); Vietnã = taxa de refinanciamento do SBV, média anual ponderada por dias a partir das decisões QĐ-NHNN. Para o Vietnã, 1998–99 são aproximações a partir do teto em %/mês; de 2000 em diante a média é calculada sobre a lista de decisões desta página. Em relação à versão anterior da base, três anos foram corrigidos para seguir as decisões: 2001 (de 4,80 para 5,25), 2003 (de 4,88 para 5,62) e 2011 (de 13,07 para 13,21).</li>
+        <li>Séries fiscais (resultado nominal, resultado primário e dívida bruta): FMI, World Economic Outlook de abril de 2025, conceito de governo geral. Brasil a partir de 2001 (dívida: 2000); Vietnã a partir de 1998 (dívida: 2000). Os números do Brasil diferem dos divulgados pelo Banco Central para o setor público consolidado, que usa cobertura e metodologia próprias. Os juros líquidos da dívida são cálculo próprio: resultado primário menos resultado nominal.</li>
+        <li>Decisões de juros do Brasil: meta da taxa Selic, do histórico de taxas de juros do Banco Central, da 33ª reunião do Copom (março de 1999) a dezembro de 2023. Entre 1999 e 2003 há mudanças feitas entre reuniões pelo uso do viés.</li>
+        <li>Decisões de juros do Vietnã: taxa de refinanciamento do State Bank of Vietnam, compilada a partir das decisões QĐ-NHNN, de novembro de 1999 a junho de 2023, cada uma conferida no texto da decisão em bases jurídicas vietnamitas (cópias de terceiros, não o diário oficial). A lista só registra mudanças de taxa. Até 2001 as decisões fixam a taxa ao mês; a taxa anual é a mensal vezes doze. Lacuna: a Decisão 545/2003 (6,5% a partir de 1º de junho de 2003) foi substituída no dia seguinte pela 552/2003, cujo texto não foi localizado; a taxa de junho e julho de 2003 fica, portanto, não confirmada. A taxa de refinanciamento é um entre vários instrumentos do SBV, que também usa tetos de juros de depósito e metas de crescimento do crédito.</li>
         <li>Exportações: o Vietnã esteve à frente do Brasil em 2016–2017 e 2019–2022; o Brasil retomou a liderança em 2018 e 2023.</li>
       </ul>
     </details>
@@ -318,7 +417,7 @@
     </div>
     <div>
       <p class="f-h">Dados</p>
-      <p>Banco Mundial (CC BY 4.0), OEC, Harvard Growth Lab, PNUD, Banco Central do Brasil, State Bank of Vietnam.</p>
+      <p>Banco Mundial (CC BY 4.0), FMI, OEC, Harvard Growth Lab, PNUD, Banco Central do Brasil, State Bank of Vietnam.</p>
     </div>
     <div>
       <p class="f-h">Fotos</p>
