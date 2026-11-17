@@ -17,6 +17,8 @@ data/
   tcc_dados_wide.csv  uma linha por país-ano
   tcc_metadados.csv   ala (Causal ou Resultado), grupo, rótulo, unidade, fonte, código e nota por indicador
   tcc_decisoes_juros.csv  decisões de juros: meta Selic (Copom, 1999–2023) e taxa de refinanciamento do SBV (1999–2023)
+  tcc_tabela_anual.csv  tabela ano a ano: juros básicos, inflação, resultado nominal e primário e crescimento do PIB
+  fontes/              verificação das decisões do SBV e mapa das fontes de atas e justificativas
 _headers              cabeçalhos HTTP para Cloudflare Pages
 ```
 

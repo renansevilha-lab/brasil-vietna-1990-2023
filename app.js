@@ -506,6 +506,23 @@
     update();
   }
 
+  // ── tabela ano a ano: juros, inflação, resultado fiscal e crescimento
+  const ANUAL = [['taxa_basica', 1, false], ['inflacao_ipc', 1, false], ['resultado_nominal', 1, true], ['resultado_primario', 1, true], ['pib_crescimento', 1, false]];
+  const num = (v, dec, sinal) => (v == null || Number.isNaN(v)) ? '—' : sinal ? sg(v, dec) : (v < 0 ? '−' : '') + fmtN(Math.abs(v), dec);
+  function drawAnual() {
+    const tb = document.getElementById('anual-body'), tf = document.getElementById('anual-foot'); if (!tb) return;
+    tb.replaceChildren(); tf.replaceChildren();
+    const linha = (rot, get, cls) => {
+      const tr = document.createElement('tr'); if (cls) tr.className = cls;
+      const th = document.createElement('th'); th.scope = 'row'; th.textContent = rot; tr.appendChild(th);
+      ['BRA', 'VNM'].forEach((p, k) => ANUAL.forEach(([ind, dec, sinal], i) => { const td = document.createElement('td'); td.textContent = num(get(p, ind), dec, sinal); if (i === 0) td.className = k === 0 ? 'g br' : 'g vn'; tr.appendChild(td); }));
+      return tr;
+    };
+    for (let y = 1990; y <= 2023; y++) tb.appendChild(linha(String(y), (p, ind) => pick(p, ind, y)));
+    const media = (a, b) => (p, ind) => { const s = ROWS.filter(r => r.pais === p && r.indicador === ind && r.ano >= a && r.ano <= b); return s.length === b - a + 1 ? d3.mean(s, r => r.valor) : null; };
+    [[2001, 2010], [2011, 2023], [2001, 2023]].forEach(([a, b]) => tf.appendChild(linha(`Média ${a}–${String(b).slice(2)}`, media(a, b), 'avg')));
+  }
+
   function drawMacro() { macroFacet(document.getElementById('macro-br'), 'BRA'); macroFacet(document.getElementById('macro-vn'), 'VNM'); }
   function redrawAll() { if (!ROWS.length) return; drawTiles(); drawExplorer(); drawMacro(); drawPanels(); drawTable(); drawJuros(); drawFiscal(); }
 
@@ -534,7 +551,7 @@
   // ── boot
   Promise.all([d3.csv('data/tcc_dados_long.csv'), d3.csv('data/tcc_metadados.csv'), d3.csv('data/tcc_decisoes_juros.csv')]).then(([raw, meta, decs]) => {
     ROWS = toRows(raw); META = meta; DECS = toDecs(decs);
-    buildPanels(); wire(); drawHeader(); drawStartEnd(); drawAlas(); drawFiscalResumo(); redrawAll(); drawDecisoes(); spyNav();
+    buildPanels(); wire(); drawHeader(); drawStartEnd(); drawAlas(); drawFiscalResumo(); drawAnual(); redrawAll(); drawDecisoes(); spyNav();
     const h = readHash(); if (h) document.getElementById(h).scrollIntoView();
   }).catch(err => {
     console.error(err);
