@@ -13,12 +13,12 @@ app.js                lógica dos gráficos, blocos numéricos e menu
 img/                  fotos do Wikimedia Commons (créditos e licenças em img/creditos.json e no rodapé)
 vendor/d3.v7.9.0.min.js  d3 v7 (ISC), servido localmente
 data/
-  tcc_dados_long.csv  1.908 observações (pais, ano, indicador, valor)
+  tcc_dados_long.csv  1.910 observações (pais, ano, indicador, valor)
   tcc_dados_wide.csv  uma linha por país-ano
-  tcc_metadados.csv   ala (Causal ou Resultado), grupo, rótulo, unidade, fonte, código e nota por indicador
+  tcc_metadados.csv   ala (Causal ou Resultado), grupo, rótulo, unidade, fonte, código, nota, chave da referência e descrição por indicador
   tcc_decisoes_juros.csv  decisões de juros: meta Selic (Copom, 1999–2023) e taxa de refinanciamento do SBV (1999–2023)
   tcc_tabela_anual.csv  tabela ano a ano: juros básicos, inflação, resultado nominal e primário e crescimento do PIB
-  fontes/              verificação das decisões do SBV e mapa das fontes de atas e justificativas
+  fontes/              conferência da base contra as fontes, verificação das decisões do SBV, dos fatos citados e mapa das fontes de atas
 _headers              cabeçalhos HTTP para Cloudflare Pages
 ```
 
@@ -33,9 +33,17 @@ Sem etapa de build: qualquer servidor de arquivos estáticos serve o site.
 
 ## Atualizar os dados
 
-Substitua os CSVs em `data/` mantendo as colunas. O site lê `data/tcc_dados_long.csv` e `data/tcc_metadados.csv` ao abrir. Para acrescentar um indicador: adicione as linhas no CSV longo e uma linha no de metadados (o seletor e as listas das alas são montados a partir dos metadados). A coluna `ala` define o lado do indicador: `Causal` (instrumentos e condições de política) ou `Resultado`. Para mover um indicador de ala, troque esse valor.
+Substitua os CSVs em `data/` mantendo as colunas. O site lê `data/tcc_dados_long.csv` e `data/tcc_metadados.csv` ao abrir. Para acrescentar um indicador: adicione as linhas no CSV longo e uma linha no de metadados, com a chave da referência na coluna `ref` e a definição na coluna `descricao` (o seletor e as listas das alas são montados a partir dos metadados). A coluna `ala` define o lado do indicador: `Causal` (instrumentos e condições de política) ou `Resultado`. Para mover um indicador de ala, troque esse valor.
 
 As séries fiscais vêm do FMI (World Economic Outlook, abril de 2025): `GGXCNL_NGDP` (resultado nominal), `GGXONLB_NGDP` (resultado primário) e `GGXWDG_NGDP` (dívida bruta); os juros líquidos são a diferença entre o primário e o nominal. As decisões do Copom vêm do histórico de taxas de juros do Banco Central (`https://www.bcb.gov.br/api/servico/sitebcb/historicotaxasjuros`).
+
+## Padrão ABNT (títulos, fontes e referências)
+
+Gráficos, tabelas, quadros e figuras seguem a NBR 14724: título numerado em cima, fonte e nota embaixo. A numeração é automática: todo elemento com `data-il="Gráfico"` (ou `Tabela`, `Quadro`, `Figura`) recebe o número na ordem em que aparece na página, e a lista de ilustrações da seção Notas é montada a partir deles. O texto do título fica em `<span class="il-tt">`; a fonte e a nota, em um bloco `class="il-f"`.
+
+As referências (NBR 6023) ficam na lista `<ul class="refs" id="refs">` do `index.html`: cada item tem `id="ref-chave"` e `data-cite="Autor (ano)"`. As chamadas no texto são links `<a class="cit" href="#ref-chave">`. Nos gráficos gerados a partir da base, a fonte é montada pela coluna `ref` de `data/tcc_metadados.csv` (chaves separadas por `;`), e a nota, pela coluna `descricao` (o que o indicador mede) mais a coluna `nota`. Para acrescentar uma fonte: inclua o item na lista de referências, em ordem alfabética, e use a chave nos metadados ou no texto.
+
+A conferência dos valores da base contra as fontes está em `data/fontes/conferencia_da_base.md`.
 
 ## Atualizar os textos
 
@@ -43,7 +51,7 @@ Os textos das seções 01–04 vêm do projeto de TCC; as seções 05 (política
 
 ## Fontes
 
-Banco Mundial – World Development Indicators (CC BY 4.0) · Observatory of Economic Complexity / Harvard Growth Lab (ECI) · PNUD – Relatório de Desenvolvimento Humano · FMI – World Economic Outlook (resultado fiscal e dívida) · Banco Central do Brasil – SGS 4189 (Selic) e histórico das decisões do Copom · State Bank of Vietnam – decisões QĐ-NHNN (taxa de refinanciamento).
+Banco Mundial – World Development Indicators (CC BY 4.0) · Harvard Growth Lab – Growth Projections and Complexity Rankings, série HS92 (ECI; CC0 1.0) · PNUD – Relatório de Desenvolvimento Humano · FMI – World Economic Outlook (resultado fiscal e dívida) · Banco Central do Brasil – SGS 4189 (Selic) e histórico das decisões do Copom · State Bank of Vietnam – decisões QĐ-NHNN (taxa de refinanciamento).
 
 ## Licença
 

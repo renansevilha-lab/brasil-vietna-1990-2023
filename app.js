@@ -6,7 +6,7 @@
   const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   const C = () => ({ BRA: css('--br'), VNM: css('--vn') });
   const fmtN = (v, dec) => (v == null || Number.isNaN(v)) ? '—' : v.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec });
-  const DEC = { idh: 3, eci_score: 2, ied_pct_pib: 2, pd_pct_pib: 2, fbcf_pct_pib: 1, juros_emprestimo: 1, juros_real: 1, inflacao_ipc: 1, inflacao_deflator: 1, pib_crescimento: 1, taxa_basica: 2 };
+  const DEC = { idh: 3, eci_score: 3, ied_pct_pib: 2, pd_pct_pib: 2, fbcf_pct_pib: 1, juros_emprestimo: 1, juros_real: 1, inflacao_ipc: 1, inflacao_deflator: 1, pib_crescimento: 1, taxa_basica: 2 };
   const decFor = (ind) => DEC[ind] ?? (['pib_pc_nominal', 'pib_pc_ppp', 'eci_ranking', 'manuf_pct_expo'].includes(ind) ? 0 : 1);
   const ZERO = new Set(['eci_score', 'resultado_nominal', 'resultado_primario']);
   const sg = (v, dec = 1) => (v == null || Number.isNaN(v)) ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + fmtN(Math.abs(v), dec);
@@ -25,6 +25,10 @@
   applyThemeLabel();
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { applyThemeLabel(); redrawAll(); });
 
+  // ── "Como citar esta página": data de acesso do leitor, no formato da NBR 6023
+  const MES = ['jan.', 'fev.', 'mar.', 'abr.', 'maio', 'jun.', 'jul.', 'ago.', 'set.', 'out.', 'nov.', 'dez.'];
+  const hoje = document.getElementById('hoje'); if (hoje) { const d = new Date(); hoje.textContent = `${d.getDate()} ${MES[d.getMonth()]} ${d.getFullYear()}`; }
+
   // ── state
   let ROWS = [], META = [], DECS = [];
   const state = { ind: 'pib_pc_ppp', y0: 1990, y1: 2023, escala: 'lin', tab: 'pib_pc_ppp', m0: 1996, m1: 2023, j0: 1999, j1: 2023, decPais: 'todos', decMud: false };
@@ -36,6 +40,49 @@
   const pick = (p, ind, y) => { const r = ROWS.find(d => d.pais === p && d.indicador === ind && d.ano === y); return r ? r.valor : null; };
   const first = (p, ind) => ROWS.filter(d => d.pais === p && d.indicador === ind).sort((a, b) => a.ano - b.ano)[0] || null;
   const last = (p, ind) => ROWS.filter(d => d.pais === p && d.indicador === ind).sort((a, b) => b.ano - a.ano)[0] || null;
+
+  // ── padrão ABNT: título numerado em cima; legenda, fonte e nota embaixo
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  // a chamada autor-data vem da própria lista de referências da página (<li id="ref-…" data-cite="…">)
+  const citeA = (key) => { const li = document.getElementById('ref-' + key); return li ? `<a class="cit" href="#${li.id}">${esc(li.dataset.cite || key)}</a>` : esc(key); };
+  const joinE = (a) => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' e ' + a[a.length - 1];
+  const refsOf = (ind) => ((metaOf(ind) || {}).ref || '').split(';').map(s => s.trim()).filter(Boolean);
+  function fonteHTML(inds, extra) {
+    const keys = [], cods = []; let calc = false;
+    inds.forEach(ind => { const mt = metaOf(ind); if (!mt) return; refsOf(ind).forEach(k => { if (!keys.includes(k)) keys.push(k); }); if (/cálculo próprio/.test(mt.fonte)) calc = true; if (mt.codigo && !cods.includes(mt.codigo)) cods.push(mt.codigo); });
+    const cod = cods.length && cods.length <= 2 ? ` Indicador${cods.length > 1 ? 'es' : ''}: ${esc(cods.join('; '))}.` : '';
+    if (!keys.length) { const mt = metaOf(inds[0]) || {}; const t = mt.fonte || 'em revisão'; return `<b>Fonte:</b> ${esc(ponto(t.charAt(0).toLowerCase() + t.slice(1)))}`; }
+    return `<b>Fonte:</b> ${calc ? 'cálculo próprio' : 'elaboração própria'} com dados de ${joinE(keys.map(citeA))}.${cod}${extra ? ' ' + extra : ''}`;
+  }
+  const ponto = (s) => /[.!?]$/.test(s) ? s : s + '.';
+  const notaHTML = (ind, extra) => { const mt = metaOf(ind) || {}; const t = [mt.descricao, extra != null ? extra : mt.nota].filter(Boolean).map(ponto).join(' '); return t ? `<b>Nota:</b> ${esc(t)}` : ''; };
+  const anosDe = (inds, y0, y1) => { const ys = ROWS.filter(r => inds.includes(r.indicador) && r.ano >= y0 && r.ano <= y1).map(r => r.ano); return ys.length ? [d3.min(ys), d3.max(ys)] : [y0, y1]; };
+  const perTxt = ([a, b]) => a === b ? String(a) : `${a}–${b}`;
+  const tituloInd = (ind, y0 = 1990, y1 = 2023, extra) => { const mt = metaOf(ind) || {}; return `${mt.rotulo || ind}: Brasil e Vietnã, ${perTxt(anosDe([ind], y0, y1))} (${[mt.unidade, extra].filter(Boolean).join(', ')})`; };
+  const setT = (id, txt) => { const e = document.querySelector('#' + id + ' .il-tt'); if (e) e.textContent = txt; };
+  const setH = (id, html) => { const e = document.getElementById(id); if (e) e.innerHTML = html; };
+  const LEG = '<span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span>';
+  const PLURAL = { Figura: 'Figuras', 'Gráfico': 'Gráficos', Quadro: 'Quadros', Tabela: 'Tabelas' };
+  // numera gráficos, tabelas, quadros e figuras na ordem em que aparecem e monta a lista de ilustrações
+  function numerar() {
+    const n = {}, itens = [];
+    document.querySelectorAll('[data-il]').forEach(el => {
+      const tipo = el.dataset.il; n[tipo] = (n[tipo] || 0) + 1; el.dataset.num = n[tipo];
+      let s = el.querySelector('.il-n'); if (!s) { s = document.createElement('span'); s.className = 'il-n'; el.prepend(s); }
+      s.textContent = `${tipo} ${n[tipo]} – `;
+      if (!el.id) el.id = 'il-' + tipo.normalize('NFD').replace(/[^A-Za-z]/g, '').toLowerCase() + '-' + n[tipo];
+      itens.push(el);
+    });
+    document.querySelectorAll('[data-ilref]').forEach(a => { const t = document.getElementById(a.dataset.ilref); if (t) { a.textContent = `${t.dataset.il} ${t.dataset.num}`; a.setAttribute('href', '#' + t.id); } });
+    const host = document.getElementById('lista-il'); if (!host) return; host.replaceChildren();
+    Object.keys(PLURAL).forEach(tipo => {
+      const els = itens.filter(e => e.dataset.il === tipo); if (!els.length) return;
+      const h = document.createElement('h4'); h.textContent = `${PLURAL[tipo]} (${els.length})`; host.appendChild(h);
+      const ul = document.createElement('ul');
+      els.forEach(e => { const li = document.createElement('li'); const a = document.createElement('a'); a.href = '#' + e.id; const tt = e.querySelector('.il-tt'); a.textContent = `${tipo} ${e.dataset.num} – ${e.dataset.lista || (tt ? tt.textContent : '')}`; li.appendChild(a); ul.appendChild(li); });
+      host.appendChild(ul);
+    });
+  }
 
   // ── generic two-country line chart
   function lineChart(el, opts) {
@@ -102,10 +149,10 @@
 
   // ── macro synthesis facets
   const MSERIES = [
-    { id: 'pib_crescimento', label: 'Crescimento do PIB', v: '--s1', chk: 'chk-pib' },
-    { id: 'taxa_basica', label: 'Taxa básica de juros', v: '--s2', chk: 'chk-juros' },
-    { id: 'fbcf_pct_pib', label: 'FBCF / PIB', v: '--s3', chk: 'chk-fbcf' },
-    { id: 'inflacao_ipc', label: 'Inflação (IPC)', v: '--s4', chk: 'chk-infl' },
+    { id: 'pib_crescimento', label: 'Crescimento do PIB', t: 'crescimento real do PIB', v: '--s1', chk: 'chk-pib' },
+    { id: 'taxa_basica', label: 'Taxa básica de juros', t: 'taxa básica de juros', v: '--s2', chk: 'chk-juros' },
+    { id: 'fbcf_pct_pib', label: 'FBCF / PIB', t: 'formação bruta de capital fixo / PIB', v: '--s3', chk: 'chk-fbcf' },
+    { id: 'inflacao_ipc', label: 'Inflação (IPC)', t: 'inflação ao consumidor', v: '--s4', chk: 'chk-infl' },
   ];
   const activeM = () => MSERIES.filter(sr => { const cb = document.getElementById(sr.chk); return !cb || cb.checked; });
   function macroFacet(el, pais) {
@@ -159,18 +206,25 @@
 
   // ── tiles
   const TILES = [
-    ['PIB per capita PPP · 2023', 'pib_pc_ppp', (p) => fmtN(pick(p, 'pib_pc_ppp', 2023), 0), (p) => `1990: ${fmtN(pick(p, 'pib_pc_ppp', 1990), 0)} · ×${fmtN(pick(p, 'pib_pc_ppp', 2023) / pick(p, 'pib_pc_ppp', 1990), 1)}`],
-    ['Exportações · 2023 (US$ bi)', 'exportacoes', (p) => fmtN(pick(p, 'exportacoes', 2023), 1), (p) => `1990: ${fmtN(pick(p, 'exportacoes', 1990), 1)} · ×${fmtN(pick(p, 'exportacoes', 2023) / pick(p, 'exportacoes', 1990), 1)}`],
-    ['Manufaturados nas exportações · 2023', 'manuf_pct_expo', (p) => fmtN(pick(p, 'manuf_pct_expo', 2023), 0) + '%', (p) => { const f = first(p, 'manuf_pct_expo'); const a = pick(p, 'manuf_pct_expo', 2023); return `${f.ano}: ${fmtN(f.valor, 0)}% · ${a - f.valor > 0 ? '+' : ''}${fmtN(a - f.valor, 0)} p.p.`; }],
-    ['Ranking ECI · 2023', 'eci_ranking', (p) => pick(p, 'eci_ranking', 2023) + 'º', (p) => { const b = pick(p, 'eci_ranking', 1995), a = pick(p, 'eci_ranking', 2023); return `1995: ${b}º · ${b - a > 0 ? 'subiu' : 'caiu'} ${Math.abs(b - a)}`; }],
-    ['IDH · 2023', 'idh', (p) => fmtN(pick(p, 'idh', 2023), 3), (p) => `1990: ${fmtN(pick(p, 'idh', 1990), 3)} · +${fmtN((pick(p, 'idh', 2023) / pick(p, 'idh', 1990) - 1) * 100, 1)}%`],
-    ['Gini · último ano', 'gini', (p) => fmtN(last(p, 'gini').valor, 1), (p) => `${last(p, 'gini').ano} · início: ${fmtN(first(p, 'gini').valor, 1)}`],
+    ['PIB per capita PPP · 2023 (Int$)', 'pib_pc_ppp', (p) => fmtN(pick(p, 'pib_pc_ppp', 2023), 0), (p) => `1990: ${fmtN(pick(p, 'pib_pc_ppp', 1990), 0)} · ×${fmtN(pick(p, 'pib_pc_ppp', 2023) / pick(p, 'pib_pc_ppp', 1990), 1)}`,
+      'Renda média por habitante em dólares internacionais, que descontam a diferença de custo de vida entre os países.'],
+    ['Exportações de bens e serviços · 2023 (US$ bilhões)', 'exportacoes', (p) => fmtN(pick(p, 'exportacoes', 2023), 1), (p) => `1990: ${fmtN(pick(p, 'exportacoes', 1990), 1)} · ×${fmtN(pick(p, 'exportacoes', 2023) / pick(p, 'exportacoes', 1990), 1)}`,
+      'Valor vendido ao exterior no ano, em dólares correntes.'],
+    ['Manufaturados nas exportações de bens · 2023 (%)', 'manuf_pct_expo', (p) => fmtN(pick(p, 'manuf_pct_expo', 2023), 0) + '%', (p) => { const f = first(p, 'manuf_pct_expo'); const a = pick(p, 'manuf_pct_expo', 2023); return `${f.ano}: ${fmtN(f.valor, 0)}% · ${sg(a - f.valor, 0)} p.p.`; },
+      'Parcela dos produtos manufaturados no valor exportado de mercadorias.'],
+    ['Ranking de complexidade econômica (ECI) · 2023', 'eci_ranking', (p) => pick(p, 'eci_ranking', 2023) + 'º', (p) => { const b = pick(p, 'eci_ranking', 1995), a = pick(p, 'eci_ranking', 2023); return `1995: ${b}º · ${b - a > 0 ? 'subiu' : 'caiu'} ${Math.abs(b - a)}`; },
+      'Posição mundial pela sofisticação do que o país exporta; 1º é a economia mais complexa.'],
+    ['Índice de Desenvolvimento Humano (IDH) · 2023', 'idh', (p) => fmtN(pick(p, 'idh', 2023), 3), (p) => `1990: ${fmtN(pick(p, 'idh', 1990), 3)} · +${fmtN((pick(p, 'idh', 2023) / pick(p, 'idh', 1990) - 1) * 100, 1)}%`,
+      'De 0 a 1: combina renda, escolaridade e expectativa de vida.'],
+    ['Índice de Gini · último ano disponível', 'gini', (p) => fmtN(last(p, 'gini').valor, 1), (p) => `${last(p, 'gini').ano} · início: ${fmtN(first(p, 'gini').valor, 1)} (${first(p, 'gini').ano})`,
+      'Desigualdade, de 0 (igualdade total) a 100 (desigualdade máxima).'],
   ];
   function drawTiles() {
     const host = document.getElementById('resumo'); host.replaceChildren();
-    TILES.forEach(([label, ind, fmt, dfmt]) => {
+    TILES.forEach(([label, ind, fmt, dfmt, desc]) => {
       const t = document.createElement('div'); t.className = 'tile';
       const l = document.createElement('span'); l.className = 'l'; l.textContent = label; t.appendChild(l);
+      const u = document.createElement('span'); u.className = 'u'; u.textContent = desc; t.appendChild(u);
       const pair = document.createElement('div'); pair.className = 'pair';
       [['BRA', 'br'], ['VNM', 'vn']].forEach(([p, cls]) => {
         const d = document.createElement('div');
@@ -179,7 +233,9 @@
         const dd = document.createElement('div'); dd.className = 'd'; dd.textContent = dfmt(p);
         d.append(c, n, dd); pair.appendChild(d);
       });
-      t.appendChild(pair); host.appendChild(t);
+      t.appendChild(pair);
+      const f = document.createElement('p'); f.className = 'tile-f'; f.innerHTML = 'Fonte: ' + (refsOf(ind).length ? joinE(refsOf(ind).map(citeA)) : 'em revisão') + '.'; t.appendChild(f);
+      host.appendChild(t);
     });
   }
 
@@ -194,10 +250,8 @@
   const metaOf = (ind) => META.find(r => r.indicador === ind) || null;
   function drawExplorer() {
     const mt = metaOf(state.ind);
-    document.getElementById('m-unid').textContent = mt ? mt.unidade : '—';
-    document.getElementById('m-fonte').textContent = mt ? mt.fonte : '—';
-    document.getElementById('m-cod').textContent = mt ? mt.codigo : '—';
-    document.getElementById('m-nota').textContent = mt && mt.nota ? 'Nota: ' + mt.nota : '';
+    setT('g-explorar', tituloInd(state.ind, state.y0, state.y1, state.escala === 'log' ? 'escala logarítmica' : ''));
+    setH('f-explorar', fonteHTML([state.ind])); setH('n-explorar', notaHTML(state.ind));
     lineChart(document.getElementById('chart-main'), { ind: state.ind, y0: state.y0, y1: state.y1, log: state.escala === 'log', refZero: ZERO.has(state.ind), label: mt ? mt.rotulo : state.ind });
   }
 
@@ -224,11 +278,11 @@
     resultado: [
       ['Renda · PIB per capita PPP (Int$)', 'pib_pc_ppp'],
       ['Renda · Crescimento real do PIB (% a.a.)', 'pib_crescimento'],
-      ['Comércio · Exportações (US$ bi)', 'exportacoes', 'Vietnã à frente em 2016–17 e 2019–22; Brasil lidera em 2018 e 2023.'],
+      ['Comércio · Exportações (US$ bi)', 'exportacoes', 'Vietnã à frente de 2019 a 2022; Brasil à frente em 2023.'],
       ['Estrutura · Manufaturados / exportações (%)', 'manuf_pct_expo'],
       ['Estrutura · Manufatura / PIB (%)', 'manufatura_pct_pib'],
       ['Estrutura · Alta tecnologia / manufaturados (%)', 'alta_tec_pct_manuf'],
-      ['Complexidade · ECI score', 'eci_score', 'Linha tracejada = média global (0).'],
+      ['Complexidade · ECI score', 'eci_score', 'Linha tracejada = média mundial (0). Vietnã acima do Brasil de 2020 em diante.'],
       ['Estabilidade · Inflação IPC (% a.a., escala log)', 'inflacao_ipc', 'Escala logarítmica: Brasil 1990–1994 em hiperinflação (até 2.948%). Valores ≤ 0 do Vietnã ficam fora da escala log.'],
       ['Vulnerabilidade · Reservas (US$ bi)', 'reservas_usd'],
       ['Vulnerabilidade · Dívida externa / RNB (%)', 'divida_externa_pct_rnb'],
@@ -240,13 +294,18 @@
     Object.entries(PANELS).forEach(([ala, lista]) => {
       const host = document.getElementById('panels-' + ala); if (!host) return; host.replaceChildren();
       lista.forEach(([title, ind, note, y0, y1]) => {
-        const card = document.createElement('div'); card.className = 'card'; card.id = (ala === 'episodios' ? 'pe-' : 'p-') + ind;
-        const [eixo, ...rest] = title.split(' · ');
-        const h = document.createElement('h4');
-        const tg = document.createElement('span'); tg.className = 'ptag'; tg.textContent = eixo; h.append(tg, rest.join(' · '));
+        const card = document.createElement('figure'); card.className = 'card il'; card.id = (ala === 'episodios' ? 'pe-' : 'p-') + ind;
+        const tg = document.createElement('span'); tg.className = 'ptag'; tg.textContent = title.split(' · ')[0]; card.appendChild(tg);
+        const log = ind === 'inflacao_ipc' && !y0;
+        const h = document.createElement('h4'); h.className = 'il-t'; h.dataset.il = 'Gráfico';
+        const tt = document.createElement('span'); tt.className = 'il-tt'; tt.textContent = tituloInd(ind, y0 || 1990, y1 || 2023, log ? 'escala logarítmica' : ''); h.appendChild(tt);
         card.appendChild(h);
+        const lg = document.createElement('p'); lg.className = 'legend il-leg'; lg.innerHTML = LEG; card.appendChild(lg);
         const ch = document.createElement('div'); ch.className = 'chart small'; ch.dataset.ind = ind; if (y0) ch.dataset.y0 = y0; if (y1) ch.dataset.y1 = y1; card.appendChild(ch);
-        if (note) { const p = document.createElement('p'); p.className = 'note'; p.textContent = note; card.appendChild(p); }
+        const f = document.createElement('figcaption'); f.className = 'il-f';
+        const pf = document.createElement('p'); pf.innerHTML = fonteHTML([ind]); f.appendChild(pf);
+        const nt = notaHTML(ind, note); if (nt) { const pn = document.createElement('p'); pn.innerHTML = nt; f.appendChild(pn); }
+        card.appendChild(f);
         host.appendChild(card);
       });
     });
@@ -302,6 +361,8 @@
     const [t0, t1] = jRange();
     const pts = { BRA: stepPts('BRA', t0, t1), VNM: stepPts('VNM', t0, t1) };
     el.replaceChildren();
+    setT('g-juros', `Meta da taxa Selic (Copom) e taxa de refinanciamento (State Bank of Vietnam), decisão a decisão, ${perTxt([state.j0, state.j1])} (% ao ano)`);
+    setT('t-decisoes', `Decisões de juros do Copom e do State Bank of Vietnam, ${perTxt([state.j0, state.j1])}`);
     const all = [...pts.BRA, ...pts.VNM];
     if (!all.length) { const d = document.createElement('div'); d.className = 'empty'; d.textContent = 'Sem decisões no período'; el.appendChild(d); return; }
     const W = Math.max(el.clientWidth || 600, 280), H = 360;
@@ -456,6 +517,9 @@
   const TYEARS = [1990, 1995, 2000, 2005, 2010, 2015, 2018, 2020, 2022, 2023];
   function drawTable() {
     const tb = document.getElementById('tab-body'); tb.replaceChildren();
+    const mt = metaOf(state.tab) || {};
+    setT('t-comparativa', `${mt.rotulo || state.tab}: Brasil e Vietnã, anos selecionados, 1990–2023 (${mt.unidade || ''})`);
+    setH('f-comparativa', fonteHTML([state.tab])); setH('n-comparativa', notaHTML(state.tab, (mt.nota ? ponto(mt.nota) + ' ' : '') + 'Um traço indica ano sem dado.'));
     ['BRA', 'VNM'].forEach(p => {
       const tr = document.createElement('tr'); tr.className = p === 'BRA' ? 'br' : 'vn';
       const td0 = document.createElement('td'); td0.textContent = NOME[p]; tr.appendChild(td0);
@@ -473,9 +537,9 @@
 
   // ── ponto de partida (1990) e de chegada (2023)
   const STARTEND = [
-    ['PIB per capita nominal (US$)', 'pib_pc_nominal', 0, 'x'],
-    ['Exportações de bens e serviços (US$ bi)', 'exportacoes', 1, 'x'],
-    ['IDH', 'idh', 3, 'pct'],
+    ['PIB per capita nominal (US$ correntes)', 'pib_pc_nominal', 0, 'x'],
+    ['Exportações de bens e serviços (US$ bilhões correntes)', 'exportacoes', 1, 'x'],
+    ['Índice de Desenvolvimento Humano (0 a 1)', 'idh', 3, 'pct'],
   ];
   function drawStartEnd() {
     const host = document.getElementById('startend'); if (!host) return; host.replaceChildren();
@@ -536,7 +600,12 @@
     document.querySelectorAll('[data-v]').forEach(el => { const [p, ind, y, dec] = el.dataset.v.split('|'); let v = pick(p, ind, +y); if (v != null && el.dataset.abs) v = Math.abs(v); el.textContent = num(v, +dec || 0, false); });
   }
 
-  function drawMacro() { macroFacet(document.getElementById('macro-br'), 'BRA'); macroFacet(document.getElementById('macro-vn'), 'VNM'); }
+  function drawMacro() {
+    const at = activeM();
+    const tm = joinE(at.map(s => s.t));
+    setT('g-macro', `${at.length ? tm.charAt(0).toUpperCase() + tm.slice(1) : 'Séries macroeconômicas'}: Brasil e Vietnã, ${perTxt(anosDe(at.map(s => s.id), state.m0, state.m1))} (%${state.m0 < 1995 ? ', escala logarítmica' : ''})`);
+    macroFacet(document.getElementById('macro-br'), 'BRA'); macroFacet(document.getElementById('macro-vn'), 'VNM');
+  }
   function redrawAll() { if (!ROWS.length) return; drawTiles(); drawExplorer(); drawMacro(); drawPanels(); drawTable(); drawJuros(); drawFiscal(); }
 
   // ── wiring
@@ -564,7 +633,7 @@
   // ── boot
   Promise.all([d3.csv('data/tcc_dados_long.csv'), d3.csv('data/tcc_metadados.csv'), d3.csv('data/tcc_decisoes_juros.csv')]).then(([raw, meta, decs]) => {
     ROWS = toRows(raw); META = meta; DECS = toDecs(decs);
-    buildPanels(); wire(); drawHeader(); drawStartEnd(); drawAlas(); drawFiscalResumo(); drawAnual(); drawValores(); redrawAll(); drawDecisoes(); spyNav();
+    buildPanels(); wire(); drawHeader(); drawStartEnd(); drawAlas(); drawFiscalResumo(); drawAnual(); drawValores(); redrawAll(); drawDecisoes(); numerar(); spyNav();
     const h = readHash(); if (h) document.getElementById(h).scrollIntoView();
   }).catch(err => {
     console.error(err);

@@ -265,7 +265,48 @@ p { margin: 0; }
 .card .meta { font-size: 13px; color: var(--fg-2); display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .card .meta b { color: var(--fg); }
 .note { font-size: 13px; color: var(--fg-2); margin: 0; }
-.ptag { display: block; font-family: var(--font); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+.ptag { display: block; font-family: var(--font); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: -4px; }
+
+/* padrão ABNT (NBR 14724): identificação numerada em cima; legenda, fonte e notas embaixo */
+.il-t { font-family: var(--font-h); font-size: 15px; font-weight: 600; line-height: 1.35; letter-spacing: -.005em; color: var(--fg); margin: 0; text-wrap: pretty; scroll-margin-top: calc(var(--bar-h) + 20px); }
+.il-n { font-weight: 700; white-space: nowrap; }
+.card-h.il-t { font-size: 17.5px; }
+p.il-t, h3.il-t.solo, h4.il-t.solo { margin: 0 0 12px; max-width: 90ch; }
+.keys .il-t { margin-bottom: 12px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+.sub-h + .il-t { margin-top: -8px; }
+figure.il { margin: 0; }
+.il-leg { margin: 0; font-size: 12.5px; }
+.il-f { display: grid; gap: 3px; margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--fg-3); max-width: 110ch; }
+.il-f p { margin: 0; }
+p.il-f { display: block; }
+.il-f b { font-weight: 600; color: var(--fg-2); }
+.il-f.below { margin-top: 12px; }
+.il-f a, a.cit { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 2px; }
+.il-f a:hover, a.cit:hover { color: var(--accent); text-decoration-color: currentColor; }
+a.cit { white-space: nowrap; }
+.tile .u { font-size: 12.5px; line-height: 1.4; color: var(--fg-2); min-height: 2.8em; }
+.tile-f { margin: 2px 0 0; font-size: 11.5px; color: var(--fg-3); }
+.tile-f a { color: inherit; }
+.hero-src { margin: 14px 0 0; font-size: 12px; color: rgba(255,255,255,.66); max-width: 860px; }
+.hero-src a { color: inherit; }
+.duo .il-f, .traj .il-f { margin-top: 6px; }
+.traj figure .il-f { padding: 0 26px; }
+.traj figcaption.il-t, .duo figcaption.il-t { position: static; background: none; padding: 0; border-radius: 0; color: var(--fg); font-family: var(--font-h); font-size: 13.5px; letter-spacing: 0; text-transform: none; margin: 0 0 8px; }
+.traj figcaption.il-t { padding: 14px 26px 0; margin-bottom: 10px; }
+.duo figure:first-child figcaption.il-t, .duo figure:last-child figcaption.il-t { color: var(--fg); }
+/* referências (NBR 6023): ordem alfabética, alinhadas à esquerda, separadas por um espaço */
+.refs { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 105ch; font-size: 14px; line-height: 1.5; color: var(--fg-2); }
+.refs li { overflow-wrap: anywhere; scroll-margin-top: calc(var(--bar-h) + 20px); padding: 2px 6px; margin: 0 -6px; border-radius: 6px; }
+.refs li:target { background: color-mix(in srgb, var(--accent-bright) 22%, transparent); }
+.refs a { color: inherit; }
+.refs-h { font-size: 17px; font-weight: 600; margin: 34px 0 14px; }
+.refs-h:first-of-type { margin-top: 0; }
+.como-citar { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; font-size: 14px; line-height: 1.5; color: var(--fg-2); max-width: 105ch; margin-bottom: 28px; }
+.como-citar b.h { display: block; font-family: var(--font-h); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+#lista-il h4 { font-size: 14px; margin: 14px 0 6px; }
+#lista-il ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+#lista-il a { color: inherit; }
+.normas { font-size: 13.5px; color: var(--fg-2); max-width: 100ch; margin: 0 0 20px; }
 @media (max-width: 520px) { .card { padding: 18px 16px; } }
 
 /* controles */

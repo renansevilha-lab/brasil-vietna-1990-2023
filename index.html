@@ -24,13 +24,14 @@
     <a class="brand" href="#topo"><i class="dot br"></i><i class="dot vn"></i>Brasil × Vietnã <span>1990–2023</span></a>
     <nav aria-label="Seções" id="nav">
       <a href="#pesquisa">A pesquisa</a>
-      <a href="#recorte">Por que 1990–2023</a>
+      <a href="#recorte">Recorte</a>
       <a href="#metodologia">Metodologia</a>
       <a href="#trajetorias">Trajetórias</a>
       <a href="#politica">Juros e fiscal</a>
-      <a href="#cambio">Câmbio e reservas</a>
+      <a href="#cambio">Câmbio</a>
       <a href="#dados">Dados</a>
       <a href="#notas">Notas</a>
+      <a href="#referencias">Referências</a>
     </nav>
     <button class="theme-btn" id="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
   </div>
@@ -52,8 +53,9 @@
     <dl class="hero-stats">
       <div><dt><b data-ratio="90">—</b>×</dt><dd>era a renda per capita do Brasil em relação à do Vietnã em 1990</dd></div>
       <div><dt><b data-ratio="23">—</b>×</dt><dd>é a mesma razão em 2023</dd></div>
-      <div><dt>33</dt><dd>indicadores anuais, 1.908 observações, para explorar nesta página</dd></div>
+      <div><dt>33</dt><dd>indicadores anuais, 1.910 observações, para explorar nesta página</dd></div>
     </dl>
+    <p class="hero-src">Renda per capita: PIB per capita em paridade do poder de compra, em dólares internacionais correntes. Fonte: elaboração própria com dados de <a class="cit" href="#ref-wdi">Banco Mundial (2026b)</a>.</p>
     <p class="hero-cta"><a class="btn primary" href="#dados">Explorar os dados</a><a class="btn ghost" href="#pesquisa">Entender a pesquisa</a></p>
   </div>
 </section>
@@ -61,8 +63,12 @@
 <!-- ───────── Resumo em números ───────── -->
 <section class="keys" aria-label="Resumo em números">
   <div class="wrap">
+    <p class="il-t" data-il="Tabela" id="t-resumo"><span class="il-tt">Síntese dos indicadores: Brasil e Vietnã, primeiro ano de cada série e 2023</span></p>
     <div class="tiles" id="resumo"></div>
-    <p class="legend-line"><span class="legend"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></span><span>Fontes: Banco Mundial (WDI) · OEC / Harvard Growth Lab · PNUD · BCB · SBV</span></p>
+    <div class="il-f below">
+      <p><b>Fonte:</b> elaboração própria com dados de Banco Mundial (<a class="cit" href="#ref-pip">2026a</a>, <a class="cit" href="#ref-wdi">2026b</a>), <a class="cit" href="#ref-growthlab">Harvard Growth Lab (2026)</a> e <a class="cit" href="#ref-pnud">PNUD (2025)</a>.</p>
+      <p><b>Notas:</b> Em cada bloco, a linha de baixo traz o valor do primeiro ano da série e a variação até o último: × indica quantas vezes o valor aumentou; p.p., a diferença em pontos percentuais. PPP: paridade do poder de compra. Int$: dólar internacional, que compra em cada país o mesmo que um dólar compra nos Estados Unidos. O Gini do Brasil é calculado sobre a renda e o do Vietnã, sobre o consumo (<a class="cit" href="#ref-pip">Banco Mundial, 2026a</a>). Como o consumo costuma ser distribuído de forma menos desigual que a renda, a distância entre os dois países fica exagerada.</p>
+    </div>
   </div>
 </section>
 
@@ -118,9 +124,15 @@
     </div>
 
     <h3 class="sub-h">O ponto de partida e o de chegada</h3>
+    <p class="il-t" data-il="Tabela" id="t-partida"><span class="il-tt">PIB per capita nominal, exportações e IDH: Brasil e Vietnã, 1990 e 2023</span></p>
     <div class="startend" id="startend" aria-label="Indicadores em 1990 e em 2023"></div>
+    <div class="il-f below">
+      <p><b>Fonte:</b> elaboração própria com dados de <a class="cit" href="#ref-wdi">Banco Mundial (2026b)</a> e <a class="cit" href="#ref-pnud">PNUD (2025)</a>. Indicadores: NY.GDP.PCAP.CD; NE.EXP.GNFS.CD; HDI.</p>
+      <p><b>Nota:</b> O selo à direita mostra a variação entre 1990 e 2023: × indica quantas vezes o valor aumentou; %, o crescimento percentual.</p>
+    </div>
 
     <h3 class="sub-h">Marcos do período</h3>
+    <p class="il-t" data-il="Quadro" id="q-marcos"><span class="il-tt">Marcos de política econômica e de inserção internacional: Brasil e Vietnã, 1986–2023</span></p>
     <div class="tl-legend"><span class="c-br">Brasil</span><span class="c-vn">Vietnã</span></div>
     <ol class="tl">
       <li class="vn"><span class="yr">1986</span><div class="ev"><i class="tag">Vietnã</i><b>Đổi Mới</b><span>Início das reformas: liberalização gradual e controlada, coordenada pelo Partido Comunista.</span></div></li>
@@ -133,11 +145,14 @@
       <li class="br"><span class="yr">2004–08</span><div class="ev"><i class="tag">Brasil</i><b>Volta da política industrial</b><span>PITCE (2004), PAC (2007) e PDP (2008), em pleno ciclo de commodities.</span></div></li>
       <li class="vn"><span class="yr">2007</span><div class="ev"><i class="tag">Vietnã</i><b>Entrada na OMC</b><span>Boom de investimento estrangeiro em manufatura de média tecnologia.</span></div></li>
       <li class="br"><span class="yr">2014–16</span><div class="ev"><i class="tag">Brasil</i><b>Fim do ciclo de commodities</b><span>Recessão e, em 2016, o Teto de Gastos (EC 95).</span></div></li>
-      <li class="vn"><span class="yr">2016</span><div class="ev"><i class="tag">Vietnã</i><b>Exportações superam as do Brasil</b><span>Pela primeira vez na série; o Vietnã fica à frente em <span class="nb">2016–17</span> e <span class="nb">2019–22</span>.</span></div></li>
       <li class="vn"><span class="yr">2018–22</span><div class="ev"><i class="tag">Vietnã</i><b>Novos acordos comerciais</b><span>CPTPP (2018), EVFTA (2020) e RCEP (2022), sob a estratégia China+1.</span></div></li>
+      <li class="vn"><span class="yr">2019</span><div class="ev"><i class="tag">Vietnã</i><b>Exportações superam as do Brasil</b><span>Pela primeira vez na série; o Vietnã fica à frente de 2019 a 2022.</span></div></li>
       <li class="both"><span class="yr">2020</span><div class="ev"><b>Pandemia</b><span>No Brasil, o Auxílio Emergencial reduz temporariamente o Gini.</span></div></li>
       <li class="both"><span class="yr">2023</span><div class="ev"><b>Fim do recorte</b><span>Último ano com dados disponíveis na base.</span></div></li>
     </ol>
+    <div class="il-f below">
+      <p><b>Fonte:</b> elaboração própria. O marco de 2019 sobre as exportações usa dados de <a class="cit" href="#ref-wdi">Banco Mundial (2026b)</a>, indicador NE.EXP.GNFS.CD.</p>
+    </div>
   </div>
 </section>
 
@@ -147,7 +162,7 @@
     <header class="sec-head">
       <p class="eyebrow"><span class="num">03</span>Metodologia</p>
       <h2>Análise Histórica Comparada</h2>
-      <p class="intro">A pesquisa investiga como trajetórias nacionais de desenvolvimento são moldadas por processos históricos e por decisões políticas acumuladas ao longo do tempo. Segundo Mahoney e Rueschemeyer (2003), a abordagem se distingue por três características.</p>
+      <p class="intro">A pesquisa investiga como trajetórias nacionais de desenvolvimento são moldadas por processos históricos e por decisões políticas acumuladas ao longo do tempo. Segundo <a class="cit" href="#ref-mahoney2003">Mahoney e Rueschemeyer (2003)</a>, a abordagem se distingue por três características.</p>
       <p class="draft">Rascunho: texto do projeto de TCC, em revisão</p>
     </header>
 
@@ -165,20 +180,24 @@
         <p>As <b>conjunturas críticas</b> são os momentos em que várias opções estratégicas estavam disponíveis e em que escolhas distintas produziram trajetórias divergentes.</p>
       </div>
       <div class="duo">
-        <figure><img src="img/brasilia.jpg" alt="Vista aérea da Esplanada dos Ministérios, em Brasília" loading="lazy" width="1400" height="789"><figcaption>Brasília</figcaption></figure>
-        <figure><img src="img/hanoi.jpg" alt="Vista de Hanói ao entardecer, com a ponte Nhật Tân em primeiro plano" loading="lazy" width="1400" height="788"><figcaption>Hanói</figcaption></figure>
+        <figure><figcaption class="il-t" data-il="Figura" id="fig-brasilia"><span class="il-tt">Esplanada dos Ministérios, em Brasília</span></figcaption><img src="img/brasilia.jpg" alt="Vista aérea da Esplanada dos Ministérios, em Brasília" loading="lazy" width="1400" height="789"><p class="il-f"><b>Fonte:</b> <a class="cit" href="#ref-img-brasilia">Volpe (2015)</a>.</p></figure>
+        <figure><figcaption class="il-t" data-il="Figura" id="fig-hanoi"><span class="il-tt">Vista de Hanói ao entardecer</span></figcaption><img src="img/hanoi.jpg" alt="Vista de Hanói ao entardecer, com uma ponte estaiada em primeiro plano" loading="lazy" width="1400" height="788"><p class="il-f"><b>Fonte:</b> <a class="cit" href="#ref-img-hanoi">NKSTTSSHNVN (2022)</a>.</p></figure>
       </div>
     </div>
 
     <h3 class="sub-h">Fontes dos dados</h3>
+    <p class="il-t" data-il="Quadro" id="q-fontes"><span class="il-tt">Fontes dos dados da base, por tema</span></p>
     <ul class="sources">
-      <li><b>Banco Mundial (WDI)</b><span>Renda, comércio, estrutura produtiva, investimento estrangeiro e indicadores macroeconômicos.</span></li>
-      <li><b>OEC e Harvard Growth Lab</b><span>Índice de Complexidade Econômica (ECI), score e ranking, série HS96.</span></li>
-      <li><b>PNUD</b><span>Índice de Desenvolvimento Humano (IDH).</span></li>
-      <li><b>Banco Central do Brasil</b><span>Taxa Selic, série SGS 4189, e histórico das decisões do Copom.</span></li>
-      <li><b>FMI (World Economic Outlook)</b><span>Resultado nominal, resultado primário e dívida bruta do governo geral.</span></li>
-      <li><b>State Bank of Vietnam</b><span>Taxa de refinanciamento, a partir das decisões QĐ-NHNN.</span></li>
+      <li><b>Banco Mundial</b><span>Renda, comércio, estrutura produtiva, investimento estrangeiro e indicadores macroeconômicos, dos World Development Indicators (<a class="cit" href="#ref-wdi">Banco Mundial, 2026b</a>). Índice de Gini, da Poverty and Inequality Platform (<a class="cit" href="#ref-pip">Banco Mundial, 2026a</a>).</span></li>
+      <li><b>Complexidade econômica</b><span>Índice de Complexidade Econômica (ECI), score e ranking, da série calculada pelo Growth Lab de Harvard com a classificação de produtos HS92 (<a class="cit" href="#ref-growthlab">Harvard Growth Lab, 2026</a>).</span></li>
+      <li><b>PNUD</b><span>Índice de Desenvolvimento Humano (IDH) (<a class="cit" href="#ref-pnud">PNUD, 2025</a>).</span></li>
+      <li><b>Banco Central do Brasil</b><span>Taxa Selic, série SGS 4189 (<a class="cit" href="#ref-bcb-sgs">Banco Central do Brasil, 2026c</a>), e histórico das decisões do Copom (<a class="cit" href="#ref-bcb-hist">Banco Central do Brasil, 2026d</a>).</span></li>
+      <li><b>FMI</b><span>Resultado nominal, resultado primário e dívida bruta do governo geral, do World Economic Outlook (<a class="cit" href="#ref-weo">FMI, 2025</a>).</span></li>
+      <li><b>State Bank of Vietnam</b><span>Taxa de refinanciamento, a partir das decisões QĐ-NHNN (<a class="cit" href="#ref-sbv">Vietnã, 1999–2023</a>).</span></li>
     </ul>
+    <div class="il-f below">
+      <p><b>Fonte:</b> elaboração própria. O código de cada indicador e a referência completa de cada fonte estão nos <a href="data/tcc_metadados.csv">metadados da base</a> e na seção <a href="#referencias">Referências</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -193,7 +212,7 @@
     </header>
     <div class="trajs">
       <article class="traj br">
-        <figure><img src="img/soja-rondonopolis.jpg" alt="Colheitadeira em lavoura de soja em Rondonópolis, Mato Grosso" loading="lazy" width="1200" height="857"><figcaption>Colheita de soja em Rondonópolis (MT)</figcaption></figure>
+        <figure><figcaption class="il-t" data-il="Figura" id="fig-soja"><span class="il-tt">Colheita de soja em Rondonópolis, Mato Grosso</span></figcaption><img src="img/soja-rondonopolis.jpg" alt="Colheitadeira em lavoura de soja em Rondonópolis, Mato Grosso" loading="lazy" width="1200" height="857"><p class="il-f"><b>Fonte:</b> <a class="cit" href="#ref-img-soja">Pinheiro (2009)</a>.</p></figure>
         <div class="traj-body">
           <h3>Brasil</h3>
           <p class="traj-sum">Financeirização, câmbio apreciado, desindustrialização e reprimarização.</p>
@@ -205,7 +224,7 @@
         </div>
       </article>
       <article class="traj vn">
-        <figure><img src="img/porto-hai-phong.jpg" alt="Navio porta-contêineres atracado no terminal internacional de Hải Phòng" loading="lazy" width="1200" height="800"><figcaption>Terminal de contêineres de Hải Phòng</figcaption></figure>
+        <figure><figcaption class="il-t" data-il="Figura" id="fig-porto"><span class="il-tt">Terminal internacional de contêineres de Hải Phòng</span></figcaption><img src="img/porto-hai-phong.jpg" alt="Navio porta-contêineres atracado no terminal internacional de Hải Phòng" loading="lazy" width="1200" height="800"><p class="il-f"><b>Fonte:</b> <a class="cit" href="#ref-img-porto">Nathan.cima (2022)</a>.</p></figure>
         <div class="traj-body">
           <h3>Vietnã</h3>
           <p class="traj-sum">Abertura condicionada, investimento estrangeiro produtivo, <i>upgrading</i> e aumento de complexidade.</p>
@@ -232,31 +251,42 @@
 
     <div class="stack">
       <section class="card" id="juros">
-        <h3 class="card-h">Decisões de juros: Copom × State Bank of Vietnam</h3>
+        <span class="ptag">Decisões de juros: Copom × State Bank of Vietnam</span>
+        <h3 class="card-h il-t" data-il="Gráfico" id="g-juros" data-lista="Meta da taxa Selic (Copom) e taxa de refinanciamento (State Bank of Vietnam), decisão a decisão, no período escolhido pelo leitor (% ao ano)"><span class="il-tt">Meta da taxa Selic (Copom) e taxa de refinanciamento (State Bank of Vietnam), decisão a decisão (% ao ano)</span></h3>
         <div class="controls">
           <label>Período <span class="range"><input type="number" id="jur-ini" min="1999" max="2023" step="1" value="1999" aria-label="Ano inicial das decisões de juros"> <span>–</span> <input type="number" id="jur-fim" min="1999" max="2023" step="1" value="2023" aria-label="Ano final das decisões de juros"></span></label>
         </div>
+        <p class="legend il-leg"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></p>
         <div class="chart" id="chart-juros"></div>
         <div class="jstats" id="juros-stats"></div>
-        <p class="note">Cada degrau é uma decisão; os pontos marcam as mudanças de taxa. Brasil: meta da taxa Selic definida pelo Copom, a partir de março de 1999. Vietnã: taxa de refinanciamento do State Bank of Vietnam (SBV), com decisões registradas a partir de novembro de 1999. O SBV não tem calendário fixo de reuniões, então só há registro quando a taxa muda, e a taxa de refinanciamento é um entre vários instrumentos: o banco também usa tetos de juros de depósito e metas de crescimento do crédito.</p>
+        <div class="il-f">
+          <p><b>Fonte:</b> elaboração própria com dados de <a class="cit" href="#ref-bcb-hist">Banco Central do Brasil (2026d)</a> e <a class="cit" href="#ref-sbv">Vietnã (1999–2023)</a>.</p>
+          <p><b>Nota:</b> Cada degrau é uma decisão; os pontos marcam as mudanças de taxa. Brasil: meta da taxa Selic definida pelo Copom, a partir de março de 1999. Vietnã: taxa de refinanciamento do State Bank of Vietnam (SBV), com decisões registradas a partir de novembro de 1999. O SBV não tem calendário fixo de reuniões, então só há registro quando a taxa muda. A taxa de refinanciamento é um entre vários instrumentos: o banco também usa tetos de juros de depósito e metas de crescimento do crédito (<a class="cit" href="#ref-imf-art4-2024">FMI, 2024</a>; <a class="cit" href="#ref-amro2023">AMRO, 2024</a>). Os blocos abaixo do gráfico contam as decisões no período escolhido.</p>
+        </div>
         <details class="foot dec">
           <summary>Ver a lista de decisões <span id="dec-count"></span></summary>
           <div class="controls">
             <label>País <select id="dec-pais" aria-label="País das decisões"><option value="todos">Brasil e Vietnã</option><option value="BRA">Brasil</option><option value="VNM">Vietnã</option></select></label>
             <label class="chip"><input type="checkbox" id="dec-mud">Só mudanças de taxa</label>
           </div>
+          <p class="il-t" data-il="Tabela" id="t-decisoes" data-lista="Decisões de juros do Copom e do State Bank of Vietnam, no período escolhido pelo leitor"><span class="il-tt">Decisões de juros do Copom e do State Bank of Vietnam</span></p>
           <div class="tablewrap dec-scroll">
             <table class="cmp dec">
               <thead><tr><th>País</th><th>Decisão</th><th>Vigência</th><th>Taxa</th><th>Variação (p.p.)</th><th>Documento</th></tr></thead>
               <tbody id="dec-body"></tbody>
             </table>
           </div>
+          <div class="il-f">
+            <p><b>Fonte:</b> elaboração própria com dados de <a class="cit" href="#ref-bcb-hist">Banco Central do Brasil (2026d)</a> e <a class="cit" href="#ref-sbv">Vietnã (1999–2023)</a>.</p>
+            <p><b>Nota:</b> Decisão: data em que a taxa foi decidida. Vigência: data a partir da qual passou a valer. Taxa em % ao ano. Variação em pontos percentuais (p.p.) frente à taxa anterior. Documento: reunião do Copom ou número da decisão do SBV. A lista do Vietnã só registra mudanças de taxa.</p>
+          </div>
           <div class="downloads"><a class="btn small" href="data/tcc_decisoes_juros.csv" download>Baixar as decisões (CSV)</a></div>
         </details>
       </section>
 
       <section class="card" id="fiscal">
-        <h3 class="card-h">Resultado fiscal: nominal × primário</h3>
+        <span class="ptag">Resultado fiscal: nominal × primário</span>
+        <h3 class="card-h il-t" data-il="Gráfico" id="g-fiscal"><span class="il-tt">Resultado nominal e resultado primário do governo geral: Brasil e Vietnã, 1998–2023 (% do PIB)</span></h3>
         <p class="note lead">O resultado nominal é o saldo de todas as receitas e despesas do governo, juros incluídos. O primário exclui os juros da dívida. A distância entre as duas linhas é o custo do serviço da dívida.</p>
         <div class="legend-keys" aria-hidden="true">
           <span><i></i>Resultado nominal (com juros)</span>
@@ -267,12 +297,21 @@
           <div class="facet"><h4 class="br">Brasil</h4><div class="chart" id="fiscal-br"></div></div>
           <div class="facet"><h4 class="vn">Vietnã</h4><div class="chart" id="fiscal-vn"></div></div>
         </div>
+        <div class="il-f">
+          <p><b>Fonte:</b> elaboração própria com dados de <a class="cit" href="#ref-weo">FMI (2025)</a>. Indicadores: GGXCNL_NGDP (resultado nominal); GGXONLB_NGDP (resultado primário).</p>
+          <p><b>Nota:</b> Valores negativos são déficit. A área sombreada entre as duas linhas corresponde aos juros líquidos da dívida (cálculo próprio: resultado primário menos resultado nominal). Conceito de governo geral do FMI, o mesmo para os dois países. Brasil a partir de 2001; Vietnã a partir de 1998. Os números do Brasil diferem dos divulgados pelo Banco Central para o setor público consolidado.</p>
+        </div>
+        <p class="il-t" data-il="Tabela" id="t-fiscal"><span class="il-tt">Resultado nominal, resultado primário e juros líquidos da dívida, médias do período: Brasil e Vietnã, 2001–2023 (% do PIB)</span></p>
         <div class="tiles" id="fiscal-resumo" aria-label="Médias do resultado fiscal"></div>
-        <p class="note">Em % do PIB; valores negativos são déficit. Fonte: FMI, World Economic Outlook (abril de 2025), conceito de governo geral, o mesmo para os dois países. Brasil a partir de 2001; Vietnã a partir de 1998. Os números do Brasil diferem dos divulgados pelo Banco Central para o setor público consolidado.</p>
+        <div class="il-f">
+          <p><b>Fonte:</b> cálculo próprio com dados de <a class="cit" href="#ref-weo">FMI (2025)</a>.</p>
+          <p><b>Nota:</b> Médias simples dos valores anuais de 2001 a 2023, período em que há dados para os dois países. Valores negativos são déficit.</p>
+        </div>
       </section>
 
       <section class="card" id="anual">
-        <h3 class="card-h">Ano a ano: juros, inflação, resultado fiscal e crescimento</h3>
+        <span class="ptag">Ano a ano</span>
+        <h3 class="card-h il-t" data-il="Tabela" id="t-anual"><span class="il-tt">Taxa básica de juros, inflação, resultado fiscal e crescimento do PIB, ano a ano: Brasil e Vietnã, 1990–2023</span></h3>
         <div class="tablewrap anual-scroll">
           <table class="cmp anual">
             <thead>
@@ -283,12 +322,16 @@
             <tfoot id="anual-foot"></tfoot>
           </table>
         </div>
-        <p class="note">Juros básicos: média anual da taxa Selic (Brasil) e da taxa de refinanciamento (Vietnã), em % ao ano. Inflação: variação anual do índice de preços ao consumidor, em %. Resultado nominal e primário: em % do PIB, negativo = déficit (FMI). PIB: crescimento real, em % ao ano. Um traço indica ano sem dado: resultado fiscal do Brasil antes de 2001 e do Vietnã antes de 1998; juros e inflação do Vietnã no início da década de 1990. As médias só aparecem quando há dado em todos os anos do período.</p>
+        <div class="il-f">
+          <p><b>Fonte:</b> elaboração própria com dados de <a class="cit" href="#ref-bcb-sgs">Banco Central do Brasil (2026c)</a> e <a class="cit" href="#ref-sbv">Vietnã (1999–2023)</a> (juros básicos), <a class="cit" href="#ref-wdi">Banco Mundial (2026b)</a> (inflação e PIB) e <a class="cit" href="#ref-weo">FMI (2025)</a> (resultado nominal e primário).</p>
+          <p><b>Nota:</b> Juros básicos: média anual da taxa Selic (Brasil) e da taxa de refinanciamento (Vietnã), em % ao ano. Inflação: variação anual do índice de preços ao consumidor, em %. Resultado nominal e primário: em % do PIB; valores negativos são déficit. PIB: crescimento real, em % ao ano. Um traço indica ano sem dado: resultado fiscal do Brasil antes de 2001 e do Vietnã antes de 1998; juros e inflação do Vietnã no início da década de 1990. As médias só aparecem quando há dado em todos os anos do período.</p>
+        </div>
         <div class="downloads"><a class="btn small" href="data/tcc_tabela_anual.csv" download>Baixar esta tabela (CSV)</a></div>
       </section>
 
       <section id="quem-decide">
         <h3 class="sub-h">Quem decide o quê</h3>
+        <p class="il-t" data-il="Quadro" id="q-quem"><span class="il-tt">Autoridade monetária, autoridade fiscal e marcos legais: Brasil e Vietnã</span></p>
         <div class="quem">
           <article class="card br">
             <h4>Brasil</h4>
@@ -320,6 +363,9 @@
             </ul>
           </article>
         </div>
+        <div class="il-f below">
+          <p><b>Fonte:</b> elaboração própria com base em Banco Central do Brasil (<a class="cit" href="#ref-bcb-circ2698">1996</a>, <a class="cit" href="#ref-bcb-res61">2021</a>) e Brasil (<a class="cit" href="#ref-br-dec3088">1999</a>, <a class="cit" href="#ref-br-lc101">2000</a>, <a class="cit" href="#ref-br-ec95">2016</a>, <a class="cit" href="#ref-br-lc179">2021a</a>, <a class="cit" href="#ref-br-lc200">2023</a>) e em Vietnã (<a class="cit" href="#ref-vn-lei-orc-2002">2002</a>, <a class="cit" href="#ref-vn-lei-sbv-2010">2010</a>, <a class="cit" href="#ref-vn-res11">2011</a>, <a class="cit" href="#ref-vn-lei-orc-2015">2015a</a>, <a class="cit" href="#ref-vn-res25-2016">2016</a>, <a class="cit" href="#ref-vn-res23-2021">2021</a>).</p>
+        </div>
       </section>
     </div>
   </div>
@@ -338,6 +384,7 @@
     <div class="grid2 panels" id="panels-episodios"></div>
 
     <h3 class="sub-h">Os dois episódios</h3>
+    <p class="il-t" data-il="Quadro" id="q-episodios"><span class="il-tt">Os dois episódios de inflação alta no Vietnã: causas, papel das reservas e resposta do governo, 2008 e 2011</span></p>
     <div class="epis">
       <article class="card epi">
         <header><span class="epi-ano">2008</span><h4>Superaquecimento antes da crise mundial</h4></header>
@@ -348,19 +395,19 @@
         </dl>
         <h5>O que causou</h5>
         <ul>
-          <li>Depois da entrada na Organização Mundial do Comércio, em janeiro de 2007, o país recebeu um volume inédito de capital estrangeiro. Para manter o dong estável, o banco central comprou dólares e emitiu moeda em troca, sem enxugar o suficiente. Em 2007 o crédito cresceu 53,9% e a quantidade de moeda, 46,1%.</li>
-          <li>No primeiro semestre de 2008 os preços mundiais de arroz e de petróleo dispararam. Alimentação pesava 42,85% na cesta do índice de preços vietnamita.</li>
-          <li>A inflação em doze meses chegou ao pico de 28,3% em agosto de 2008, antes da quebra do Lehman Brothers, em setembro.</li>
+          <li>Depois da entrada na Organização Mundial do Comércio, em janeiro de 2007 (<a class="cit" href="#ref-wto-vn">OMC, 2026</a>), o país recebeu um volume inédito de capital estrangeiro. Para manter o dong estável, o banco central comprou dólares e emitiu moeda em troca, sem enxugar o suficiente (<a class="cit" href="#ref-imf-cr07387">FMI, 2007</a>). Em 2007 o crédito cresceu 53,9% e a quantidade de moeda, 46,1% (<a class="cit" href="#ref-imf-pin0936">FMI, 2009a</a>).</li>
+          <li>No primeiro semestre de 2008 os preços internacionais de alimentos e de energia dispararam (<a class="cit" href="#ref-imf-cr09110">FMI, 2009b</a>). Alimentação pesava 42,85% na cesta do índice de preços vietnamita (<a class="cit" href="#ref-gso-cpi">Tổng cục Thống kê, 2006</a>).</li>
+          <li>A inflação em doze meses chegou ao pico de 28,3% em agosto de 2008 (<a class="cit" href="#ref-imf-cr09110">FMI, 2009b</a>), antes da quebra do Lehman Brothers, em setembro.</li>
         </ul>
         <h5>O papel das reservas</h5>
         <p>As reservas subiram de US$ <span data-v="VNM|reservas_usd|2006|1"></span> bilhões em 2006 para US$ <span data-v="VNM|reservas_usd|2007|1"></span> bilhões em 2007. Esse salto é o retrato da entrada de capital: cada dólar comprado pelo banco central virou dong em circulação.</p>
         <h5>Como o governo respondeu</h5>
         <ul>
-          <li>O banco central subiu a taxa de refinanciamento de 6,5% para 15% entre fevereiro e junho e, em março, obrigou os bancos a comprar 20,3 trilhões de dong em títulos seus, para enxugar a liquidez.</li>
-          <li>A banda de flutuação do dong foi alargada três vezes ao longo de 2008, de ±0,75% para ±3%.</li>
+          <li>O banco central subiu a taxa de refinanciamento de 6,5% para 15% entre fevereiro e junho (<a class="cit" href="#ref-sbv">Vietnã, 1999–2023</a>) e, em março, obrigou os bancos a comprar 20,3 trilhões de dong em títulos seus, para enxugar a liquidez (<a class="cit" href="#ref-vcci">Weekly [...], 2008</a>).</li>
+          <li>A banda de flutuação do dong foi alargada três vezes ao longo de 2008, de ±0,75% para ±3% (<a class="cit" href="#ref-imf-cr09110">FMI, 2009b</a>).</li>
         </ul>
         <h5>Onde entra a crise dos Estados Unidos</h5>
-        <p>No último trimestre de 2008 as exportações e os preços das commodities caíram, e a inflação cedeu. O banco central cortou a taxa cinco vezes entre outubro e dezembro, de 15% para 9,5%, e chegou a 7% em abril de 2009.</p>
+        <p>No segundo semestre de 2008 os preços das commodities caíram, as exportações perderam fôlego e a inflação cedeu (<a class="cit" href="#ref-imf-cr09110">FMI, 2009b</a>). O banco central cortou a taxa cinco vezes entre outubro e dezembro, de 15% para 9,5%, e chegou a 7% em abril de 2009 (<a class="cit" href="#ref-sbv">Vietnã, 1999–2023</a>).</p>
       </article>
 
       <article class="card epi">
@@ -372,46 +419,54 @@
         </dl>
         <h5>O que causou</h5>
         <ul>
-          <li>Para atravessar a crise mundial, o governo lançou em 2009 um pacote de cerca de 5% do PIB, com subsídio de 4 pontos percentuais nos juros dos empréstimos bancários. O déficit nominal foi a <span data-v="VNM|resultado_nominal|2009|1" data-abs="1"></span>% do PIB, e o crédito cresceu 39,6% em 2009 e 32,4% em 2010.</li>
-          <li>Em dezembro de 2010 o estaleiro estatal Vinashin deixou de pagar uma parcela de um empréstimo externo de US$ 600 milhões, o que abalou a confiança no crescimento puxado por crédito a empresas estatais.</li>
-          <li>Os preços das commodities subiram de novo em 2010 e 2011.</li>
+          <li>Para atravessar a crise mundial, o governo lançou em 2009 um pacote de cerca de 5% do PIB, com subsídio de 4 pontos percentuais nos juros dos empréstimos bancários (<a class="cit" href="#ref-imf-cr10281">FMI, 2010</a>). O déficit nominal foi a <span data-v="VNM|resultado_nominal|2009|1" data-abs="1"></span>% do PIB, e o crédito cresceu 39,6% em 2009 e 32,4% em 2010 (<a class="cit" href="#ref-imf-cr12165">FMI, 2012</a>).</li>
+          <li>Em dezembro de 2010 o estaleiro estatal Vinashin deixou de pagar uma parcela de um empréstimo externo de US$ 600 milhões, o que abalou a confiança no crescimento puxado por crédito a empresas estatais (<a class="cit" href="#ref-thestar">Ng, 2010</a>).</li>
+          <li>Na leitura do FMI, os dois episódios começaram com choques externos e foram agravados por políticas fiscal e monetária frouxas (<a class="cit" href="#ref-imf-cr12165">FMI, 2012</a>).</li>
         </ul>
         <h5>O papel das reservas</h5>
-        <p>Para defender o dong, o banco central vendeu dólares: as reservas caíram de US$ <span data-v="VNM|reservas_usd|2008|1"></span> bilhões em 2008 para US$ <span data-v="VNM|reservas_usd|2010|1"></span> bilhões em 2010. Pela conta do FMI, cobriam 3,8 meses de importações no fim de 2008 e só 1,4 mês no fim de 2010. Sem reservas para sustentar a taxa, vieram quatro desvalorizações entre novembro de 2009 e fevereiro de 2011. Na maior, em 11 de fevereiro de 2011, a taxa oficial passou de 18.932 para 20.693 dong por dólar, 9,3% a mais. Importados mais caros e a fuga de poupança para dólar e ouro alimentaram a inflação, que chegou a 23% em doze meses em agosto de 2011.</p>
+        <p>Para defender o dong, o banco central vendeu dólares: as reservas caíram de US$ <span data-v="VNM|reservas_usd|2008|1"></span> bilhões em 2008 para US$ <span data-v="VNM|reservas_usd|2010|1"></span> bilhões em 2010. Pela conta do FMI, cobriam 3,8 meses de importações no fim de 2008 e só 1,4 mês no fim de 2010 (<a class="cit" href="#ref-imf-cr12165">FMI, 2012</a>). Sem reservas para sustentar a taxa, vieram quatro desvalorizações entre novembro de 2009 e fevereiro de 2011 (<a class="cit" href="#ref-imf-cr10281">FMI, 2010</a>, <a class="cit" href="#ref-imf-cr12165">2012</a>). Na maior, em 11 de fevereiro de 2011, a taxa oficial passou de 18.932 para 20.693 dong por dólar, 9,3% a mais. Importados mais caros e a fuga de poupança para dólar e ouro alimentaram a inflação, que chegou a 23% em doze meses em agosto de 2011 (<a class="cit" href="#ref-imf-cr12165">FMI, 2012</a>).</p>
         <h5>Como o governo respondeu</h5>
         <ul>
-          <li>A Resolução 11, de fevereiro de 2011, impôs aperto monetário e fiscal: crescimento do crédito abaixo de 20%, déficit abaixo de 5% do PIB, adiamento de obras públicas e venda obrigatória de dólares das estatais aos bancos.</li>
-          <li>A taxa de refinanciamento foi de 9% para 15% ao longo do ano, e o déficit nominal caiu para <span data-v="VNM|resultado_nominal|2011|1" data-abs="1"></span>% do PIB.</li>
+          <li>A Resolução 11, de fevereiro de 2011, impôs aperto monetário e fiscal: crescimento do crédito abaixo de 20%, déficit abaixo de 5% do PIB, adiamento de obras públicas e venda obrigatória de dólares das estatais aos bancos (<a class="cit" href="#ref-vn-res11">Vietnã, 2011</a>).</li>
+          <li>A taxa de refinanciamento foi de 9% para 15% ao longo do ano (<a class="cit" href="#ref-sbv">Vietnã, 1999–2023</a>), e o déficit nominal caiu para <span data-v="VNM|resultado_nominal|2011|1" data-abs="1"></span>% do PIB.</li>
         </ul>
         <h5>O que mudou depois</h5>
-        <p>A inflação caiu para <span data-v="VNM|inflacao_ipc|2012|1"></span>% em 2012 e <span data-v="VNM|inflacao_ipc|2013|1"></span>% em 2013, e as reservas voltaram a US$ <span data-v="VNM|reservas_usd|2012|1"></span> bilhões já em 2012. Desde então a estabilidade passou a ser a prioridade: a taxa de refinanciamento ficou quase parada de 2014 a 2019, e as reservas chegaram a US$ <span data-v="VNM|reservas_usd|2023|1"></span> bilhões em 2023.</p>
+        <p>A inflação caiu para <span data-v="VNM|inflacao_ipc|2012|1"></span>% em 2012 e <span data-v="VNM|inflacao_ipc|2013|1"></span>% em 2013, e as reservas voltaram a US$ <span data-v="VNM|reservas_usd|2012|1"></span> bilhões já em 2012. Desde então a estabilidade passou a ser a prioridade: a taxa de refinanciamento ficou quase parada de 2014 a 2019 (<a class="cit" href="#ref-sbv">Vietnã, 1999–2023</a>), e as reservas chegaram a US$ <span data-v="VNM|reservas_usd|2023|1"></span> bilhões em 2023.</p>
       </article>
+    </div>
+    <div class="il-f below">
+      <p><b>Fonte:</b> elaboração própria com base nas fontes citadas em cada item. Valores anuais de inflação e de reservas: <a class="cit" href="#ref-wdi">Banco Mundial (2026b)</a>; reservas/PIB: cálculo próprio; resultado nominal: <a class="cit" href="#ref-weo">FMI (2025)</a>; taxa de refinanciamento: <a class="cit" href="#ref-sbv">Vietnã (1999–2023)</a>.</p>
+      <p><b>Nota:</b> Os picos de inflação em doze meses (28,3% e 23%) são mensais e por isso diferem das médias anuais dos blocos de números (inflação do ano frente ao ano anterior).</p>
     </div>
 
     <h3 class="sub-h">Câmbio e capitais: Vietnã × Brasil</h3>
+    <p class="il-t" data-il="Quadro" id="q-cambio"><span class="il-tt">Regime de câmbio, política monetária e fluxo de capitais: Vietnã e Brasil</span></p>
     <div class="tablewrap">
       <table class="vs">
         <thead><tr><th scope="col"></th><th scope="col" class="vn">Vietnã</th><th scope="col" class="br">Brasil</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Regime de câmbio</th><td>Administrado. Desde janeiro de 2016 o banco central publica uma taxa central a cada dia, e os bancos só podem negociar dentro de uma banda em torno dela, de ±5% desde outubro de 2022. O FMI classifica o regime, na prática, como estabilizado a partir de 2009 e como de ajustes graduais (crawl-like) desde meados de 2023.</td><td>Flutuante desde 18 de janeiro de 1999. O mercado define a taxa, e o Banco Central intervém só de forma ocasional, sem meta para o câmbio.</td></tr>
-          <tr><th scope="row">Âncora da política monetária</th><td>Estabilidade do câmbio e metas anuais de crescimento do crédito. A meta de inflação é fixada a cada ano pela Assembleia Nacional.</td><td>Meta de inflação, desde junho de 1999, perseguida com a taxa Selic.</td></tr>
-          <tr><th scope="row">Comércio e serviços</th><td colspan="2" class="both">Pagamentos de comércio e serviços são livres nos dois países: o Brasil assumiu esse compromisso com o FMI em 1999, e o Vietnã, em 2005.</td></tr>
-          <tr><th scope="row">Fluxo de capitais</th><td>Controlado. O investimento estrangeiro direto é incentivado, mas a aplicação em ações e títulos tem de passar por uma conta específica em dong, e há limites de participação estrangeira, como os 30% nos bancos. O residente precisa de registro para investir no exterior, e o crédito em moeda estrangeira dentro do país é restrito.</td><td>Aberto na prática para aplicações financeiras: não residentes investem em ações e títulos desde 2000. Os controles foram pontuais, como o imposto de até 6% sobre a entrada de capital entre outubro de 2009 e junho de 2013. Uma nova lei cambial vale desde o fim de 2022.</td></tr>
-          <tr><th scope="row">Dólar e ouro na economia</th><td>Uso amplo nos anos 2000. Depois de 2011 o governo passou a desestimular: limitou e, em 2015, zerou os juros dos depósitos em dólar, e manteve de 2012 a 2025 o monopólio estatal da produção de barras de ouro.</td><td>Sem dolarização relevante: a regra geral é que contratos e contas no país sejam em reais.</td></tr>
+          <tr><th scope="row">Regime de câmbio</th><td>Administrado. Desde janeiro de 2016 o banco central publica uma taxa central a cada dia (<a class="cit" href="#ref-vn-dec2730">Vietnã, 2015c</a>), e os bancos só podem negociar dentro de uma banda em torno dela, de ±5% desde outubro de 2022 (<a class="cit" href="#ref-imf-art4-2024">FMI, 2024</a>). O FMI classifica o regime, na prática, como estabilizado a partir de 2009 (<a class="cit" href="#ref-imf-cr10281">FMI, 2010</a>) e como de ajustes graduais (<i>crawl-like</i>) desde meados de 2023 (<a class="cit" href="#ref-imf-art4-2024">FMI, 2024</a>).</td><td>Flutuante desde 18 de janeiro de 1999. O mercado define a taxa, e o Banco Central intervém só de forma ocasional, sem meta para o câmbio (<a class="cit" href="#ref-bcb-com6565">Banco Central do Brasil, 1999</a>).</td></tr>
+          <tr><th scope="row">Âncora da política monetária</th><td>Estabilidade do câmbio. Entre os instrumentos estão os tetos anuais de crescimento do crédito, com uma cota para cada banco (<a class="cit" href="#ref-imf-art4-2024">FMI, 2024</a>; <a class="cit" href="#ref-amro2023">AMRO, 2024</a>). A meta de inflação é decidida a cada ano pela Assembleia Nacional (<a class="cit" href="#ref-vn-lei-sbv-2010">Vietnã, 2010</a>).</td><td>Meta de inflação, desde junho de 1999, perseguida com a taxa Selic (<a class="cit" href="#ref-br-dec3088">Brasil, 1999</a>).</td></tr>
+          <tr><th scope="row">Comércio e serviços</th><td colspan="2" class="both">Pagamentos de comércio e serviços são livres nos dois países: o Brasil assumiu esse compromisso com o FMI em 1999 (<a class="cit" href="#ref-imf-nb9977">FMI, 1999</a>), e o Vietnã, em 2005 (<a class="cit" href="#ref-imf-pr0602">FMI, 2006</a>).</td></tr>
+          <tr><th scope="row">Fluxo de capitais</th><td>Controlado. O investimento estrangeiro direto é incentivado, mas a aplicação em ações e títulos tem de passar por uma conta específica em dong (<a class="cit" href="#ref-vn-circ05-2014">Vietnã, 2014b</a>), e há limites de participação estrangeira, como os 30% nos bancos (<a class="cit" href="#ref-vn-dec01-2014">Vietnã, 2014a</a>).</td><td>Aberto na prática para aplicações financeiras: não residentes investem em ações e títulos desde 2000 (<a class="cit" href="#ref-br-cmn2689">Conselho Monetário Nacional, 2000</a>). Os controles foram pontuais, como o imposto de até 6% sobre a entrada de capital entre outubro de 2009 e junho de 2013 (<a class="cit" href="#ref-br-dec6983">Brasil, 2009</a>, <a class="cit" href="#ref-br-dec7330">2010</a>, <a class="cit" href="#ref-br-dec8023">2013</a>). Uma nova lei cambial vale desde o fim de 2022 (<a class="cit" href="#ref-br-lei14286">Brasil, 2021b</a>).</td></tr>
+          <tr><th scope="row">Dólar e ouro na economia</th><td>Uso amplo nos anos 2000. Depois de 2011 o governo passou a desestimular: limitou e, em 2015, zerou os juros dos depósitos em dólar (<a class="cit" href="#ref-vn-dec2589">Vietnã, 2015b</a>), e manteve de 2012 a 2025 o monopólio estatal da produção de barras de ouro (<a class="cit" href="#ref-vn-dec24-2012">Vietnã, 2012</a>, <a class="cit" href="#ref-vn-dec232-2025">2025</a>).</td><td>Sem dolarização relevante: a regra geral é que as obrigações a pagar no país sejam estipuladas em reais (<a class="cit" href="#ref-br-lei10192">Brasil, 2001</a>); as exceções estão listadas na lei cambial (<a class="cit" href="#ref-br-lei14286">Brasil, 2021b</a>).</td></tr>
           <tr><th scope="row">Reservas em 2008</th><td>US$ <span data-v="VNM|reservas_usd|2008|1"></span> bi · <span data-v="VNM|reservas_pct_pib|2008|1"></span>% do PIB</td><td>US$ <span data-v="BRA|reservas_usd|2008|1"></span> bi · <span data-v="BRA|reservas_pct_pib|2008|1"></span>% do PIB</td></tr>
           <tr><th scope="row">Reservas em 2011</th><td>US$ <span data-v="VNM|reservas_usd|2011|1"></span> bi · <span data-v="VNM|reservas_pct_pib|2011|1"></span>% do PIB</td><td>US$ <span data-v="BRA|reservas_usd|2011|1"></span> bi · <span data-v="BRA|reservas_pct_pib|2011|1"></span>% do PIB</td></tr>
           <tr><th scope="row">Reservas em 2023</th><td>US$ <span data-v="VNM|reservas_usd|2023|1"></span> bi · <span data-v="VNM|reservas_pct_pib|2023|1"></span>% do PIB</td><td>US$ <span data-v="BRA|reservas_usd|2023|1"></span> bi · <span data-v="BRA|reservas_pct_pib|2023|1"></span>% do PIB</td></tr>
           <tr><th scope="row">Inflação em 2008 e 2011</th><td><span data-v="VNM|inflacao_ipc|2008|1"></span>% e <span data-v="VNM|inflacao_ipc|2011|1"></span>%</td><td><span data-v="BRA|inflacao_ipc|2008|1"></span>% e <span data-v="BRA|inflacao_ipc|2011|1"></span>%</td></tr>
-          <tr><th scope="row">Quem absorve um choque externo</th><td>As reservas. Com a taxa quase fixa, o banco central vende dólares para segurar o dong; quando as reservas acabam, o ajuste vem em desvalorizações bruscas.</td><td>A taxa de câmbio. Na crise de 2008 o dólar foi de R$ 1,56, em agosto, para R$ 2,50, em dezembro, e as reservas ficaram perto de US$ 200 bilhões. A inflação importada é combatida com juros.</td></tr>
+          <tr><th scope="row">Quem absorve um choque externo</th><td>As reservas. Com a taxa quase fixa, o banco central vende dólares para segurar o dong; quando as reservas acabam, o ajuste vem em desvalorizações bruscas.</td><td>A taxa de câmbio. Na crise de 2008 o dólar foi de R$ 1,56, em agosto, para R$ 2,50, em dezembro (<a class="cit" href="#ref-bcb-sgs1">Banco Central do Brasil, 2026b</a>), e as reservas ficaram perto de US$ 200 bilhões (<a class="cit" href="#ref-bcb-sgs3546">Banco Central do Brasil, 2026a</a>). A inflação importada é combatida com juros.</td></tr>
         </tbody>
       </table>
+    </div>
+    <div class="il-f below">
+      <p><b>Fonte:</b> elaboração própria com base nas fontes citadas em cada célula. Reservas e inflação: <a class="cit" href="#ref-wdi">Banco Mundial (2026b)</a>; reservas/PIB: cálculo próprio.</p>
     </div>
     <div class="callout vs-call">
       <h3>O que a comparação mostra</h3>
       <p>O Vietnã escolheu câmbio estável e controle de capitais; o Brasil, câmbio flutuante e mercado financeiro aberto ao investidor estrangeiro. Com o câmbio estável, o exportador vietnamita ganha previsibilidade, mas a entrada de dólares vira expansão de moeda e crédito, e a defesa da taxa depende do tamanho das reservas. Foi o que falhou em 2008 e em 2011. No Brasil o câmbio absorve os choques, e o custo aparece em volatilidade e em juros altos para conter a inflação.</p>
     </div>
-    <p class="note vs-note"><b>Um cuidado com os índices de abertura.</b> O índice Chinn-Ito, que mede a abertura formal da conta de capital, dá ao Vietnã nota mais alta que a do Brasil desde 2015 (−0,17 contra −1,25 em 2023). Ele conta as restrições legais que cada país declara ao FMI, não o volume nem a facilidade real dos fluxos. A tabela acima descreve as regras para aplicações financeiras e a prática do câmbio, e não deve ser lida como uma medida única de abertura.</p>
-    <p class="note vs-note">Fontes dos fatos e das datas: relatórios do FMI sobre o Vietnã (consultas do Artigo IV de 2007, 2009, 2010, 2012 e 2024), Organização Mundial do Comércio, instituto de estatística do Vietnã, textos legais vietnamitas e brasileiros, Banco Central do Brasil e imprensa econômica para o caso Vinashin e para as datas das bandas cambiais. Os valores de reservas, inflação, juros e déficit vêm da base deste site; os meses de importação são do FMI, que usa um conceito de reservas um pouco diferente. A conferência item a item, com os links, está em <a href="data/fontes/verificacao_cambio_e_inflacao.md">verificacao_cambio_e_inflacao.md</a>.</p>
+    <p class="note vs-note"><b>Um cuidado com os índices de abertura.</b> O índice Chinn-Ito (<a class="cit" href="#ref-chinn-ito-2006">Chinn; Ito, 2006</a>), que mede a abertura formal da conta de capital, dá ao Vietnã nota mais alta que a do Brasil desde 2015: −0,17 contra −1,25 em 2023 (<a class="cit" href="#ref-chinn-ito-readme">Ito; Chinn, 2026</a>). Ele conta as restrições legais que cada país declara ao FMI, não o volume nem a facilidade real dos fluxos. O <a data-ilref="q-cambio" href="#q-cambio">quadro</a> acima descreve as regras para aplicações financeiras e a prática do câmbio, e não deve ser lida como uma medida única de abertura.</p>
+    <p class="note vs-note">Os meses de importação são do FMI, que usa um conceito de reservas um pouco diferente do da base deste site. O caso Vinashin, o recolhimento compulsório de março de 2008 e as datas das bandas cambiais têm como fonte a imprensa econômica, e não documentos oficiais. A conferência item a item, com o endereço de cada fonte, está em <a href="data/fontes/verificacao_cambio_e_inflacao.md">verificacao_cambio_e_inflacao.md</a>.</p>
   </div>
 </section>
 
@@ -425,21 +480,30 @@
     </header>
 
     <div class="stack">
-      <div class="alas" id="alas" aria-label="Indicadores por ala"></div>
+      <div>
+        <p class="il-t" data-il="Quadro" id="q-alas"><span class="il-tt">Indicadores da base, por ala e por grupo</span></p>
+        <div class="alas" id="alas" aria-label="Indicadores por ala"></div>
+        <div class="il-f below">
+          <p><b>Fonte:</b> elaboração própria. A fonte de cada indicador aparece ao selecioná-lo e está no arquivo de <a href="data/tcc_metadados.csv">metadados</a>.</p>
+        </div>
+      </div>
 
       <section class="card" id="explorar">
-        <h3 class="card-h">Explorar indicador</h3>
+        <span class="ptag">Explorar indicador</span>
+        <h3 class="card-h il-t" data-il="Gráfico" id="g-explorar" data-lista="Indicador e período escolhidos pelo leitor: Brasil e Vietnã"><span class="il-tt">Explorar indicador</span></h3>
         <div class="controls">
           <label class="grow">Indicador <select id="sel-ind" aria-label="Indicador"></select></label>
           <label>Período <span class="range"><input type="number" id="ano-ini" min="1990" max="2023" step="1" value="1990" aria-label="Ano inicial"> <span>–</span> <input type="number" id="ano-fim" min="1990" max="2023" step="1" value="2023" aria-label="Ano final"></span></label>
           <label>Escala <select id="sel-escala" aria-label="Escala"><option value="lin">Linear</option><option value="log">Logarítmica</option></select></label>
         </div>
-        <div class="meta"><span>Unidade: <b id="m-unid">—</b></span><span>Fonte: <b id="m-fonte">—</b></span><span>Código: <b id="m-cod">—</b></span><span id="m-nota"></span></div>
+        <p class="legend il-leg"><span><i class="sw br"></i>Brasil</span><span><i class="sw vn"></i>Vietnã</span></p>
         <div class="chart" id="chart-main"></div>
+        <div class="il-f"><p id="f-explorar"></p><p id="n-explorar"></p></div>
       </section>
 
       <section class="card" id="macro">
-        <h3 class="card-h">Causas × resultados: juros e investimento frente a crescimento e inflação</h3>
+        <span class="ptag">Causas × resultados: juros e investimento frente a crescimento e inflação</span>
+        <h3 class="card-h il-t" data-il="Gráfico" id="g-macro" data-lista="Crescimento do PIB, taxa básica de juros, FBCF/PIB e inflação, por país, no período escolhido pelo leitor (%)"><span class="il-tt">Crescimento do PIB, taxa básica de juros, FBCF/PIB e inflação: Brasil e Vietnã (%)</span></h3>
         <p class="note">Quatro variáveis em % num só eixo, por país. O período padrão começa em 1996, quando as quatro séries existem para ambos e a inflação brasileira já está em patamar comparável; amplie para 1990 para ver a hiperinflação (a escala passa a logarítmica automaticamente).</p>
         <div class="controls">
           <div class="chips" id="macro-chips" aria-label="Séries exibidas">
@@ -454,7 +518,10 @@
           <div class="facet"><h4 class="br">Brasil</h4><div class="chart" id="macro-br"></div></div>
           <div class="facet"><h4 class="vn">Vietnã</h4><div class="chart" id="macro-vn"></div></div>
         </div>
-        <p class="note">Fontes: crescimento do PIB, FBCF e inflação — Banco Mundial (WDI). Taxa básica: Brasil, Selic média anual (BCB, série SGS 4189); Vietnã, taxa de refinanciamento do State Bank of Vietnam, média anual ponderada por dias a partir das decisões QĐ-NHNN (1998–99 aproximação). Inflação do Vietnã indisponível antes de 1996.</p>
+        <div class="il-f">
+          <p><b>Fonte:</b> elaboração própria com dados de <a class="cit" href="#ref-wdi">Banco Mundial (2026b)</a> (crescimento do PIB, FBCF e inflação) e de <a class="cit" href="#ref-bcb-sgs">Banco Central do Brasil (2026c)</a> e <a class="cit" href="#ref-sbv">Vietnã (1999–2023)</a> (taxa básica de juros).</p>
+          <p><b>Nota:</b> As cores de cada série estão nos seletores acima do gráfico. FBCF: formação bruta de capital fixo, o investimento em máquinas, equipamentos e construções. Taxa básica: no Brasil, média anual da taxa Selic; no Vietnã, média anual da taxa de refinanciamento, ponderada por dias (1998–1999: aproximação). Inflação do Vietnã indisponível antes de 1996.</p>
+        </div>
       </section>
 
       <section id="paineis">
@@ -465,7 +532,8 @@
       </section>
 
       <section class="card" id="tabela">
-        <h3 class="card-h">Tabela comparativa: anos selecionados</h3>
+        <span class="ptag">Tabela comparativa: anos selecionados</span>
+        <h3 class="card-h il-t" data-il="Tabela" id="t-comparativa" data-lista="Indicador escolhido pelo leitor: Brasil e Vietnã, anos selecionados, 1990–2023"><span class="il-tt">Tabela comparativa: anos selecionados</span></h3>
         <div class="controls"><label class="grow">Indicador <select id="sel-tab" aria-label="Indicador da tabela"></select></label></div>
         <div class="tablewrap">
           <table class="cmp">
@@ -473,9 +541,10 @@
             <tbody id="tab-body"></tbody>
           </table>
         </div>
+        <div class="il-f"><p id="f-comparativa"></p><p id="n-comparativa"></p></div>
         <div class="downloads">
           <span>Baixar a base completa:</span>
-          <a class="btn small" href="data/tcc_dados_long.csv" download>Formato longo (1.908 observações)</a>
+          <a class="btn small" href="data/tcc_dados_long.csv" download>Formato longo (1.910 observações)</a>
           <a class="btn small" href="data/tcc_dados_wide.csv" download>Formato largo</a>
           <a class="btn small" href="data/tcc_metadados.csv" download>Metadados e fontes</a>
           <a class="btn small" href="data/tcc_decisoes_juros.csv" download>Decisões de juros</a>
@@ -493,14 +562,15 @@
       <h2>Notas metodológicas e lacunas de dados</h2>
     </header>
     <details class="foot">
-      <summary>Ver as 15 notas sobre séries, fontes e lacunas</summary>
+      <summary>Ver as 16 notas sobre séries, fontes e lacunas</summary>
       <ul>
-        <li>ECI (score e ranking) começa em 1995 — série HS96 do OEC não cobre 1990–1994.</li>
+        <li>Conferência da base: em 17 de novembro de 2026 cada valor foi comparado com o da fonte citada. As séries do Banco Mundial reproduzem os World Development Indicators na atualização de 11 de novembro de 2026, e o IDH, a série do Relatório de Desenvolvimento Humano 2025. Exportações, manufaturados nas exportações, IDH, PIB per capita do Brasil, Gini do Brasil e ECI foram substituídos pelos valores da fonte; o método e a lista dos valores trocados estão em <a href="data/fontes/conferencia_da_base.md">conferencia_da_base.md</a>.</li>
+        <li>ECI (score e ranking): série do Growth Lab de Harvard calculada com a classificação de produtos HS92, de 1995 a 2023 (<a class="cit" href="#ref-growthlab">Harvard Growth Lab, 2026</a>). O ranking cobre 140 economias de 1995 a 1999, 144 de 2000 a 2005 e 145 de 2006 em diante. Os valores diferem dos publicados pelo Observatory of Economic Complexity (OEC), que calcula o índice à parte: na série HS92 a 6 dígitos do OEC, o ranking de 2023 traz o Brasil em 47º e o Vietnã em 62º. A série anterior desta base não conferia com nenhuma das duas fontes e foi substituída em 17 de novembro de 2026.</li>
         <li>Manufaturados nas exportações do Vietnã: indisponível antes de 1997. Manufatura / PIB do Vietnã: indisponível antes de 2005.</li>
         <li>Termos de troca: índice 2015 = 100, série do WDI começa em 2005.</li>
         <li>Taxa de câmbio real efetiva: o WDI não publica para o Vietnã; apenas Brasil (2010 = 100).</li>
         <li>P&amp;D / PIB do Vietnã: observações bienais da UNESCO.</li>
-        <li>Gini: anos de pesquisa domiciliar. Brasil 2020 (48,9) reflete o Auxílio Emergencial. Vietnã usa a VHLSS, bienal.</li>
+        <li>Gini: só há valor nos anos de pesquisa domiciliar. No Brasil o índice é calculado sobre a renda (PNAD e PNAD Contínua); no Vietnã, sobre o consumo, medido a cada dois anos pela pesquisa VHLSS. A queda do Brasil em 2020 (48,8) coincide com o pagamento do Auxílio Emergencial.</li>
         <li>Emprego na indústria: estimativa modelada da OIT; inclui construção e mineração.</li>
         <li>FBCF / PIB do Vietnã: indisponível antes de 1995. Inflação IPC do Vietnã: indisponível antes de 1996; o deflator do PIB cobre 1990–1995.</li>
         <li>Juros de empréstimo (FMI/IFS): taxa média bancária ao tomador final, não a taxa de política monetária. Brasil a partir de 1997.</li>
@@ -509,9 +579,84 @@
         <li>Decisões de juros do Brasil: meta da taxa Selic, do histórico de taxas de juros do Banco Central, da 33ª reunião do Copom (março de 1999) a dezembro de 2023. Entre 1999 e 2003 há mudanças feitas entre reuniões pelo uso do viés.</li>
         <li>Decisões de juros do Vietnã: taxa de refinanciamento do State Bank of Vietnam, compilada a partir das decisões QĐ-NHNN, de novembro de 1999 a junho de 2023, cada uma conferida no texto da decisão em bases jurídicas vietnamitas (cópias de terceiros, não o diário oficial). A lista só registra mudanças de taxa. Até 2001 as decisões fixam a taxa ao mês; a taxa anual é a mensal vezes doze. Lacuna: a Decisão 545/2003 (6,5% a partir de 1º de junho de 2003) foi substituída no dia seguinte pela 552/2003, cujo texto não foi localizado; a taxa de junho e julho de 2003 fica, portanto, não confirmada. A taxa de refinanciamento é um entre vários instrumentos do SBV, que também usa tetos de juros de depósito e metas de crescimento do crédito.</li>
         <li>Reservas internacionais / PIB: cálculo próprio, reservas totais (WDI) divididas pelo PIB nominal em dólares (WDI). Vietnã a partir de 1995.</li>
-        <li>Exportações: o Vietnã esteve à frente do Brasil em 2016–2017 e 2019–2022; o Brasil retomou a liderança em 2018 e 2023.</li>
+        <li>Exportações de bens e serviços: o Vietnã esteve à frente do Brasil de 2019 a 2022; o Brasil voltou à frente em 2023.</li>
       </ul>
     </details>
+    <details class="foot" style="margin-top:14px">
+      <summary>Ver a lista de gráficos, tabelas, quadros e figuras</summary>
+      <div id="lista-il"></div>
+    </details>
+  </div>
+</section>
+
+<!-- ───────── 09 Referências ───────── -->
+<section class="band" id="referencias">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow"><span class="num">09</span>Referências</p>
+      <h2>Referências</h2>
+      <p class="intro">Fontes citadas nesta página, em ordem alfabética.</p>
+    </header>
+    <p class="normas">Normas seguidas: referências conforme a ABNT NBR 6023:2018; chamadas no texto pelo sistema autor-data da ABNT NBR 10520:2023; gráficos, quadros e figuras identificados conforme a ABNT NBR 14724:2011, com título na parte superior e fonte na inferior; tabelas conforme as Normas de Apresentação Tabular do IBGE.</p>
+    <div class="como-citar"><b class="h">Como citar esta página</b>MARANGONI, Renan Sevilha. <i>Brasil × Vietnã 1990–2023</i>: desenvolvimento e inserção internacional após o fim da Guerra Fria. São Paulo: FECAP, 2026. Disponível em: https://brasil-vietna-1990-2023.pages.dev. Acesso em: <span id="hoje">dia mês ano</span>.</div>
+    <ul class="refs" id="refs">
+      <li id="ref-amro2023" data-cite="AMRO (2024)">ASEAN+3 MACROECONOMIC RESEARCH OFFICE. <i>AMRO annual consultation report</i>: Vietnam 2023. Singapore: AMRO, 2024. Anexo Selected issues, 1: Vietnam’s monetary policy framework and operation. Disponível em: https://amro-asia.org/wp-content/uploads/2024/04/Vietnam_2023-Annual-Consultation-Report_-SI-on-Monetary-Policy-Framework.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-bcb-circ2698" data-cite="Banco Central do Brasil (1996)">BANCO CENTRAL DO BRASIL. <i>Circular nº 2.698, de 20 de junho de 1996</i>. Cria a Taxa Básica do Banco Central (TBC) e o Comitê de Política Monetária (Copom). Brasília, DF: BCB, 1996. Disponível em: https://www.bcb.gov.br/pre/normativos/circ/1996/pdf/circ_2698_v1_O.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-bcb-com6565" data-cite="Banco Central do Brasil (1999)">BANCO CENTRAL DO BRASIL. <i>Comunicado nº 6.565, de 18 de janeiro de 1999</i>. Dispõe sobre o regime cambial. Brasília, DF: BCB, 1999. Disponível em: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Comunicado&numero=6565. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-bcb-sgs3546" data-cite="Banco Central do Brasil (2026a)">BANCO CENTRAL DO BRASIL. <i>Reservas internacionais - Total - mensal</i>. [Brasília, DF]: BCB, [2026a]. SGS - Sistema Gerenciador de Séries Temporais, série 3546, em US$ milhões, mensal, início em dez. 1970. Base de dados. Disponível em: https://www3.bcb.gov.br/sgspub/consultarvalores/consultarValoresSeries.do?method=consultarGraficoPorId&hdOidSeriesSelecionadas=3546. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-bcb-res61" data-cite="Banco Central do Brasil (2021)">BANCO CENTRAL DO BRASIL. <i>Resolução BCB nº 61, de 13 de janeiro de 2021</i>. Aprova o Regulamento do Comitê de Política Monetária (Copom). Brasília, DF: BCB, 2021. Versão em inglês publicada pelo Banco Central. Disponível em: https://www.bcb.gov.br/content/controleinflacao/controleinflacao_docs/BCB-RESOLUTION-61-OF-JANUARY13-2021.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-bcb-sgs1" data-cite="Banco Central do Brasil (2026b)">BANCO CENTRAL DO BRASIL. <i>Taxa de câmbio - Livre - Dólar americano (venda) - diário</i>. [Brasília, DF]: BCB, [2026b]. SGS - Sistema Gerenciador de Séries Temporais, série 1 (PTAX, venda), diária, início em 28 nov. 1984. Base de dados. Disponível em: https://dadosabertos.bcb.gov.br/dataset/1-taxa-de-cambio---livre---dolar-americano-venda---diario. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-bcb-sgs" data-cite="Banco Central do Brasil (2026c)">BANCO CENTRAL DO BRASIL. <i>Taxa de juros - Selic acumulada no mês anualizada base 252</i>. [Brasília, DF]: BCB, [2026c]. SGS - Sistema Gerenciador de Séries Temporais, série 4189, em % a.a., mensal, início em 31 jul. 1986. Base de dados. Disponível em: https://dadosabertos.bcb.gov.br/dataset/4189-taxa-de-juros---selic-acumulada-no-mes-anualizada-base-252. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-bcb-hist" data-cite="Banco Central do Brasil (2026d)">BANCO CENTRAL DO BRASIL. <i>Taxas de juros básicas – Histórico</i>. [Brasília, DF]: BCB, [2026d]. Histórico das taxas de juros fixadas pelo Copom e evolução da taxa Selic. Disponível em: https://www.bcb.gov.br/controleinflacao/historicotaxasjuros. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-pip" data-cite="Banco Mundial (2026a)">BANCO MUNDIAL. <i>Poverty and Inequality Platform</i>. Versão 20260922_2021_01_02_PROD. [Washington, DC]: World Bank, 2026a. Base de dados; origem do índice de Gini (SI.POV.GINI) reproduzido nos World Development Indicators. Disponível em: https://pip.worldbank.org. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-wdi" data-cite="Banco Mundial (2026b)">BANCO MUNDIAL. <i>World Development Indicators</i>. [Washington, DC]: World Bank, 2026b. Base de dados (licença CC BY 4.0). Última atualização informada pelo Banco Mundial: 11 nov. 2026. Disponível em: https://databank.worldbank.org/source/world-development-indicators. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-ec95" data-cite="Brasil (2016)">BRASIL. [Constituição (1988)]. <i>Emenda Constitucional nº 95, de 15 de dezembro de 2016</i>. Altera o Ato das Disposições Constitucionais Transitórias, para instituir o Novo Regime Fiscal, e dá outras providências. Brasília, DF: Presidência da República, 2016. Publicada no Diário Oficial da União, seção 1, p. 2, em 16 dez. 2016. Disponível em: https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc95.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-dec3088" data-cite="Brasil (1999)">BRASIL. <i>Decreto nº 3.088, de 21 de junho de 1999</i>. Estabelece a sistemática de “metas para a inflação” como diretriz para fixação do regime de política monetária e dá outras providências. Brasília, DF: Presidência da República, 1999. Publicado no Diário Oficial da União em 22 jun. 1999. Revogado pelo Decreto nº 12.079, de 2024. Disponível em: https://www.planalto.gov.br/ccivil_03/decreto/d3088.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-dec6983" data-cite="Brasil (2009)">BRASIL. <i>Decreto nº 6.983, de 19 de outubro de 2009</i>. Altera o Decreto nº 6.306, de 14 de dezembro de 2007, que regulamenta o Imposto sobre Operações de Crédito, Câmbio e Seguro, ou relativas a Títulos ou Valores Mobiliários - IOF. Brasília, DF: Presidência da República, 2009. Publicado no Diário Oficial da União em 20 out. 2009. Revogado pelo Decreto nº 7.412, de 2010. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/decreto/d6983.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-dec7330" data-cite="Brasil (2010)">BRASIL. <i>Decreto nº 7.330, de 18 de outubro de 2010</i>. Altera o Decreto nº 6.306, de 14 de dezembro de 2007, que regulamenta o Imposto sobre Operações de Crédito [...]. Brasília, DF: Presidência da República, 2010. Publicado no Diário Oficial da União em 19 out. 2010. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/Decreto/D7330.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-dec8023" data-cite="Brasil (2013)">BRASIL. <i>Decreto nº 8.023, de 4 de junho de 2013</i>. Altera o Decreto nº 6.306, de 14 de dezembro de 2007, que regulamenta o Imposto sobre Operações de Crédito, Câmbio e Seguro, ou relativas a Títulos ou Valores Mobiliários - IOF. Brasília, DF: Presidência da República, 2013. Publicado no Diário Oficial da União em 5 jun. 2013. Revogado pelo Decreto nº 8.325, de 2014. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d8023.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-lc101" data-cite="Brasil (2000)">BRASIL. <i>Lei Complementar nº 101, de 4 de maio de 2000</i>. Estabelece normas de finanças públicas voltadas para a responsabilidade na gestão fiscal e dá outras providências. Brasília, DF: Presidência da República, 2000. Publicada no Diário Oficial da União em 5 maio 2000. Disponível em: https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-lc179" data-cite="Brasil (2021a)">BRASIL. <i>Lei Complementar nº 179, de 24 de fevereiro de 2021</i>. Define os objetivos do Banco Central do Brasil e dispõe sobre sua autonomia e sobre a nomeação e a exoneração de seu Presidente e de seus Diretores; e altera artigo da Lei nº 4.595, de 31 de dezembro de 1964. Brasília, DF: Presidência da República, 2021a. Publicada no Diário Oficial da União em 25 fev. 2021. Disponível em: https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-lc200" data-cite="Brasil (2023)">BRASIL. <i>Lei Complementar nº 200, de 30 de agosto de 2023</i>. Institui regime fiscal sustentável para garantir a estabilidade macroeconômica do País e criar as condições adequadas ao crescimento socioeconômico, com fundamento no art. 6º da Emenda Constitucional nº 126, de 21 de dezembro de 2022, e no inciso VIII do caput e no parágrafo único do art. 163 da Constituição Federal; e altera a Lei Complementar nº 101, de 4 de maio de 2000 (Lei de Responsabilidade Fiscal). Brasília, DF: Presidência da República, 2023. Publicada no Diário Oficial da União em 31 ago. 2023. Disponível em: https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp200.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-lei10192" data-cite="Brasil (2001)">BRASIL. <i>Lei nº 10.192, de 14 de fevereiro de 2001</i>. Dispõe sobre medidas complementares ao Plano Real e dá outras providências. Brasília, DF: Presidência da República, 2001. Disponível em: https://www.planalto.gov.br/ccivil_03/leis/leis_2001/l10192.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-lei14286" data-cite="Brasil (2021b)">BRASIL. <i>Lei nº 14.286, de 29 de dezembro de 2021</i>. Dispõe sobre o mercado de câmbio brasileiro, o capital brasileiro no exterior, o capital estrangeiro no País e a prestação de informações ao Banco Central do Brasil; [...]. Brasília, DF: Presidência da República, 2021b. Publicada no Diário Oficial da União em 30 dez. 2021. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/L14286.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-chinn-ito-2006" data-cite="Chinn e Ito (2006)">CHINN, Menzie D.; ITO, Hiro. What matters for financial development? Capital controls, institutions, and interactions. <i>Journal of Development Economics</i>, [Amsterdam], v. 81, n. 1, p. 163-192, out. 2006. DOI: 10.1016/j.jdeveco.2005.05.010. Disponível em: https://doi.org/10.1016/j.jdeveco.2005.05.010. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-br-cmn2689" data-cite="Conselho Monetário Nacional (2000)">CONSELHO MONETÁRIO NACIONAL (Brasil). <i>Resolução nº 2.689, de 26 de janeiro de 2000</i>. Dispõe sobre aplicações de investidor não residente nos mercados financeiro e de capitais. Brasília, DF: Banco Central do Brasil, 2000. Publicada no Diário Oficial da União em 27 jan. 2000. Revogada pela Resolução CMN nº 4.373, de 2014. Disponível em: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o&numero=2689. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-imf-nb9977" data-cite="FMI (1999)">FUNDO MONETÁRIO INTERNACIONAL. <i>IMF Completes Brazil Review and Approves Next Credit Tranche</i>. [Washington, DC]: IMF, 29 nov. 1999. News Brief n. 99/77. Disponível em: https://www.imf.org/external/np/sec/nb/1999/nb9977.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-imf-pin0936" data-cite="FMI (2009a)">FUNDO MONETÁRIO INTERNACIONAL. <i>IMF Executive Board Concludes 2008 Article IV Consultation with Vietnam</i>. [Washington, DC]: IMF, 17 mar. 2009a. Public Information Notice (PIN) n. 09/36. Disponível em: https://www.imf.org/en/news/articles/2015/09/28/04/53/pn0936. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-imf-pr0602" data-cite="FMI (2006)">FUNDO MONETÁRIO INTERNACIONAL. <i>Vietnam Accepts IMF's Article VIII Obligations</i>. [Washington, DC]: IMF, 5 jan. 2006. Press Release n. 06/02. Disponível em: https://www.imf.org/external/np/sec/pr/2006/pr0602.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-imf-cr07387" data-cite="FMI (2007)">FUNDO MONETÁRIO INTERNACIONAL. <i>Vietnam: 2007 Article IV Consultation</i> — Staff Report; Staff Supplement and Statement; Public Information Notice on the Executive Board Discussion; and Statement by the Executive Director for Vietnam. Washington, DC: IMF, dez. 2007. (IMF Country Report, n. 07/387). Disponível em: https://www.imf.org/external/pubs/ft/scr/2007/cr07387.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-imf-cr09110" data-cite="FMI (2009b)">FUNDO MONETÁRIO INTERNACIONAL. <i>Vietnam: 2008 Article IV Consultation</i> — Staff Report; Staff Supplement and Statement; Public Information Notice on the Executive Board Discussion; and Statement by the Executive Director for Vietnam. Washington, DC: IMF, abr. 2009b. (IMF Country Report, n. 09/110). Disponível em: https://www.imf.org/external/pubs/ft/scr/2009/cr09110.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-imf-cr10281" data-cite="FMI (2010)">FUNDO MONETÁRIO INTERNACIONAL. <i>Vietnam: 2010 Article IV Consultation</i> — Staff Report and Public Information Notice. Washington, DC: IMF, set. 2010. (IMF Country Report, n. 10/281). Disponível em: https://www.imf.org/external/pubs/ft/scr/2010/cr10281.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-imf-cr12165" data-cite="FMI (2012)">FUNDO MONETÁRIO INTERNACIONAL. <i>Vietnam: 2012 Article IV Consultation</i>. Washington, DC: IMF, jul. 2012. (IMF Country Report, n. 12/165). Disponível em: https://www.imf.org/external/pubs/ft/scr/2012/cr12165.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-imf-art4-2024" data-cite="FMI (2024)">FUNDO MONETÁRIO INTERNACIONAL. <i>Vietnam: 2024 Article IV Consultation</i> — Press Release; Staff Report; and Statement by the Executive Director for Vietnam. Washington, DC: IMF, set. 2024. (IMF Country Report, n. 24/306). Disponível em: https://www.imf.org/-/media/files/publications/cr/2024/english/1vnmea2024001-print-pdf.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-weo" data-cite="FMI (2025)">FUNDO MONETÁRIO INTERNACIONAL. <i>World Economic Outlook Database</i>: April 2025. [Washington, DC]: IMF, abr. 2025. Base de dados; edição que acompanha o World Economic Outlook, April 2025: A Critical Juncture amid Policy Shifts, publicado em 22 abr. 2025. Disponível em: https://www.imf.org/en/Publications/WEO/weo-database/2025/april. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-growthlab" data-cite="Harvard Growth Lab (2026)">HARVARD GROWTH LAB. <i>Growth Projections and Complexity Rankings</i>. Versão 12.0. Cambridge, MA: Harvard Dataverse, 2026. Conjunto de dados (licença CC0 1.0), de autoria de The Growth Lab at Harvard University; primeira versão publicada em 2019, versão 12.0 de 8 fev. 2026. Arquivo growth_proj_eci_rankings.csv. DOI: 10.7910/DVN/XTAQMC. Disponível em: https://doi.org/10.7910/DVN/XTAQMC. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-chinn-ito-readme" data-cite="Ito e Chinn (2026)">ITO, Hiro; CHINN, Menzie D. <i>Notes on the Chinn-Ito Financial Openness Index</i>: 2023 update. [Portland, OR]: Portland State University, 4 jan. 2026. Documentação da base KAOPEN (kaopen_2023), 1970-2023, 182 países. Disponível em: https://web.pdx.edu/~ito/Readme_kaopen2023.pdf. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-mahoney2003" data-cite="Mahoney e Rueschemeyer (2003)">MAHONEY, James; RUESCHEMEYER, Dietrich (ed.). <i>Comparative historical analysis in the social sciences</i>. Cambridge: Cambridge University Press, 2003. (Cambridge Studies in Comparative Politics). ISBN 978-0-521-81610-6 (capa dura); 978-0-521-01645-2 (brochura). DOI: 10.1017/CBO9780511803963. Disponível em: https://doi.org/10.1017/CBO9780511803963. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-img-porto" data-cite="Nathan.cima (2022)">NATHAN.CIMA. <i>Container ship at the Hai Phong International Container Terminal 01</i>. 27 jul. 2022. 1 fotografia. Wikimedia Commons, licença CC BY-SA 4.0. Disponível em: https://commons.wikimedia.org/wiki/File:Container_Ship_at_the_Hai_Phong_International_Container_Terminal_01.jpg. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-thestar" data-cite="Ng (2010)">NG, Fintan. Vinashin default may benefit Vietnam. <i>The Star</i>, Petaling Jaya, 30 dez. 2010. Business. Disponível em: https://www.thestar.com.my/business/business-news/2010/12/30/vinashin-default-may-benefit-vietnam. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-img-hanoi" data-cite="NKSTTSSHNVN (2022)">NKSTTSSHNVN. <i>Hanoi skyline</i>. 20 abr. 2022. 1 fotografia. Wikimedia Commons, licença CC BY-SA 4.0. Disponível em: https://commons.wikimedia.org/wiki/File:Hanoi_Skyline_-_NKS.jpg. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-wto-vn" data-cite="OMC (2026)">ORGANIZAÇÃO MUNDIAL DO COMÉRCIO. <i>Accessions</i>: Viet Nam. [Geneva]: WTO, [2026]. Disponível em: https://www.wto.org/english/thewto_e/acc_e/a1_vietnam_e.htm. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-img-soja" data-cite="Pinheiro (2009)">PINHEIRO, Roosevelt. <i>Rondonópolis, Mato Grosso</i>: colheita de soja. 28 mar. 2009. 1 fotografia. Agência Brasil. Publicada no Wikimedia Commons, licença CC BY 3.0 BR. Disponível em: https://commons.wikimedia.org/wiki/File:Ronodon%C3%B3polis_colheita_soja_(Roosevelt_Pinheiro)_28mar09.jpg. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-pnud" data-cite="PNUD (2025)">PROGRAMA DAS NAÇÕES UNIDAS PARA O DESENVOLVIMENTO. <i>All composite indices and components time series (1990-2023)</i>. New York: UNDP, Human Development Report Office, 2025. Base de dados do Human Development Report 2025 (atualização de 6 maio 2025), página Documentation and downloads. Disponível em: https://hdr.undp.org/data-center/documentation-and-downloads. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-gso-cpi" data-cite="Tổng cục Thống kê (2006)">TỔNG CỤC THỐNG KÊ (Vietnã). <i>Thông cáo báo chí về một số nội dung cập nhật trong phương án tính chỉ số giá tiêu dùng thời kỳ 2006-2010</i> [Comunicado à imprensa sobre as atualizações no método de cálculo do índice de preços ao consumidor para o período 2006-2010]. Hà Nội: Tổng cục Thống kê, 3 jul. 2006. Disponível em: https://www.nso.gov.vn/?p=2246. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-dec01-2014" data-cite="Vietnã (2014a)">VIETNÃ. <i>Decree No. 01/2014/ND-CP, dated January 3, 2014</i>. On foreign investors’ purchase of shares of Vietnamese credit institutions. Hanoi: The Government, 2014a. Tradução para o inglês publicada por LuatVietnam. Em vigor desde 20 fev. 2014. Disponível em: https://english.luatvietnam.vn/decree-no-01-2014-nd-cp-dated-january-3-2014-of-the-government-on-foreign-investors-share-purchase-from-vietnamese-credit-institutions-83962-doc1.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-dec232-2025" data-cite="Vietnã (2025)">VIETNÃ. <i>Decree No. 232/2025/ND-CP, dated August 26, 2025</i>. Amending and supplementing a number of articles of the Government's Decree No. 24/2012/ND-CP [...]. Hanoi: The Government, 2025. Tradução para o inglês publicada por LuatVietnam. Em vigor desde 10 out. 2025. Disponível em: https://english.luatvietnam.vn/decree-no-232-2025-nd-cp-dated-august-26-2025-of-the-government-amending-and-supplementing-a-number-of-articles-of-the-governments-decree-no-24-20-409841-doc1.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-dec24-2012" data-cite="Vietnã (2012)">VIETNÃ. <i>Decree No. 24/2012/ND-CP, dated April 03, 2012</i>. On gold business activities. Hanoi: The Government, 2012. Tradução para o inglês publicada por LuatVietnam. Em vigor desde 25 maio 2012. Disponível em: https://english.luatvietnam.vn/decree-no-24-2012-nd-cp-dated-april-03-2012-of-the-government-on-gold-business-activities-69382-doc1.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-lei-orc-2002" data-cite="Vietnã (2002)">VIETNÃ. <i>Luật số 01/2002/QH11, ngày 16 tháng 12 năm 2002</i>. Về ngân sách nhà nước [Lei do Orçamento do Estado]. Hà Nội: Quốc hội, 2002. Em vigor a partir do exercício orçamentário de 2004; substituída pela Lei nº 83/2015/QH13. Texto reproduzido por Caselaw Việt Nam. Disponível em: https://caselaw.vn/van-ban-phap-luat/116080-luat-ngan-sach-nha-nuoc-so-01-2002-qh11-ngay-16-12-2002-cua-quoc-hoi-van-ban-het-hieu-luc. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-lei-sbv-2010" data-cite="Vietnã (2010)">VIETNÃ. <i>Luật số 46/2010/QH12, ngày 16 tháng 6 năm 2010</i>. Luật Ngân hàng Nhà nước Việt Nam [Lei do Banco do Estado do Vietnã]. Hà Nội: Quốc hội, 2010. Em vigor desde 1 jan. 2011. Texto reproduzido por Caselaw Việt Nam. Disponível em: https://caselaw.vn/van-ban-phap-luat/115828-luat-ngan-hang-nha-nuoc-viet-nam-so-46-2010-qh12-ngay-16-06-2010-cua-quoc-hoi. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-lei-orc-2015" data-cite="Vietnã (2015a)">VIETNÃ. <i>Luật số 83/2015/QH13, ngày 25 tháng 6 năm 2015</i>. Luật ngân sách nhà nước [Lei do Orçamento do Estado]. [Hà Nội]: Quốc hội, 2015a. Em vigor a partir do exercício orçamentário de 2017 (art. 76). Texto reproduzido por Hệ Thống Pháp Luật. Disponível em: https://hethongphapluat.com/luat-ngan-sach-nha-nuoc-2015/dieu-76. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-res11" data-cite="Vietnã (2011)">VIETNÃ. <i>Nghị quyết số 11/NQ-CP, ngày 24 tháng 02 năm 2011</i>. Về những giải pháp chủ yếu tập trung kiềm chế lạm phát, ổn định kinh tế vĩ mô, bảo đảm an sinh xã hội [Sobre as principais medidas para conter a inflação, estabilizar a macroeconomia e garantir a seguridade social]. [Hà Nội]: Chính phủ, 2011. Texto reproduzido no portal do Bộ Công Thương (Ministério da Indústria e Comércio). Disponível em: https://moit.gov.vn/van-ban-phap-luat/van-ban-dieu-hanh/-nghi-quyet-ve-nhung-giai-phap-chu-yeu-tap-trung-kiem-che-la.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-res23-2021" data-cite="Vietnã (2021)">VIETNÃ. <i>Nghị quyết số 23/2021/QH15, ngày 28 tháng 7 năm 2021</i>. Về kế hoạch tài chính quốc gia và vay, trả nợ công 5 năm giai đoạn 2021 - 2025 [Sobre o plano financeiro nacional e de endividamento e pagamento da dívida pública para o quinquênio 2021-2025]. Hà Nội: Quốc hội, 2021. Texto reproduzido por Hệ Thống Pháp Luật. Disponível em: https://hethongphapluat.com/resolution-no-23-2021-qh15-dated-july-28-2021-on-regarding-national-financial-borrowing-and-public-debt-repayment-plan-for-2021-2025-period.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-res25-2016" data-cite="Vietnã (2016)">VIETNÃ. <i>Nghị quyết số 25/2016/QH14, ngày 09 tháng 11 năm 2016</i>. Về kế hoạch tài chính 5 năm quốc gia giai đoạn 2016-2020 [Sobre o plano financeiro nacional quinquenal para 2016-2020]. Hà Nội: Quốc hội, 2016. Texto reproduzido por Caselaw Việt Nam. Disponível em: https://caselaw.vn/van-ban-phap-luat/123038-nghi-quyet-so-25-2016-qh14-ngay-09-11-2016-cua-quoc-hoi-ve-ke-hoach-tai-chinh-5-nam-quoc-gia-giai-doan-2016-2020. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-circ05-2014" data-cite="Vietnã (2014b)">VIETNÃ. State Bank of Vietnam. <i>Circular No. 05/2014/TT-NHNN, dated March 12, 2014</i>. Guiding the opening and use of indirect investment capital accounts for implementation of foreign indirect investment activities in Vietnam. Hanoi: State Bank of Vietnam, 2014b. Tradução para o inglês publicada por LuatVietnam. Em vigor desde 28 abr. 2014. Disponível em: https://english.luatvietnam.vn/circular-no-05-2014-tt-nhnn-dated-march-12-2014-of-the-state-bank-of-vietnam-guiding-the-open-and-use-of-indirect-investment-capital-accounts-for-th-85391-doc1.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-dec2589" data-cite="Vietnã (2015b)">VIETNÃ. State Bank of Vietnam. <i>Decision No. 2589/QD-NHNN, dated December 17, 2015</i>. On the maximum interest rate applicable to USD deposits of entities, individuals at credit institutions, foreign bank branches under the Circular No. 06/2014/TT-NHNN dated 17 March 2014. [Hanoi]: State Bank of Vietnam, 2015b. Tradução para o inglês publicada por LuatVietnam. Em vigor desde 18 dez. 2015. Disponível em: https://english.luatvietnam.vn/decision-no-2589-qd-nhnn-dated-december-17-2015-of-the-state-bank-of-vietnam-on-the-maximum-interest-rate-applicable-to-usd-deposits-of-entities-in-101260-doc1.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vn-dec2730" data-cite="Vietnã (2015c)">VIETNÃ. State Bank of Vietnam. <i>Quyết định số 2730/QĐ-NHNN, ngày 31 tháng 12 năm 2015</i>. Về việc công bố tỷ giá trung tâm của Đồng Việt Nam với Đô la Mỹ, tỷ giá tính chéo của Đồng Việt Nam với một số ngoại tệ khác [Sobre a divulgação da taxa central do dong vietnamita em relação ao dólar dos Estados Unidos e das taxas cruzadas do dong com algumas outras moedas]. Hà Nội: Ngân hàng Nhà nước Việt Nam, 2015c. Em vigor desde 4 jan. 2016. Texto reproduzido por Hệ Thống Pháp Luật. Disponível em: https://hethongphapluat.com/decision-no-2730-qd-nhnn-dated-december-31-2015.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-sbv" data-cite="Vietnã (1999–2023)">VIETNÃ. State Bank of Vietnam. <i>Quyết định về lãi suất tái cấp vốn</i> [Decisões do presidente do banco sobre a taxa de refinanciamento]: da Quyết định số 382/1999/QĐ-NHNN1, de 22 out. 1999, à Quyết định số 1123/QĐ-NHNN, de 16 jun. 2023. Hà Nội: Ngân hàng Nhà nước Việt Nam, 1999-2023. Conjunto de decisões consultado em reproduções das bases jurídicas Caselaw Việt Nam (https://caselaw.vn), Hệ Thống Pháp Luật (https://hethongphapluat.com), LuatVietnam (https://luatvietnam.vn e https://english.luatvietnam.vn) e Dữ Liệu Pháp Luật (https://dulieuphapluat.vn); a relação das decisões, com o endereço de cada texto, está no arquivo data/fontes/verificacao_decisoes_sbv.md do repositório do site. Texto da decisão mais recente do conjunto (nº 1123/QĐ-NHNN). Disponível em: https://luatvietnam.vn/tai-chinh/quyet-dinh-1123-qd-nhnn-2023-lai-suat-cho-vay-qua-dem-va-cho-vay-bu-dap-thieu-hut-von-255980-d1.html. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-img-brasilia" data-cite="Volpe (2015)">VOLPE, Ana. <i>Brasília vista do alto</i>. 22 jul. 2015. 1 fotografia. Agência Senado. Recorte publicado no Wikimedia Commons, licença CC BY 2.0. Disponível em: https://commons.wikimedia.org/wiki/File:Bras%C3%ADlia_vista_do_alto_(23131780810)_(cropped_16-9).jpg. Acesso em: 17 nov. 2026.</li>
+      <li id="ref-vcci" data-cite="Weekly [...] (2008)">WEEKLY information on banking activities (October 16th – October 22nd, 2008). [S. l.]: Viet Dragon Securities Corporation (VDSC), [out. 2008]. Disponível em: https://dataen.vdsc.com.vn/2008/10/weekly-information-on-banking-activities-october-16th-october-22nd-2008-37-62182.htm. Acesso em: 17 nov. 2026.</li>
+    </ul>
   </div>
 </section>
 
@@ -525,7 +670,7 @@
     </div>
     <div>
       <p class="f-h">Dados</p>
-      <p>Banco Mundial (CC BY 4.0), FMI, OEC, Harvard Growth Lab, PNUD, Banco Central do Brasil, State Bank of Vietnam.</p>
+      <p>Banco Mundial (CC BY 4.0), FMI, PNUD, Banco Central do Brasil, State Bank of Vietnam. <a href="#referencias">Ver as referências</a>.</p>
     </div>
     <div>
       <p class="f-h">Fotos</p>
